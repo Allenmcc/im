@@ -15,138 +15,36 @@
     <meta name="viewport" content="width=device-width">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600&subset=latin,latin-ext' rel='stylesheet'>
+
     <script language="javascript" type="text/javascript" src="/static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/js/move.js"></script>
+    <script type="text/javascript" src="static/js/modernizr.min.js"></script>
+    <script type='text/javascript' src="static/js/jquery.min.js"></script>
+    <!-- <script type='text/javascript' src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js"></script> -->
+    <script type='text/javascript' src="static/js/bootstrap-slider.min.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
     <link href="static/css/mrgc_style.css" rel="stylesheet" type="text/css"/>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600&subset=latin,latin-ext' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/default.css">
+    <!-- <link href="http://libs.useso.com/js/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <link href="static/css/bootstrap-slider.min.css" rel="stylesheet">
 
     <style type="text/css">
 
-        /* SELECT W/IMAGE */
-        select#selectTravelCity {
-            width: 14em;
-            height: 3.2em;
-            padding: 0.2em 0.4em 0.2em 0.4em;
-            vertical-align: middle;
-            border: 1px solid #e9e9e9;
-            -moz-border-radius: 0.2em;
-            -webkit-border-radius: 0.2em;
-            border-radius: 0.2em;
-            box-shadow: inset 0 0 3px #a0a0a0;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            /* sample image from the webinfocentral.com */
-            background: no-repeat #fdfdfd;
-            font-family: Arial, Calibri, Tahoma, Verdana;
-            font-size: 1.1em;
-            color: #000099;
-            cursor: pointer;
-        }
-
-        select#selectTravelCity option {
-            font-size: 1em;
-            padding: 0.2em 0.4em 0.2em 0.4em;
-        }
-
-        select#selectTravelCity option[selected] {
-            font-weight: bold
-        }
-
-        select#selectTravelCity option:nth-child(even) {
-            background-color: #f5f5f5;
-        }
-
-        select#selectTravelCity:hover {
-            color: #101010;
-            border: 1px solid #cdcdcd;
-        }
-
-        select#selectTravelCity:focus {
-            box-shadow: 0 0 2px 1px #404040;
-        }
-
-        /*SELECT W/DOWN-ARROW*/
-        select#selectPointOfInterest {
-            width: 185pt;
-            height: 40pt;
-            line-height: 40pt;
-            padding-right: 20pt;
-            text-indent: 4pt;
-            text-align: left;
-            vertical-align: middle;
-            box-shadow: inset 0 0 3px #606060;
-            border: 1px solid #acacac;
-            -moz-border-radius: 6px;
-            -webkit-border-radius: 6px;
-            border-radius: 6px;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            font-family: Arial, Calibri, Tahoma, Verdana;
-            font-size: 18pt;
-            font-weight: 500;
-            color: #0F0F0F;
-            cursor: pointer;
-            outline: none;
-        }
-
-        select#selectPointOfInterest option {
-            padding: 4px 10px 4px 10px;
-            font-size: 11pt;
-            font-weight: normal;
-        }
-
-        select#selectPointOfInterest option[selected] {
-            font-weight: bold
-        }
-
-        select#selectPointOfInterest option:nth-child(even) {
-            background-color: #f5f5f5;
-        }
-
-        select#selectPointOfInterest:hover {
-            font-weight: 700;
-        }
-
-        select#selectPointOfInterest:focus {
-            box-shadow: inset 0 0 5px #000099;
-            font-weight: 600;
-        }
-
-        /*LABEL FOR SELECT*/
-        label#lblSelect {
-            position: relative;
-            display: inline-block;
-        }
-
-        /*DOWNWARD ARROW (25bc)*/
-        label#lblSelect::after {
-            content: "\25bc";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 20pt;
-            line-height: 40pt;
-            vertical-align: middle;
-            text-align: center;
-            background: #CC0000;
-            color: #fefefe;
-            -moz-border-radius: 0 6px 6px 0;
-            -webkit-border-radius: 0 6px 6px 0;
-            border-radius: 0 6px 6px 0;
-            pointer-events: none;
-        }
-
-        .words{ width:100%; height:40vw; margin:0 auto; border-radius:5px; background:#fff; position:relative;}
-        .words textarea{ width:96%; height:36vw;  visibility:visible; background:#fff; margin-top:2vw; color:#999; margin-left:2%; overflow:hidden;}
     </style>
 
 </head>
 
 <body>
+
 <div class="whole">
 
-    <!--头部信息-->
+    <!--首页头部信息-->
     <div class="head">
         <div class="t_pic">
             <img src="static/image/head.jpg"/>
@@ -156,71 +54,752 @@
         </div>
     </div>
 
-    <!--选择单选题目-->
-    <div class="t_con">
-        <div class="con_tit">
-            <p id="title_txt">(1/57)&nbsp;认知维度</p>
-
-            <p id="content_txt">UUN理解力</p>
-        </div>
-        <div class="con_con">
-            <ul>
-                <li>
-                    <label id="lblSelect">
-                        <select id="selectPointOfInterest" title="Select points of interest nearby">
-                            <option>10分</option>
-                            <option>9分</option>
-                            <option>8分</option>
-                            <option>7分</option>
-                            <option>6分</option>
-                            <option>5分</option>
-                            <option>4分</option>
-                            <option>3分</option>
-                            <option>2分</option>
-                            <option>1分</option>
-                            <option selected>0分</option>
-                            <option>-1分</option>
-                            <option>-2分</option>
-                            <option>-3分</option>
-                            <option>-4分</option>
-                            <option>-5分</option>
-                            <option>-6分</option>
-                            <option>-7分</option>
-                            <option>-8分</option>
-                            <option>-9分</option>
-                            <option>-10分</option>
-                        </select>
-                    </label>
-                </li>
-                <br>
-                <li>
-                    <!--<input class="text" name="beizhu" id="comment" type="text" placeholder="此处用于记录孩子特殊情况，无特殊情况不用填写">-->
-                    <div class="words">
-                        <textarea id="comment" value="此处用于记录孩子特殊情况，无特殊情况不用填写" onfocus="if(value=='此处用于记录孩子特殊情况，无特殊情况不用填写'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';  value='此处用于记录孩子特殊情况，无特殊情况不用填写'}">此处用于记录孩子特殊情况，无特殊情况不用填写</textarea>
-                    </div>
-                </li>
-            </ul>
-        </div>
+    <!--首页七个维度-->
+    <div class="category">
+        <button class="button_c1">
+            <img src="static/image/category1.jpg"><p>情绪力</p>
+        </button>
+        <button class="button_c2">
+            <img src="static/image/category2.jpg"><p>人际力</p>
+        </button>
+        <button class="button_c3">
+            <img src="static/image/category3.jpg"><p>自主力</p>
+        </button>
+        <button class="button_c4">
+            <img src="static/image/category4.jpg"><p>专注力</p>
+        </button>
+        <button class="button_c5">
+            <img src="static/image/category5.jpg"><p>意志力</p>
+        </button>
+        <button class="button_c6">
+            <img src="static/image/category6.jpg"><p>学习认知</p>
+        </button>
+        <button class="button_c7">
+            <img src="static/image/category7.jpg"><p>学习策略</p>
+        </button>
     </div>
 
-    <!--上提下题按钮-->
-    <div class="t_btn">
-        <button id="botton_pre" type="button">上一题</button>
-        <button id="botton_next" type="button">下一题</button>
+    <!--首页提交按钮-->
+    <div class="tail">
+        <button class="button_submit">提交</button>
     </div>
-    <!--提示遮罩层-->
+
+
+    <!--提示遮罩层1,正在获取数据-->
     <div class="ts_mask">
         <div class="tishi">
             <div class="qd"></div>
         </div>
     </div>
 
-    <!--提示遮罩层2-->
+    <!--提示遮罩层2,正在提交数据-->
     <div class="ts_mask2">
         <div class="tishi2">
             <div class="qd2"></div>
         </div>
     </div>
+
+    <!--类别遮罩层1,情绪-->
+    <div class="c1_mask">
+        <div class="c1">
+            <div class="c_head">
+                <img src="static/image/category1.jpg"/>
+                <p>情绪力</p>
+            </div>
+            <div class="c_tit">
+                <p>情绪力</p>
+                <div class='slider'>
+                    <div class="well">
+                        <input class="c_slider" id="c1_s1" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                        <span class="ValLabel" id="c1_s1ValLabel">分数:
+                            <span class="Val" id="c1_s1Val">5</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="c_con">
+                <button class="button_detail">点击查看详细</button>
+                <ul>
+                    <li>
+                        <p>情绪程度</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c1_s11" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c1_s11ValLabel">分数:
+                                    <span class="Val" id="c1_s11Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>引发行为</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c1_s12" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c1_s12ValLabel">分数:
+                                    <span class="Val" id="c1_s12Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>情绪原因</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c1_s13" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c1_s13ValLabel">分数:
+                                    <span class="Val" id="c1_s13Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>持续时间</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c1_s14" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c1_s14ValLabel">分数:
+                                    <span class="Val" id="c1_s14Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>情绪调控</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c1_s15" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c1_s15ValLabel">分数:
+                                    <span class="Val" id="c1_s15Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>暴躁</p>-->
+                        <!--<div class='slider'>-->
+                            <!--<div class="well">-->
+                                <!--<input class="c_slider" id="c1_s16" type="text" data-slider-min="-10" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>-->
+                                <!--<span class="ValLabel" id="c1_s16ValLabel">分数:-->
+                                    <!--<span class="Val" id="c1_s16Val">0</span>-->
+                                <!--</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+            <div class="c_tail">
+                <button class="button_back">返回</button>
+                <button class="button_addcom">添加备注</button>
+            </div>
+        </div>
+    </div>
+
+    <!--类别遮罩层2,人际-->
+    <div class="c2_mask">
+        <div class="c2">
+            <div class="c_head">
+                <img src="static/image/category2.jpg"/>
+                <p>人际力</p>
+            </div>
+            <div class="c_tit">
+                <p>人际力</p>
+                <div class='slider'>
+                    <div class="well">
+                        <input class="c_slider" id="c2_s1" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                        <span class="ValLabel" id="c2_s1ValLabel">分数:
+                            <span class="Val" id="c2_s1Val">5</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="c_con">
+                <button class="button_detail">点击查看详细</button>
+                <ul>
+                    <li>
+                        <p>语言互动</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c2_s11" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c2_s11ValLabel">分数:
+                                    <span class="Val" id="c2_s11Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>行为互动</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c2_s12" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c2_s12ValLabel">分数:
+                                    <span class="Val" id="c2_s12Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>倾听</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c2_s13" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c2_s13ValLabel">分数:
+                                    <span class="Val" id="c2_s13Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>共感</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c2_s14" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c2_s14ValLabel">分数:
+                                    <span class="Val" id="c2_s14Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>尊重</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c2_s15" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c2_s15ValLabel">分数:
+                                    <span class="Val" id="c2_s15Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>利他</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c2_s16" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c2_s16ValLabel">分数:
+                                    <span class="Val" id="c2_s16Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="c_tail">
+                <button class="button_back">返回</button>
+                <button class="button_addcom">添加备注</button>
+            </div>
+        </div>
+    </div>
+
+    <!--类别遮罩层3,自主-->
+    <div class="c3_mask">
+        <div class="c3">
+            <div class="c_head">
+                <img src="static/image/category3.jpg"/>
+                <p>自主力</p>
+            </div>
+            <div class="c_tit">
+                <p>自主力</p>
+                <div class='slider'>
+                    <div class="well">
+                        <input class="c_slider" id="c3_s1" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                        <span class="ValLabel" id="c3_s1ValLabel">分数:
+                            <span class="Val" id="c3_s1Val">5</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="c_con">
+                <button class="button_detail">点击查看详细</button>
+                <ul>
+                    <li>
+                        <p>自我意识</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c3_s11" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c3_s11ValLabel">分数:
+                                    <span class="Val" id="c3_s11Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>自控</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c3_s12" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c3_s12ValLabel">分数:
+                                    <span class="Val" id="c3_s12Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>自觉</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c3_s13" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c3_s13ValLabel">分数:
+                                    <span class="Val" id="c3_s13Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>自信</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c3_s14" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c3_s14ValLabel">分数:
+                                    <span class="Val" id="c3_s14Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>独立性</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c3_s15" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c3_s15ValLabel">分数:
+                                    <span class="Val" id="c3_s15Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>责任感</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c3_s16" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c3_s16ValLabel">分数:
+                                    <span class="Val" id="c3_s16Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="c_tail">
+                <button class="button_back">返回</button>
+                <button class="button_addcom">添加备注</button>
+            </div>
+        </div>
+    </div>
+
+    <!--类别遮罩层4,专注-->
+    <div class="c4_mask">
+        <div class="c4">
+            <div class="c_head">
+                <img src="static/image/category4.jpg"/>
+                <p>专注力</p>
+            </div>
+            <div class="c_tit">
+                <p>专注力</p>
+                <div class='slider'>
+                    <div class="well">
+                        <input class="c_slider" id="c4_s1" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                        <span class="ValLabel" id="c4_s1ValLabel">分数:
+                            <span class="Val" id="c4_s1Val">5</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="c_con">
+                <button class="button_detail">点击查看详细</button>
+                <ul>
+                    <li>
+                        <p>专注内容</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c4_s11" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c4_s11ValLabel">分数:
+                                    <span class="Val" id="c4_s11Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>过程沉浸</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c4_s12" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c4_s12ValLabel">分数:
+                                    <span class="Val" id="c4_s12Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>抗干扰</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c4_s13" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c4_s13ValLabel">分数:
+                                    <span class="Val" id="c4_s13Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>专注程度</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c4_s14" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c4_s14ValLabel">分数:
+                                    <span class="Val" id="c4_s14Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>专注持续时间</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c4_s15" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c4_s15ValLabel">分数:
+                                    <span class="Val" id="c4_s15Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>人际</p>-->
+                        <!--<div class='slider'>-->
+                            <!--<div class="well">-->
+                                <!--<input class="c_slider" id="c4_s16" type="text" data-slider-min="-10" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>-->
+                                <!--<span class="ValLabel" id="c4_s16ValLabel">分数:-->
+                                    <!--<span class="Val" id="c4_s16Val">0</span>-->
+                                <!--</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+            <div class="c_tail">
+                <button class="button_back">返回</button>
+                <button class="button_addcom">添加备注</button>
+            </div>
+        </div>
+    </div>
+
+    <!--类别遮罩层5,意志-->
+    <div class="c5_mask">
+        <div class="c5">
+            <div class="c_head">
+                <img src="static/image/category5.jpg"/>
+                <p>意志力</p>
+            </div>
+            <div class="c_tit">
+                <p>意志力</p>
+                <div class='slider'>
+                    <div class="well">
+                        <input class="c_slider" id="c5_s1" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                        <span class="ValLabel" id="c5_s1ValLabel">分数:
+                            <span class="Val" id="c5_s1Val">5</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="c_con">
+                <button class="button_detail">点击查看详细</button>
+                <ul>
+                    <li>
+                        <p>行为坚持性</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c5_s11" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c5_s11ValLabel">分数:
+                                    <span class="Val" id="c5_s11Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>问题解决</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c5_s12" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c5_s12ValLabel">分数:
+                                    <span class="Val" id="c5_s12Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>目标意识</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c5_s13" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c5_s13ValLabel">分数:
+                                    <span class="Val" id="c5_s13Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>耐挫性</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c5_s14" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c5_s14ValLabel">分数:
+                                    <span class="Val" id="c5_s14Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>自我效能</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c5_s15" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c5_s15ValLabel">分数:
+                                    <span class="Val" id="c5_s15Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>暴躁</p>-->
+                        <!--<div class='slider'>-->
+                            <!--<div class="well">-->
+                                <!--<input class="c_slider" id="c5_s16" type="text" data-slider-min="-10" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>-->
+                                <!--<span class="ValLabel" id="c5_s16ValLabel">分数:-->
+                                    <!--<span class="Val" id="c5_s16Val">0</span>-->
+                                <!--</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+            <div class="c_tail">
+                <button class="button_back">返回</button>
+                <button class="button_addcom">添加备注</button>
+            </div>
+        </div>
+    </div>
+
+    <!--类别遮罩层6,认知-->
+    <div class="c6_mask">
+        <div class="c6">
+            <div class="c_head">
+                <img src="static/image/category6.jpg"/>
+                <p>学习认知</p>
+            </div>
+            <div class="c_tit">
+                <p>学习认知</p>
+                <div class='slider'>
+                    <div class="well">
+                        <input class="c_slider" id="c6_s1" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                        <span class="ValLabel" id="c6_s1ValLabel">分数:
+                            <span class="Val" id="c6_s1Val">5</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="c_con">
+                <button class="button_detail">点击查看详细</button>
+                <ul>
+                    <li>
+                        <p>重点信息抓取</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c6_s11" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c6_s11ValLabel">分数:
+                                    <span class="Val" id="c6_s11Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>重点信息理解</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c6_s12" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c6_s12ValLabel">分数:
+                                    <span class="Val" id="c6_s12Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>知识归纳</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c6_s13" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c6_s13ValLabel">分数:
+                                    <span class="Val" id="c6_s13Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>知识演绎</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c6_s14" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c6_s14ValLabel">分数:
+                                    <span class="Val" id="c6_s14Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>知识推理</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c6_s15" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c6_s15ValLabel">分数:
+                                    <span class="Val" id="c6_s15Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>知识联想</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c6_s16" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c6_s16ValLabel">分数:
+                                    <span class="Val" id="c6_s16Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>知识创造</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c6_s17" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c6_s17ValLabel">分数:
+                                    <span class="Val" id="c6_s17Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="c_tail">
+                <button class="button_back">返回</button>
+                <button class="button_addcom">添加备注</button>
+            </div>
+        </div>
+    </div>
+
+    <!--类别遮罩层7,策略-->
+    <div class="c7_mask">
+        <div class="c7">
+            <div class="c_head">
+                <img src="static/image/category7.jpg"/>
+                <p>学习策略</p>
+            </div>
+            <div class="c_tit">
+                <p>学习策略</p>
+                <div class='slider'>
+                    <div class="well">
+                        <input class="c_slider" id="c7_s1" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                        <span class="ValLabel" id="c7_s1ValLabel">分数:
+                            <span class="Val" id="c7_s1Val">5</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="c_con">
+                <button class="button_detail">点击查看详细</button>
+                <ul>
+                    <li>
+                        <p>学习探索动力</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c7_s11" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c7_s11ValLabel">分数:
+                                    <span class="Val" id="c7_s11Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>学习计划性</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c7_s12" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c7_s12ValLabel">分数:
+                                    <span class="Val" id="c7_s12Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>学习反思</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c7_s13" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c7_s13ValLabel">分数:
+                                    <span class="Val" id="c7_s13Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>学习资源使用</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c7_s14" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c7_s14ValLabel">分数:
+                                    <span class="Val" id="c7_s14Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>学习改进</p>
+                        <div class='slider'>
+                            <div class="well">
+                                <input class="c_slider" id="c7_s15" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                                <span class="ValLabel" id="c7_s15ValLabel">分数:
+                                    <span class="Val" id="c7_s15Val">5</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>暴躁</p>-->
+                        <!--<div class='slider'>-->
+                            <!--<div class="well">-->
+                                <!--<input class="c_slider" id="c7_s16" type="text" data-slider-min="-10" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>-->
+                                <!--<span class="ValLabel" id="c7_s16ValLabel">分数:-->
+                                    <!--<span class="Val" id="c7_s16Val">0</span>-->
+                                <!--</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+            <div class="c_tail">
+                <button class="button_back">返回</button>
+                <button class="button_addcom">添加备注</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--添加备注层-->
+    <div class="com_mask">
+        <div class="com">
+            <div class="com_head">
+                <p>添加备注</p>
+            </div>
+            <div class="words">
+                <textarea id="comment">此处用于记录孩子特殊情况，无特殊情况不用填写</textarea>
+            </div>
+            <div class="com_tail">
+                <button class="button_comback">返回</button>
+            </div>
+        </div>
+    </div>
+
+
+
 </div>
 
 <script>
@@ -228,6 +807,8 @@
     //以下是变量设定
     var one_click = 1;//确保只提交一次
     var qs_id = 1;//记录题号
+    var flag_c1=0, flag_c2=0,flag_c3=0,flag_c4=0;//是否按下分类键的标识
+
     var qs_array = new Array("UUN理解力", "ID归纳", "DD演绎", "AS联想", "GR创造", "PV问题解决", "ST策略", "MC元认知", "ME记忆", "TH思考/思维", "EN享受", "PS热情", "PL喜悦", "IN兴趣", "QU安静", "GR感激", "PR自豪", "AD敬佩", "EN激励", "LV爱", "AM逗趣", "AG赞同", "AP欣赏", "NG沟通协商", "HL协助/照料/利他", "LE领导力", "PA参与", "SH分享", "CT专注/投入", "EX探索", "LA大笑", "QE提问", "AS回答", "EC执行", "AL倾听", "EP表达", "CM承诺", "TO目标导向", "RS耐挫", "HU幽默", "PT坚持性/恒心/毅力", "TH感同身受/善解人意", "HO希望感", "FL沉浸", "ER积极的情绪调节", "SG建议", "CP合作", "SR自控", "AC积极性", "RP责任心", "SA自觉性", "HN真诚", "AI主动性", "CO勇气", "CF自信", "SE自我效能感", "乐观/开朗");//用来记录题目
     //var pre_score = new Array("5", "6", "7", "3", "8", "-5", "6", "7", "-3", "8", "-5", "6", "-7", "3", "8", "5", "6", "7", "3", "8", "5", "6", "-7", "3", "-8", "5", "6", "7", "3", "8", "-5", "6", "7", "-3", "8", "-5", "6", "-7", "3", "8", "5", "6", "7", "3", "8", "5", "6", "-7", "3", "-8", "5", "6", "7", "3", "8", "-5", "6");//学生上一次的成绩
     var now_score = new Array();//用于记录学生的成绩
@@ -277,155 +858,197 @@
                 //alert(pre_score);
                 set_pre_value();
                 $(".ts_mask").fadeOut(1000);
+                $(".ts_mask4").fadeIn();//获取数据之后,提示用户选择某一类题目做题
             }
         });
 
-        //点击下一题判断语句
-        $("#botton_next").click(function () {
+        //所有滑竿生效
+        $(".c_slider").slider();
 
-            var tmp_now_score = $("#selectPointOfInterest").find("option:selected").text();
-            now_score[qs_id - 1] = tmp_now_score.split("分")[0];//保存本次选中的成绩。去掉‘分’这个汉字
-
-            now_comment[qs_id - 1] = eval(document.getElementById('comment')).value;//保存本次填写的备注，不填就是空字符串
-
-
+        $(".button_detail").click(function () {
+            $("li").css("display","block");
+            $(".button_detail").css("display","none");
+        });
 
 
-            if (qs_id <= 57) {
-                qs_id++;
-            }//保证不超过57个成绩
+        //点击维度1,情绪
+        $(".button_c1").click(function () {
+            $(".c1_mask").fadeIn();
+            $("li").css("display","none");
+            $(".button_detail").css("display","block");
+        });
+        $(".button_back").click(function () {
+            $(".c1_mask").fadeOut();
+            $("li").css("display","none");
+            $(".button_detail").css("display","block");
+        });
+        $("#c1_s1").on('slide', function(slideEvt) { $("#c1_s1Val").text(slideEvt.value);});
+        $("#c1_s11").on('slide', function(slideEvt) { $("#c1_s11Val").text(slideEvt.value);});
+        $("#c1_s12").on('slide', function(slideEvt) { $("#c1_s12Val").text(slideEvt.value);});
+        $("#c1_s13").on('slide', function(slideEvt) { $("#c1_s13Val").text(slideEvt.value);});
+        $("#c1_s14").on('slide', function(slideEvt) { $("#c1_s14Val").text(slideEvt.value);});
+        $("#c1_s15").on('slide', function(slideEvt) { $("#c1_s15Val").text(slideEvt.value);});
+        $("#c1_s16").on('slide', function(slideEvt) { $("#c1_s16Val").text(slideEvt.value);});
 
-            if(qs_id != 58)
-            {
-                document.getElementById("comment").value = "";//将备注清空
+        //点击维度2,人际
+        $(".button_c2").click(function () {
+            $(".c2_mask").fadeIn();
+            $("li").css("display","none");
+            $(".button_detail").css("display","block");
+        });
+        $(".button_back").click(function () { $(".c2_mask").fadeOut();});
+        $("#c2_s1").on('slide', function(slideEvt) { $("#c2_s1Val").text(slideEvt.value);});
+        $("#c2_s11").on('slide', function(slideEvt) { $("#c2_s11Val").text(slideEvt.value);});
+        $("#c2_s12").on('slide', function(slideEvt) { $("#c2_s12Val").text(slideEvt.value);});
+        $("#c2_s13").on('slide', function(slideEvt) { $("#c2_s13Val").text(slideEvt.value);});
+        $("#c2_s14").on('slide', function(slideEvt) { $("#c2_s14Val").text(slideEvt.value);});
+        $("#c2_s15").on('slide', function(slideEvt) { $("#c2_s15Val").text(slideEvt.value);});
+        $("#c2_s16").on('slide', function(slideEvt) { $("#c2_s16Val").text(slideEvt.value);});
+
+        //点击维度3,自主
+        $(".button_c3").click(function () {
+            $(".c3_mask").fadeIn();
+            $("li").css("display","none");
+            $(".button_detail").css("display","block");
+        });
+        $(".button_back").click(function () { $(".c3_mask").fadeOut();});
+        $("#c3_s1").on('slide', function(slideEvt) { $("#c3_s1Val").text(slideEvt.value);});
+        $("#c3_s11").on('slide', function(slideEvt) { $("#c3_s11Val").text(slideEvt.value);});
+        $("#c3_s12").on('slide', function(slideEvt) { $("#c3_s12Val").text(slideEvt.value);});
+        $("#c3_s13").on('slide', function(slideEvt) { $("#c3_s13Val").text(slideEvt.value);});
+        $("#c3_s14").on('slide', function(slideEvt) { $("#c3_s14Val").text(slideEvt.value);});
+        $("#c3_s15").on('slide', function(slideEvt) { $("#c3_s15Val").text(slideEvt.value);});
+        $("#c3_s16").on('slide', function(slideEvt) { $("#c3_s16Val").text(slideEvt.value);});
+
+        //点击维度4,专注
+        $(".button_c4").click(function () {
+            $(".c4_mask").fadeIn();
+            $("li").css("display","none");
+            $(".button_detail").css("display","block");
+        });
+        $(".button_back").click(function () { $(".c4_mask").fadeOut();});
+        $("#c4_s1").on('slide', function(slideEvt) { $("#c4_s1Val").text(slideEvt.value);});
+        $("#c4_s11").on('slide', function(slideEvt) { $("#c4_s11Val").text(slideEvt.value);});
+        $("#c4_s12").on('slide', function(slideEvt) { $("#c4_s12Val").text(slideEvt.value);});
+        $("#c4_s13").on('slide', function(slideEvt) { $("#c4_s13Val").text(slideEvt.value);});
+        $("#c4_s14").on('slide', function(slideEvt) { $("#c4_s14Val").text(slideEvt.value);});
+        $("#c4_s15").on('slide', function(slideEvt) { $("#c4_s15Val").text(slideEvt.value);});
+        $("#c4_s16").on('slide', function(slideEvt) { $("#c4_s16Val").text(slideEvt.value);});
+
+        //点击维度5,意志
+        $(".button_c5").click(function () {
+            $(".c5_mask").fadeIn();
+            $("li").css("display","none");
+            $(".button_detail").css("display","block");
+        });
+        $(".button_back").click(function () { $(".c5_mask").fadeOut();});
+        $("#c5_s1").on('slide', function(slideEvt) { $("#c5_s1Val").text(slideEvt.value);});
+        $("#c5_s11").on('slide', function(slideEvt) { $("#c5_s11Val").text(slideEvt.value);});
+        $("#c5_s12").on('slide', function(slideEvt) { $("#c5_s12Val").text(slideEvt.value);});
+        $("#c5_s13").on('slide', function(slideEvt) { $("#c5_s13Val").text(slideEvt.value);});
+        $("#c5_s14").on('slide', function(slideEvt) { $("#c5_s14Val").text(slideEvt.value);});
+        $("#c5_s15").on('slide', function(slideEvt) { $("#c5_s15Val").text(slideEvt.value);});
+        $("#c5_s16").on('slide', function(slideEvt) { $("#c5_s16Val").text(slideEvt.value);});
+
+        //点击维度6,认知
+        $(".button_c6").click(function () {
+            $(".c6_mask").fadeIn();
+            $("li").css("display","none");
+            $(".button_detail").css("display","block");
+        });
+        $(".button_back").click(function () { $(".c6_mask").fadeOut();});
+        $("#c6_s1").on('slide', function(slideEvt) { $("#c6_s1Val").text(slideEvt.value);});
+        $("#c6_s11").on('slide', function(slideEvt) { $("#c6_s11Val").text(slideEvt.value);});
+        $("#c6_s12").on('slide', function(slideEvt) { $("#c6_s12Val").text(slideEvt.value);});
+        $("#c6_s13").on('slide', function(slideEvt) { $("#c6_s13Val").text(slideEvt.value);});
+        $("#c6_s14").on('slide', function(slideEvt) { $("#c6_s14Val").text(slideEvt.value);});
+        $("#c6_s15").on('slide', function(slideEvt) { $("#c6_s15Val").text(slideEvt.value);});
+        $("#c6_s16").on('slide', function(slideEvt) { $("#c6_s16Val").text(slideEvt.value);});
+        $("#c6_s17").on('slide', function(slideEvt) { $("#c6_s17Val").text(slideEvt.value);});
+
+        //点击维度7,策略
+        $(".button_c7").click(function () {
+            $(".c7_mask").fadeIn();
+            $("li").css("display","none");
+            $(".button_detail").css("display","block");
+        });
+        $(".button_back").click(function () { $(".c7_mask").fadeOut();});
+        $("#c7_s1").on('slide', function(slideEvt) { $("#c7_s1Val").text(slideEvt.value);});
+        $("#c7_s11").on('slide', function(slideEvt) { $("#c7_s11Val").text(slideEvt.value);});
+        $("#c7_s12").on('slide', function(slideEvt) { $("#c7_s12Val").text(slideEvt.value);});
+        $("#c7_s13").on('slide', function(slideEvt) { $("#c7_s13Val").text(slideEvt.value);});
+        $("#c7_s14").on('slide', function(slideEvt) { $("#c7_s14Val").text(slideEvt.value);});
+        $("#c7_s15").on('slide', function(slideEvt) { $("#c7_s15Val").text(slideEvt.value);});
+        $("#c7_s16").on('slide', function(slideEvt) { $("#c7_s16Val").text(slideEvt.value);});
+
+
+
+
+
+
+
+        //添加备注
+        $(".button_addcom").click(function () {
+            $(".com_mask").fadeIn();
+        });
+        $(".button_comback").click(function () {
+            $(".com_mask").fadeOut();
+        });
+        $("#comment").focusin(function () {
+            if($(this).val()=='此处用于记录孩子特殊情况，无特殊情况不用填写'){
+                $(this).css('color','#000');
+                $(this).val("");
             }
-
-            if (qs_id <= 20) {
-                $('#title_txt').html("(" + qs_id + "/57)&nbsp;认知维度");
-                $('#content_txt').html(qs_array[qs_id - 1]);
-                set_pre_value();
-
+        });
+        $("#comment").blur(function () {
+            if($(this).val()=='') {
+                $(this).css('color', '#999');
+                $(this).val("此处用于记录孩子特殊情况，无特殊情况不用填写");
             }
-            else if (qs_id <= 30) {
-                $('#title_txt').html("(" + qs_id + "/57)&nbsp;情绪维度");
-                $('#content_txt').html(qs_array[qs_id - 1]);
-                set_pre_value();
-            }
-            else if (qs_id <= 40) {
-                $('#title_txt').html("(" + qs_id + "/57)&nbsp;个性维度");
-                $('#content_txt').html(qs_array[qs_id - 1]);
-                set_pre_value();
-            }
-            else if (qs_id  <= 57) {
-                $('#title_txt').html("(" + qs_id + "/57)&nbsp;行为维度");
-                $('#content_txt').html(qs_array[qs_id - 1]);
-                set_pre_value();
+        });
 
-                if(qs_id == 57)
-                {
-                    document.getElementById("botton_next").innerHTML = "提交";
+
+        //点击提交按钮,提交数据
+        $(".button_submit").click(function submit() {
+            one_click++;
+            $(".ts_mask2").fadeIn(1000);//提示正在提交数据
+            //调用ajax传数据给后台
+            $.ajax({
+                url: '../starsea/watch/addWatch',
+                data: {
+                    name: "黑仔一号",
+                    evaluationPerson: "黑仔一号的爸爸",
+                    evaluationTime: getNowFormatDate(),
+                    now_score: now_score,
+                    now_comment: now_comment
+                },
+                type: 'post',
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    if (data.code == 200) {
+                        $(".ts_mask2").fadeOut(1000);
+                        //alert("success");
+                        window.location.href = '../watchFinish.html';
+                    }
+                    else {
+                        alert("查询失败: " + data.msg);
+                    }
+                },
+                error: function () {
+                    alert("服务器处理异常");
                 }
-
-            }
-            else if (qs_id == 58) {
-                if(1 == one_click)
-                {
-                    one_click++;
-                    $(".ts_mask2").fadeIn(1000);//提示正在提交数据
-                    //调用ajax传数据给后台
-                    $.ajax({
-                        url: '../starsea/watch/addWatch',
-                        data: {
-                            name: "黑仔一号",
-                            evaluationPerson: "黑仔一号的爸爸",
-                            evaluationTime: getNowFormatDate(),
-                            now_score: now_score,
-                            now_comment: now_comment
-                        },
-                        type: 'post',
-                        cache: false,
-                        dataType: 'json',
-                        success: function (data) {
-                            console.log(data);
-                            if (data.code == 200) {
-                                $(".ts_mask2").fadeOut(1000);
-                                //alert("success");
-                                window.location.href = '../watchFinish.html';
-                            }
-                            else {
-                                alert("查询失败: " + data.msg);
-                            }
-                        },
-                        error: function () {
-                            alert("服务器处理异常");
-                        }
-                    });
-                }
-
-            }
-            else {
-                $(".ts_mask").fadeIn(1000);
-            }
+            });
         });
 
-        //点击上一题判断语句
-        $("#botton_pre").click(function () {
-
-            var tmp_now_score = $("#selectPointOfInterest").find("option:selected").text();
-            now_score[qs_id - 1] = tmp_now_score.split("分")[0];//保存本次选中的成绩。去掉‘分’这个汉字
-
-            now_comment[qs_id - 1] = eval(document.getElementById('comment')).value;//保存本次填写的备注，不填就是空字符串
-
-            document.getElementById("comment").value = "";//将备注清空
 
 
-            if (qs_id ==  57)
-            {
-                document.getElementById("botton_next").innerHTML = "下一步";
-            }
-
-
-            if (qs_id > 1) {
-                qs_id--;
-            } //保证不小于1
-            if (qs_id <= 20) {
-                $('#title_txt').html("(" + qs_id + "/57)&nbsp;认知维度");
-                $('#content_txt').html(qs_array[qs_id - 1]);
-                set_pre_value();
-
-            }
-            else if (qs_id <= 30) {
-                $('#title_txt').html("(" + qs_id + "/57)&nbsp;情绪维度");
-                $('#content_txt').html(qs_array[qs_id - 1]);
-                set_pre_value();
-            }
-            else if (qs_id <= 40) {
-                $('#title_txt').html("(" + qs_id + "/57)&nbsp;个性维度");
-                $('#content_txt').html(qs_array[qs_id - 1]);
-                set_pre_value();
-            }
-            else if (qs_id <= 57) {
-                $('#title_txt').html("(" + qs_id + "/57)&nbsp;行为维度");
-                $('#content_txt').html(qs_array[qs_id - 1]);
-                set_pre_value();
-            }
-            else {
-                $(".ts_mask").fadeIn(1000);
-            }
-        });
     });
 </script>
 
-<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<!--<script>
-    $(document).ready(function () {
-        wx.config({
-            debug: false,
-            appid: "wx9b08b42b34258af7",
 
-        });
-    });
-</script>-->
+
 
 </body>
 </html>
