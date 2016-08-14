@@ -4,6 +4,8 @@ package com.starsea.im.aggregation.dto;
 import lombok.*;
 import lombok.experimental.Builder;
 
+import java.util.Date;
+
 /**
  * Created by beigua on 2015/8/5.
  */
@@ -14,13 +16,22 @@ import lombok.experimental.Builder;
 @Builder
 @ToString
 public class UserDto {
+
+    private String openId;
+
     private String name;
 
     private int age;
 
-    private String account;
+    private String sex;
 
-    private String password;
+    private String myClass;
 
-    private String email;
+    private String school;
+
+    private String organization;
+
+    private String evaluationPerson;
+
+    private Date createTime;
 }

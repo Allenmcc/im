@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -37,13 +40,41 @@ public class UserController extends AjaxBase{
 
     @RequestMapping(value = "/signup",method = RequestMethod.POST)
     @ResponseBody
-    public ServiceResult signUp(HttpServletRequest req,@RequestParam("email") String email
-            ,@RequestParam("password") String password ){
+    public ServiceResult signUp(HttpServletRequest req,
+                                @RequestParam("openId") String openId,
+                                @RequestParam("name") String name,
+                                @RequestParam("age") Integer age,
+                                @RequestParam("sex") String sex,
+                                @RequestParam("myClass") String myClass,
+                                @RequestParam("school") String school,
+                                @RequestParam("organization") String organization,
+                                @RequestParam("evaluationPerson") String evaluationPerson
+                                ){
         ServiceResult serviceResult = new ServiceResult();
         UserEntity userEntity = new UserEntity();
-        userEntity.setEmail(email);
-        userEntity.setPassword(password);
+        userEntity.setOpenId(openId);
+        userEntity.setName(name);
+        userEntity.setAge(age);
+        userEntity.setSex(sex);
+        userEntity.setMyClass(myClass);
+        userEntity.setSchool(school);
+        userEntity.setOrganization(organization);
+        userEntity.setEvaluationPerson(evaluationPerson);
+        userEntity.setCreateTime(new Date());
         serviceResult.setMsg(userService.addUser(userEntity));
+        serviceResult.setCode(200);
+        return setResponseData(serviceResult);
+    }
+
+
+    @RequestMapping(value = "/getUserByOpenId",method = RequestMethod.GET)
+    @ResponseBody
+    public ServiceResult getUserByOpenId(HttpServletRequest req,
+                                @RequestParam("openId") String openId
+
+    ){
+        ServiceResult serviceResult = new ServiceResult();
+        serviceResult.setMsg(userService.queryUserByOpenId(openId));
         serviceResult.setCode(200);
         return setResponseData(serviceResult);
     }

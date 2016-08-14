@@ -21,6 +21,9 @@ public interface UserService{
     public PageModel queryUsersForPage(SearchDto searchDto);
 
     @DataSource(DataSourceType.READ)
+    public UserDto queryUserByOpenId(String OpenId);
+
+    @DataSource(DataSourceType.READ)
     public List<UserDto> querUsers();
 
     @DataSource(DataSourceType.WRITE)

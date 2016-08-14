@@ -7,7 +7,7 @@
 <mapper namespace="com.starsea.im.biz.dao.DiagnoseDao">
 
     <insert id="addStudyFormByTeacher" parameterType="StudyForm">
-        INSERT INTO test.StudyForm_Teacher(NAME, Age, Sex, Class, School, Organization, EvaluationPerson, EvaluationTime,
+        INSERT INTO test.studyform_teacher(NAME, Age, Sex, Class, School, Organization, EvaluationPerson, EvaluationTime,
         Question1, Question2, Question3, Question4, Question5, Question6,
         Question7, Question8, Question9, Question10, Question11, Question12,
         Question13, Question14, Question15, Question16, Question17, Question18)
@@ -21,11 +21,11 @@
     </insert>
 
     <select id="queryStudyFormByTeacher" resultType="StudyForm">
-        SELECT * FROM test.StudyForm_Teacher
+        SELECT * FROM test.studyform_teacher
     </select>
 
     <select id="queryLastStudyFormByName" resultType="StudyForm">
-       SELECT * FROM test.StudyForm_Teacher where Name = #{name} order by id desc limit 1
+       SELECT * FROM test.studyform_teacher where Name = #{name} order by id desc limit 1
     </select>
 
 </mapper>

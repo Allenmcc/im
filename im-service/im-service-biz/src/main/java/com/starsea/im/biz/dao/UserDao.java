@@ -17,6 +17,10 @@ public interface UserDao {
     public UserEntity queryUser(int id);
 
     @DataSource("read")
+    public UserEntity queryUserByOpenId(String openId);
+
+
+    @DataSource("read")
     public List<UserEntity> queryUsers();
 
     //使用@Insert注解指明add方法要执行的SQL

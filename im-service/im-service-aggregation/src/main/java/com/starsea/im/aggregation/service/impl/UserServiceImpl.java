@@ -41,6 +41,15 @@ public class UserServiceImpl implements UserService{
         return null;
     }
 
+    @LogParams
+    public UserDto queryUserByOpenId(String OpenId) {
+
+        UserEntity userEntity = userDao.queryUserByOpenId(OpenId);
+        UserDto userDto = new UserDto();
+        if(userEntity != null){ BeanUtils.copyProperties(userEntity, userDto);}
+        return userDto;
+    }
+
     @Override
     @LogParams
     public List<UserDto> querUsers() {
