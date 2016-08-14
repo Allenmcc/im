@@ -29,7 +29,7 @@
     </sql>
 
     <insert id="addWatchForm" parameterType="WatchForm">
-        INSERT INTO test.watchForm
+        INSERT INTO test.watchform
         (<include refid="keys"/>)
         VALUES (#{name},#{evaluationPerson},#{evaluationTime},#{question1},#{comment1},#{question2},#{comment2},#{question3},#{comment3},#{question4},#{comment4},
         #{question5},#{comment5},#{question6},#{comment6},#{question7},#{comment7},#{question8},#{comment8 },#{question9},#{comment9 },#{question10},#{comment10 },
@@ -44,11 +44,11 @@
     </insert>
 
     <select id="queryLastWatchFormByName" resultType="WatchForm">
-        SELECT * FROM test.watchForm where Name = #{name} order by id desc limit 1
+        SELECT * FROM test.watchform where Name = #{name} order by id desc limit 1
     </select>
 
     <select id="queryLastWatchFormByNameWeek" resultType="WatchForm" parameterType="map">
-        SELECT * FROM test.watchForm where Name = #{name}  AND  EvaluationTime BETWEEN #{dateStart} and #{dateEnd}
+        SELECT * FROM test.watchform where Name = #{name}  AND  EvaluationTime BETWEEN #{dateStart} and #{dateEnd}
     </select>
 
 </mapper>
