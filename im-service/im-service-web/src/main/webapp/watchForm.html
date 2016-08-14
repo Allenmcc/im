@@ -189,7 +189,7 @@
                 </ul>
             </div>
             <div class="c_tail">
-                <button class="button_back">返回</button>
+                <button class="button_back" id="button_back1">返回</button>
                 <button class="button_addcom">添加备注</button>
             </div>
         </div>
@@ -285,7 +285,7 @@
                 </ul>
             </div>
             <div class="c_tail">
-                <button class="button_back">返回</button>
+                <button class="button_back" id="button_back2">返回</button>
                 <button class="button_addcom">添加备注</button>
             </div>
         </div>
@@ -381,7 +381,7 @@
                 </ul>
             </div>
             <div class="c_tail">
-                <button class="button_back">返回</button>
+                <button class="button_back" id="button_back3">返回</button>
                 <button class="button_addcom">添加备注</button>
             </div>
         </div>
@@ -477,7 +477,7 @@
                 </ul>
             </div>
             <div class="c_tail">
-                <button class="button_back">返回</button>
+                <button class="button_back" id="button_back4">返回</button>
                 <button class="button_addcom">添加备注</button>
             </div>
         </div>
@@ -573,7 +573,7 @@
                 </ul>
             </div>
             <div class="c_tail">
-                <button class="button_back">返回</button>
+                <button class="button_back" id="button_back5">返回</button>
                 <button class="button_addcom">添加备注</button>
             </div>
         </div>
@@ -680,7 +680,7 @@
                 </ul>
             </div>
             <div class="c_tail">
-                <button class="button_back">返回</button>
+                <button class="button_back" id="button_back6">返回</button>
                 <button class="button_addcom">添加备注</button>
             </div>
         </div>
@@ -776,7 +776,7 @@
                 </ul>
             </div>
             <div class="c_tail">
-                <button class="button_back">返回</button>
+                <button class="button_back" id="button_back7">返回</button>
                 <button class="button_addcom">添加备注</button>
             </div>
         </div>
@@ -808,6 +808,7 @@
     var one_click = 1;//确保只提交一次
     var qs_id = 1;//记录题号
 
+    var new_comment =new Array();
     var now_score = new Array();//用于记录学生的成绩
 //    now_score=[1,1,2,3,4,5,1,1,2,3,4,5,6,1,1,2,3,4,5,6,1,1,2,3,4,5,1,1,2,3,4,5,1,1,2,3,4,5,6,7,1,1,2,3,4,5];
     var now_comment = new Array();//用于记录学生特别情况
@@ -871,7 +872,7 @@
             $("li").css("display","none");
             $(".button_detail").css("display","block");
             //设置历史备注数据
-            $("#comment").text(now_comment[0]);
+            $("#comment").val(now_comment[0]);
             //设置滑竿历史分数数据
             $("#c1_s1Val").text(now_score[0]);
             $("#c1_s11Val").text(now_score[1]);
@@ -893,9 +894,14 @@
             $("#c1_s14").on('slide', function(slideEvt) {$("#c1_s14Val").text(slideEvt.value);now_score[4]=slideEvt.value;});
             $("#c1_s15").on('slide', function(slideEvt) {$("#c1_s15Val").text(slideEvt.value);now_score[5]=slideEvt.value;});
             $("#c1_s16").on('slide', function(slideEvt) {$("#c1_s16Val").text(slideEvt.value);now_score[6]=slideEvt.value;});
-            now_comment[0]=$("#comment").val();
+
+            //v////ar cao_comment = $("#comment").text();
+            //alert(cao_comment);
         });
-        $(".button_back").click(function () {$(".c1_mask").fadeOut();});
+        $("#button_back1").click(function () {$(".c1_mask").fadeOut();now_comment[0]=$("#comment").val(); });
+
+
+
 
 
         //点击维度2,人际
@@ -904,7 +910,7 @@
             $("li").css("display","none");
             $(".button_detail").css("display","block");
             //设置历史备注数据
-            $("#comment").text(now_comment[1]);
+            $("#comment").val(now_comment[1]);
             //设置历史分数数据
             $("#c2_s1Val").text(now_score[6]);
             $("#c2_s11Val").text(now_score[7]);
@@ -929,10 +935,10 @@
             $("#c2_s15").on('slide', function(slideEvt) { $("#c2_s15Val").text(slideEvt.value);now_score[11]=slideEvt.value;});
             $("#c2_s16").on('slide', function(slideEvt) { $("#c2_s16Val").text(slideEvt.value);now_score[12]=slideEvt.value;});
 
-            now_comment[1]=$("#comment").val();
+
 
         });
-        $(".button_back").click(function () { $(".c2_mask").fadeOut();});
+        $("#button_back2").click(function () { $(".c2_mask").fadeOut(); now_comment[1]=$("#comment").val();});
 
         //点击维度3,自主
         $(".button_c3").click(function () {
@@ -940,7 +946,7 @@
             $("li").css("display","none");
             $(".button_detail").css("display","block");
             //设置历史备注数据
-            $("#comment").text(now_comment[2]);
+            $("#comment").val(now_comment[2]);
             //设置历史分数数据
             $("#c3_s1Val").text(now_score[13]);
             $("#c3_s11Val").text(now_score[14]);
@@ -965,9 +971,9 @@
             $("#c3_s15").on('slide', function(slideEvt) { $("#c3_s15Val").text(slideEvt.value);now_score[18]=slideEvt.value;});
             $("#c3_s16").on('slide', function(slideEvt) { $("#c3_s16Val").text(slideEvt.value);now_score[19]=slideEvt.value;});
 
-            now_comment[2]=$("#comment").val();
+
         });
-        $(".button_back").click(function () { $(".c3_mask").fadeOut();});
+        $("#button_back3").click(function () { $(".c3_mask").fadeOut();now_comment[2]=$("#comment").val();});
 
 
         //点击维度4,专注
@@ -976,7 +982,7 @@
             $("li").css("display","none");
             $(".button_detail").css("display","block");
             //设置历史备注数据
-            $("#comment").text(now_comment[3]);
+            $("#comment").val(now_comment[3]);
             //设置历史分数数据
             $("#c4_s1Val").text(now_score[20]);
             $("#c4_s11Val").text(now_score[21]);
@@ -999,9 +1005,9 @@
             $("#c4_s15").on('slide', function(slideEvt) { $("#c4_s15Val").text(slideEvt.value);now_score[25]=slideEvt.value;});
             $("#c4_s16").on('slide', function(slideEvt) { $("#c4_s16Val").text(slideEvt.value);now_score[26]=slideEvt.value;});
 
-            now_comment[3]=$("#comment").val();
+
         });
-        $(".button_back").click(function () { $(".c4_mask").fadeOut();});
+        $("#button_back4").click(function () { $(".c4_mask").fadeOut();now_comment[3]=$("#comment").val();});
 
 
         //点击维度5,意志
@@ -1010,7 +1016,7 @@
             $("li").css("display","none");
             $(".button_detail").css("display","block");
             //设置历史备注数据
-            $("#comment").text(now_comment[4]);
+            $("#comment").val(now_comment[4]);
             //设置历史分数数据
             $("#c5_s1Val").text(now_score[26]);
             $("#c5_s11Val").text(now_score[27]);
@@ -1033,9 +1039,9 @@
             $("#c5_s15").on('slide', function(slideEvt) { $("#c5_s15Val").text(slideEvt.value);now_score[31]=slideEvt.value;});
             $("#c5_s16").on('slide', function(slideEvt) { $("#c5_s16Val").text(slideEvt.value);now_score[32]=slideEvt.value;});
 
-            now_comment[4]=$("#comment").val();
+
         });
-        $(".button_back").click(function () { $(".c5_mask").fadeOut();});
+        $("#button_back5").click(function () { $(".c5_mask").fadeOut();now_comment[4]=$("#comment").val();});
 
         //点击维度6,认知
         $(".button_c6").click(function () {
@@ -1043,7 +1049,7 @@
             $("li").css("display","none");
             $(".button_detail").css("display","block");
             //设置历史备注数据
-            $("#comment").text(now_comment[5]);
+            $("#comment").val(now_comment[5]);
             //设置历史分数数据
             $("#c6_s1Val").text(now_score[32]);
             $("#c6_s11Val").text(now_score[33]);
@@ -1071,9 +1077,9 @@
             $("#c6_s16").on('slide', function(slideEvt) { $("#c6_s16Val").text(slideEvt.value);now_score[38]=slideEvt.value;});
             $("#c6_s17").on('slide', function(slideEvt) { $("#c6_s17Val").text(slideEvt.value);now_score[39]=slideEvt.value;});
 
-            now_comment[5]=$("#comment").val();
+
         });
-        $(".button_back").click(function () { $(".c6_mask").fadeOut();});
+        $("#button_back6").click(function () { $(".c6_mask").fadeOut();now_comment[5]=$("#comment").val();});
 
 
         //点击维度7,策略
@@ -1082,7 +1088,7 @@
             $("li").css("display","none");
             $(".button_detail").css("display","block");
             //设置历史备注数据
-            $("#comment").text(now_comment[6]);
+            $("#comment").val(now_comment[6]);
             //设置历史分数数据
             $("#c7_s1Val").text(now_score[40]);
             $("#c7_s11Val").text(now_score[41]);
@@ -1104,9 +1110,9 @@
             $("#c7_s14").on('slide', function(slideEvt) { $("#c7_s14Val").text(slideEvt.value);now_score[44]=slideEvt.value;});
             $("#c7_s15").on('slide', function(slideEvt) { $("#c7_s15Val").text(slideEvt.value);now_score[45]=slideEvt.value;});
 
-            now_comment[6]=$("#comment").val();
+
         });
-        $(".button_back").click(function () { $(".c7_mask").fadeOut();});
+        $("#button_back7").click(function () { $(".c7_mask").fadeOut();now_comment[6]=$("#comment").val();});
 
 
 
@@ -1115,6 +1121,7 @@
             $(".com_mask").fadeIn();
         });
         $(".button_comback").click(function () {
+//            now_comment[0]=$("#comment").text();
             $(".com_mask").fadeOut();
         });
         $("#comment").focusin(function () {
@@ -1134,7 +1141,9 @@
         //点击提交按钮,提交数据
         $(".button_submit").click(function submit() {
             one_click++;
+//            alert(now_comment[0]);
             $(".ts_mask2").fadeIn(1000);//提示正在提交数据
+
             //调用ajax传数据给后台
             $.ajax({
                 url: '../starsea/watch/addWatch',
