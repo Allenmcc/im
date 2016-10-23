@@ -41,4 +41,15 @@ public interface UserService{
     @DataSource(DataSourceType.READ)
     public List<UserEntity> queryChildrenUserByOpenId(String OpenId);
 
-    }
+    @DataSource(DataSourceType.WRITE)
+    public int addRegister(TeacherRegisterEntity teacherRegisterEntity);
+
+    @DataSource(DataSourceType.READ)
+    public List<TeacherRegisterEntity> queryTeacherRegister();
+
+    @DataSource(DataSourceType.WRITE)
+    public int deleteTeacherRegister(String[] registerOpenIds);
+
+    @DataSource(DataSourceType.WRITE)
+    public int passTeacherRegister(String[] yesTeachers);
+}

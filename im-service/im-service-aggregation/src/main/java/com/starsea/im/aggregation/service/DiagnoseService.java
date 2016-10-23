@@ -3,9 +3,10 @@ package com.starsea.im.aggregation.service;
 import com.starsea.im.aggregation.constant.DataSourceType;
 import com.starsea.im.aggregation.dto.StudyFormDto;
 import com.starsea.im.aggregation.dto.StudyResultDto;
-import com.starsea.im.aggregation.dto.WatchFormDto;
 import com.starsea.im.biz.annotation.DataSource;
+import com.starsea.im.biz.entity.DiagnoseAllChildren;
 import com.starsea.im.biz.entity.StudyForm;
+import com.starsea.im.biz.entity.DiagnoseFinal;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
 public interface DiagnoseService {
 
     @DataSource(DataSourceType.WRITE)
-    public int addStudyForm(StudyForm studyForm);
+    public DiagnoseFinal addStudyForm(StudyForm studyForm);
 
     @DataSource(DataSourceType.READ)
     public List<StudyForm> queryStudyForm();
@@ -24,7 +25,7 @@ public interface DiagnoseService {
     public StudyFormDto queryLastStudyFormByName(String name);
 
     @DataSource(DataSourceType.READ)
-    public StudyFormDto queryStudyFormByOpenId(String openId);
+    public StudyFormDto queryStudyFormByOpenId(String openId,String childOpenId);
 
 
     //均分  分别传入4个纬度需要计算的分数 单个学生的分数,方便返回结果
@@ -44,6 +45,10 @@ public interface DiagnoseService {
 
     public  List<Long> getFinalStdScore();
 
-   public List<StudyResultDto> getFinalCommentByOpenId(String openId);
+//   public List<StudyResultDto> getFinalCommentByOpenId(String openId);
+    public List<StudyResultDto> getFinalCommentByOpenId(String openId);
 
-    }
+    public DiagnoseAllChildren queryOneTeacherAllChildren(String openId);
+
+    public DiagnoseAllChildren queryAllChildren();
+}

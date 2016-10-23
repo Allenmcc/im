@@ -1,7 +1,7 @@
 body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,form,input,legend,button,textarea{margin:0;padding:0; vertical-align: baseline; background: transparent; border: 0; outline: 0; }
 ul,li{ float:left; font-family:"微软雅黑"; color:#6e5b2e;}
 /*body,button,input,select,textarea{font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif; background:#f05150; font-family:"微软雅黑";}*/
-body{font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif; background:#f05150; font-family:"微软雅黑";}
+body{font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif; font-family:"微软雅黑";}
 
 
 h1,h2,h3,h4,h5,h6{font-size:100%;}
@@ -144,4 +144,13 @@ h2{
 	line-height: 8vw;
 	padding: 5vw;
 	color: yellow;
+}
+.parentBackground{
+	background-color: lightskyblue;
+}
+.teacherBackground{
+	background-color: lightgreen;
+}
+#btn_b{
+	margin-top: 3vw;
 }

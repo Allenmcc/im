@@ -31,21 +31,16 @@ public class DiagnoseController extends AjaxBase{
     @ResponseBody
     public ServiceResult addStudyForm(HttpServletRequest req,
                                          @RequestParam(value = "openId") String openId,
+                                         @RequestParam(value = "childOpenId") String childOpenId,
                                          @RequestParam(value = "myName") String name,
-                                         @RequestParam(value = "age") int age,
-                                         @RequestParam(value = "sex") String sex,
-                                         @RequestParam(value = "myClass" ) String myClass,
-                                         @RequestParam(value = "school") String school,
-                                         @RequestParam(value = "organization") String organization,
-                                         @RequestParam(value = "evaluationPerson") String evaluationPerson,
+                                         @RequestParam(value = "teacher") String teacher,
                                          @RequestParam(value = "evaluationTime") String evaluationTime,
-                                         @RequestParam(value = "hc[]") int[] hc,
-                                         @RequestParam(value = "xf1") int xf1) throws ParseException {
+                                         @RequestParam(value = "hc[]") int[] hc) throws ParseException {
         ServiceResult serviceResult = new ServiceResult();
         serviceResult.setCode(200);
         serviceResult.setMsg("ok");
 
-        StudyForm studyForm = Transformer.enrichStudyForm(name,age, sex, myClass, school, organization, evaluationPerson, evaluationTime,openId ,hc);
+        StudyForm studyForm = Transformer.enrichStudyForm(name,teacher, evaluationTime,openId ,hc,childOpenId);
         serviceResult.setMsg(diagnoseService.addStudyForm(studyForm));
         return setResponseData(serviceResult);
     }
@@ -72,10 +67,11 @@ public class DiagnoseController extends AjaxBase{
 
     @RequestMapping(value = "/getStudyFormByOpenId", method = RequestMethod.GET)
     @ResponseBody
-    public ServiceResult getStudyFormByOpenId(@RequestParam(value = "openId") String openId) {
+    public ServiceResult getStudyFormByOpenId(@RequestParam(value = "openId") String openId,
+                                              @RequestParam(value = "childOpenId") String childOpenId) {
         ServiceResult serviceResult = new ServiceResult();
         serviceResult.setCode(200);
-        serviceResult.setMsg(diagnoseService.queryStudyFormByOpenId(openId));
+        serviceResult.setMsg(diagnoseService.queryStudyFormByOpenId(openId, childOpenId));
         return setResponseData(serviceResult);
     }
 
@@ -139,13 +135,30 @@ public class DiagnoseController extends AjaxBase{
 
     @RequestMapping(value = "/getFinalCommentByOpenId", method = RequestMethod.GET)
     @ResponseBody
-    public ServiceResult getFinalCommentByOpenId(@RequestParam(value = "openId") String openId) {
+    public ServiceResult getFinalCommentByOpenId(@RequestParam(value = "openId") String openId,
+                                                 @RequestParam(value = "childOpenId") String childOpenId) {
         ServiceResult serviceResult = new ServiceResult();
         serviceResult.setCode(200);
         serviceResult.setMsg(diagnoseService.getFinalCommentByOpenId(openId));
         return setResponseData(serviceResult);
     }
 
+    @RequestMapping(value = "/queryOneTeacherAllChildren", method = RequestMethod.GET)
+    @ResponseBody
+    public ServiceResult queryOneTeacherAllChildren(@RequestParam(value = "openId") String openId) {
+        ServiceResult serviceResult = new ServiceResult();
+        serviceResult.setCode(200);
+        serviceResult.setMsg(diagnoseService.queryOneTeacherAllChildren(openId));
+        return setResponseData(serviceResult);
+    }
 
+    @RequestMapping(value = "/queryAllChildren", method = RequestMethod.GET)
+    @ResponseBody
+    public ServiceResult queryAllChildren() {
+        ServiceResult serviceResult = new ServiceResult();
+        serviceResult.setCode(200);
+        serviceResult.setMsg(diagnoseService.queryAllChildren());
+        return setResponseData(serviceResult);
+    }
 
 }

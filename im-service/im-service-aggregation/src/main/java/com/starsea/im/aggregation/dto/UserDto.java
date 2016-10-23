@@ -21,9 +21,6 @@ public class UserDto {
 
     private String name;
 
-    private int age;
-
-    private String sex;
 
     private String myClass;
 
@@ -31,10 +28,9 @@ public class UserDto {
 
     private String organization;
 
-    private String evaluationPerson;
 
-    private Date createTime;
-    private String email;
+    private String createTime;
+    private String command;
     private String teacher;
     private String role;
 }

@@ -44,12 +44,14 @@ public class LogController extends AjaxBase{
                                     @RequestParam("childOpenId") String childOpenId,
                                     @RequestParam("title") String title,
                                     @RequestParam("content") String content,
-                                    @RequestParam("time") String time){
+                                    @RequestParam("time") String time,
+                                    @RequestParam("labels") String labels){
         ServiceResult serviceResult=new ServiceResult();
         LogDto logDto=new LogDto();
         logDto.setOpenId(openId);
         logDto.setChildOpenId(childOpenId);
         logDto.setTitle(title);
+        logDto.setLabels(labels);
         logDto.setContent(content);
         logDto.setTime(time);
         serviceResult.setMsg(logService.addUserLog(logDto));
@@ -64,12 +66,14 @@ public class LogController extends AjaxBase{
                                     @RequestParam("childOpenId") String childOpenId,
                                     @RequestParam("title") String title,
                                     @RequestParam("content") String content,
-                                    @RequestParam("time") String time){
+                                    @RequestParam("time") String time,
+                                    @RequestParam("labels") String labels){
         ServiceResult serviceResult=new ServiceResult();
         LogDto logDto=new LogDto();
         logDto.setOpenId(openId);
         logDto.setChildOpenId(childOpenId);
         logDto.setTitle(title);
+        logDto.setLabels(labels);
         logDto.setContent(content);
         logDto.setTime(time);
         serviceResult.setMsg(logService.deleteUserLog(logDto));

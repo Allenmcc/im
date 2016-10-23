@@ -15,7 +15,7 @@ html * {
 }
 
 body {
-  font-size: 100%;
+  /*font-size: 100%;*/
   color: #7f8c97;
   background-color: #e9f0f5;
 }
@@ -280,4 +280,84 @@ a.cd-read-more:hover{text-decoration:none; background-color: #424242;  }
     -moz-animation: cd-bounce-2-inverse 0.6s;
     animation: cd-bounce-2-inverse 0.6s;
   }
+}
+.teacherBackground{
+  background-color:lightgreen;
+}
+.parentBackground{
+  background-color: lightskyblue;
+}
+h2.top_title{border-bottom:none;background:none;text-align:center;line-height:32px; font-size:20px}
+h2.top_title span{font-size:12px; color:#666;font-weight:500}
+
+/*新发现按钮*/
+.new{
+  /*width: 20vw;*/
+  height: auto;
+  background: #9acfea;
+  padding: 0.5em;
+  color: #000;
+  border-radius: 10px;
+}
+/*新发现的备注*/
+#new_title{ width: 70%;margin-bottom: 3vw;margin-left: 5vw;}
+textarea{ width: 90%; height:60vw;margin-left: 5vw;}
+
+
+.tail{width: 80vw;margin-left: 10vw;height: auto;}
+
+
+/*提交新发现*/
+.submit,#addlabel{
+  width: 30vw;
+  background: #9acfea;
+  padding: 0.5em;
+  color: #000;
+  border-radius: 10px;
+  margin: 3vw;
+}
+/*返回新发现*/
+.back,.n_back{
+  width: 30vw;
+  background: #fde19a;
+  padding: 0.5em;
+  color: #000;
+  border-radius: 10px;
+  margin: 3vw;
+}
+.cd-timeline-content{
+  word-wrap:break-word
+}
+.xiaoshi{
+  display:none;
+}
+#cd-timeline .logLabel{
+  color: dimgrey;
+  font-weight: bold;
+  font-size: 5vw;
+}
+.iLabel{ width: 50%;margin-bottom: 3vw;margin-left: 5vw;}
+.lb{
+  font-size: x-small;
+  width: 20vw;;
+  background: rgba(0,0,0,0.4);
+  padding: 0.3em;
+  color: #fff;
+  border-radius: 10px;
+  margin: 3vw;;
+}
+.search{
+  width: 60%;
+}
+.search_b{
+  width: 25vw;;
+  background: #9acfea;
+  padding: 0.3em;
+  color: #000;
+  border-radius: 10px;
+  /*margin: 3vw;*/
+}
+.div_search p{
+  font-size: xx-small;
+  color: red;
 }

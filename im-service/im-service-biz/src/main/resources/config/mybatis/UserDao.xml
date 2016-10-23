@@ -36,11 +36,43 @@
         select * from test.user where Role="家长"
     ]]>
     </select>
-
+    <select id="queryAllTeacher"  resultType="userEntity">
+        <![CDATA[
+        select * from test.user where Role="老师"
+    ]]>
+    </select>
 
     <insert id="addUser" parameterType="userEntity">
-        insert into test.user(OpenId,Name,Age,Sex,MyClass,School,Organization,EvaluationPerson,CreateTime,Email,Role,Teacher)
-                    values(#{openId},#{name},#{age},#{sex},#{myClass},#{school},#{organization},#{evaluationPerson},#{createTime},#{email},#{role},#{teacher})
+        insert into test.user(OpenId,Name,MyClass,School,Organization,CreateTime,Role,Teacher)
+                    values(#{openId},#{name},#{myClass},#{school},#{organization},#{createTime},#{role},#{teacher})
     </insert>
 
+    <insert id="addRegister" parameterType="teacherRegisterEntity">
+        insert into test.register(OpenId,TeacherName,TeacherSchool,TeacherCommand,CreateTime)
+        values(#{openId},#{teacherName},#{teacherSchool},#{teacherCommand},#{createTime})
+    </insert>
+
+    <select id="queryTeacherRegister"  resultType="teacherRegisterEntity">
+        select * from test.register
+    </select>
+
+    <delete id="deleteTeacherRegister">
+        delete from test.register where OpenId in
+        <foreach collection="array" item="registerOpenId" index="index"
+                 open="(" close=")" separator=",">
+            #{registerOpenId}
+        </foreach>
+    </delete>
+
+    <insert id="passTeacherRegister">
+        insert into test.user (OpenId,Role,Name,School,Command,CreateTime)
+        values
+        <foreach collection="list" item="item" index="index" separator="," >
+            (#{item.openId},'老师',#{item.teacherName},#{item.teacherSchool},#{item.teacherCommand},#{item.createTime})
+        </foreach>
+    </insert>
+
+    <select id="queryTeacher"  resultType="teacherRegisterEntity" parameterType="map">
+        select * from test.user where Role='老师' AND Name=#{teacherName} AND Command=#{command}
+    </select>
 </mapper>

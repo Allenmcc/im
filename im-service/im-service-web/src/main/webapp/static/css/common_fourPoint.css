@@ -1,7 +1,7 @@
 body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,form,input,legend,button,textarea{margin:0;padding:0; vertical-align: baseline; background: transparent; border: 0; outline: 0; }
 ul,li{ float:left; font-family:"΢���ź�"; color:#6e5b2e;}
 /*body,button,input,select,textarea{font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif; background:#f05150; font-family:"΢���ź�";}*/
-body{font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif; background:#f05150; font-family:"΢���ź�";}
+/*body{font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif; background:#f05150; font-family:"΢���ź�";}*/
 
 
 h1,h2,h3,h4,h5,h6{font-size:100%;}
@@ -9,8 +9,8 @@ h1,h2,h3,h4,h5,h6{font-size:100%;}
 .t_pic{ width:20vw; height:20vw; float:left; border-radius:10px; overflow:hidden;}
 .t_pic img{ width:100%; height:auto;}
 .t_tit{ width:70vw; height:10vw; margin-top:5vw; float:right; border-top:1px solid #fff; font-size:4vw; color:#fff; letter-spacing:0.5vw; overflow:hidden;}
-.t_tit p{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
-/*�÷ֽ����ʽ*/
+.t_tit p{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap;color:white;text-indent:10vw}
+
 h2{
     text-align:center;
     color: white;
@@ -21,17 +21,17 @@ h2{
 .point{
     width: 70%;
     height:10vw;
-    background-color:navajowhite;
+    background-color:rgba(0,0,0,0.5);
     display: block;
-    margin: 5vw auto;
-    margin-top: 15vw;
-    color: black;
+    margin: 3vw auto;
+    margin-top: 10vw;
+    color: white;
     outline: none;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     font: 14px/100% Arial, Helvetica, sans-serif;
-    padding: .5em 2em .55em;
+    padding:2vw ;
     text-shadow: 0 1px 1px rgba(0,0,0,.3);
     -webkit-border-radius: .5em;
     -moz-border-radius: .5em;
@@ -39,6 +39,7 @@ h2{
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
     box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    font-weight: bold;
 }
 
 /*布局介绍*/
@@ -130,6 +131,14 @@ h2{
     -webkit-animation: bounce-down1 2.3s linear infinite;
     animation: bounce-down1 2.3s linear infinite;
 }
+.div10,.div12,.div14,.div16,.div18,.div20,.div22,.div24,.div26,.div28,.div30{
+    -webkit-animation: bounce-down1 2.3s linear infinite;
+    animation: bounce-down1 2.3s linear infinite;
+}
+.div31,.div11,.div13,.div15,.div17,.div19,.div21,.div23,.div25,.div27,.div29{
+    -webkit-animation: bounce-down0 2.3s linear infinite;
+    animation: bounce-down0 2.3s linear infinite;
+}
 .children{
     top:80vw;
     width: 95%;
@@ -151,32 +160,13 @@ h2{
     z-index: -1;
 }
 
-/*label{*/
-    /*padding:2vw;*/
-    /*background-color: white;*/
-    /*opacity: 0.8;*/
-    /*border-radius:10px;*/
-    /*width:30vw;*/
-    /*z-index: 99;*/
-    /*font-size: 3vw;*/
-    /*position: absolute;*/
-/*}*/
-
-/*.ok{*/
-    /*z-index: 99;*/
-    /*/!*opacity: 0.8;*!/*/
-    /*background-color: white;*/
-    /*width:12vw;*/
-    /*font-size: 3vw;*/
-    /*height:10vw;*/
-    /*position: absolute;*/
-/*}*/
 .select{
     border:2px solid yellow;
 }
 .display{
     /*background-color: yellowgreen;*/
-    position: absolute;
+    position: fixed;
+    /*top:0;*/
     bottom:0;
     width: 99%;
     padding-left:1%;
@@ -204,46 +194,55 @@ h2{
 
 @-webkit-keyframes bounce-down0 {
     25% {
-        -webkit-transform: translateY(-3px);
+        -webkit-transform: translateY(-3vw);
     }
     50%, 100% {
         -webkit-transform: translateY(0);
     }
     75% {
-        -webkit-transform: translateY(3px);
+        -webkit-transform: translateY(3vw);
     }
 }
 @keyframes bounce-down0 {
     25% {
-        transform: translateY(-3px);
+        transform: translateY(-3vw);
     }
     50%, 100% {
         transform: translateY(0);
     }
     75% {
-        transform: translateY(3px);
+        transform: translateY(3vw);
     }
 }
 
 @-webkit-keyframes bounce-down1 {
     25% {
-        -webkit-transform: translateX(-3px);
+        -webkit-transform: translateX(-3vw);
     }
     50%, 100% {
         -webkit-transform: translateX(0);
     }
     75% {
-        -webkit-transform: translateX(3px);
+        -webkit-transform: translateX(3vw);
     }
 }
 @keyframes bounce-down1 {
     25% {
-        transform: translateX(-3px);
+        transform: translateX(-3vw);
     }
     50%, 100% {
         transform: translateX(0);
     }
     75% {
-        transform: translateX(3px);
+        transform: translateX(3vw);
     }
+}
+.div_11{
+    position: absolute;
+    top: 90%;
+    left: 7%;
+    padding-bottom: 20vw;
+}
+.div_11 .divChild{
+    margin: 3vw;
 }

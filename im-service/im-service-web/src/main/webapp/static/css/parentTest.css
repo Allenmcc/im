@@ -10,14 +10,24 @@ form,legend,button{
     background: transparent;}
 
 body{width: 100vw; height: 100vh; font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;
-    background:#f05150; font-family:"微软雅黑"; }
+    font-family:"微软雅黑"; }
 
-.whole{width:100vw;height:100vh;position:relative;background:#f05150;}
+.whole{width:100vw;height:100vh;position:relative;}
 
-/*首页头部信息*/
-.head{width:95vw; height:34vw; margin-left:5vw;}
-.t_pic{width:20vw; height:20vw; float:left; border-radius:10px; overflow:hidden; margin-top:8vw; margin-bottom:6vw;}
-.t_pic img{width:100%; height:auto;}
+body{
+    background-color: whitesmoke;
+}
+
+/*调研内容页面*/
+.head{  height:20vw;
+    position: fixed;
+    width: 100%;margin-bottom: 20vw;
+    z-index: 99;
+    /*border-bottom: 2px solid white;*/
+    box-shadow: 1px 5px 5px #888888;
+}
+.t_pic{ width:20vw; height:20vw; float:left; border-radius:10px; overflow:hidden;}
+.t_pic img{ width:100%; height:100%;}
 .t_tit{width:70vw; height:10vw; margin-top:13vw; float:right; border-top:1px solid #fff; font-size:4vw;
     color:#fff; letter-spacing:0.5vw; overflow:hidden;}
 .t_tit p{overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
@@ -47,6 +57,75 @@ body{width: 100vw; height: 100vh; font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-ser
 .comment_label,.score_label{  color:white;  font-size: 110%;  }
 .p1{  margin-top: 5vw;  }
 .comment_label{  margin-top: 2vw;  }
-.score{  color: yellow;  font-size: 140%;  font-weight: bold;  }
-.comment_detal{  line-height: 8vw;  padding: 5vw;  color: yellow;  }
+.score{  color: white;  font-size: 140%;  font-weight: bold;  }
+.comment_detal{  line-height: 8vw;  padding: 5vw;  color: white;  }
 .back{width:45%; height:12vw;background:#ebebeb; color:#000;text-align:center;line-height:12vw;border-radius:10px;}
+.parentBackground{
+    /*background-color: #DA70D6;*/
+    background-color: lightskyblue;
+}
+.q{
+    position: absolute;
+    top:25vw;
+    background: whitesmoke;
+    margin-left: 3vw;
+}
+.div_c p{
+    font-weight: bold;
+}
+.r_l_1{
+    margin-right: 3vw;
+    background-color: white;
+    border-top: 1px solid darkgray ;
+    border-left: 1px solid darkgray  ;
+    border-right: 1px solid darkgray  ;
+    border-bottom: 1px solid whitesmoke;
+    padding: 2vw;
+    margin-top: 3vw;
+}
+.r_l_2{
+    margin-right: 3vw;
+    background-color: white;
+    border-left: 1px solid darkgray  ;
+    border-right: 1px solid darkgray  ;
+    border-bottom: 1px solid whitesmoke;
+    padding: 2vw;
+}
+.r_l_3{
+    margin-right: 3vw;
+    background-color: white;
+    border-left: 1px solid darkgray  ;
+    border-right: 1px solid darkgray  ;
+    border-bottom: 1px solid darkgray;
+    padding: 2vw;
+    margin-bottom: 10vw;
+}
+.submit{
+    /*margin-right: 3vw;*/
+    font-weight: bold;
+    /*margin: 0 auto;*/
+    /*width: 90%;*/
+    text-align: center;
+    padding: 3vw;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+}
+.back1{
+    /*margin-right: 3vw;*/
+    margin-left: 4vw;
+    font-weight: bold;
+    /*margin: 0 auto;*/
+    /*width: 90%;*/
+    text-align: center;
+    padding: 3vw;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+}
+label{
+    margin-left: 2vw;
+}
+.headFinish{
+    width:95%; height:20vw; margin:8vw auto 8vw 5%;
+}

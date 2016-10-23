@@ -7,6 +7,7 @@ public class LogDto {
     private String openId;
     private String childOpenId;
     private String title;
+    private String labels;
     private String content;
     private String time;
 
@@ -32,6 +33,14 @@ public class LogDto {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getLabels() {
+        return labels;
+    }
+
+    public void setLabels(String labels) {
+        this.labels = labels;
     }
 
     public String getContent() {

@@ -7,7 +7,7 @@
 <mapper namespace="com.starsea.im.biz.dao.WatchDao">
 
     <sql id = "keys">
-        OpenId ,Name,  EvaluationPerson,  EvaluationTime,  Question1,  Comment1,  Question2,  Comment2,
+        OpenId ,Name,  Teacher,  EvaluationTime,  Question1,  Comment1,  Question2,  Comment2,
         Question3,  Comment3,  Question4,  Comment4,  Question5,  Comment5 ,  Question6,
         Comment6 ,  Question7,  Comment7 ,  Question8 ,
          Question9,   Question10,   Question11,    Question12,
@@ -27,7 +27,7 @@
     <insert id="addWatchForm" parameterType="WatchForm">
         INSERT INTO test.watchform
         (<include refid="keys"/>)
-        VALUES (#{openId},#{name},#{evaluationPerson},#{evaluationTime},#{question1},#{comment1},#{question2},#{comment2},
+        VALUES (#{openId},#{name},#{teacher},#{evaluationTime},#{question1},#{comment1},#{question2},#{comment2},
         #{question3},#{comment3},#{question4},#{comment4},
         #{question5},#{comment5},#{question6},#{comment6},#{question7},#{comment7},#{question8},#{question9},#{question10},
         #{question11},#{question12},#{question13},#{question14},#{question15},#{question16},#{question17},

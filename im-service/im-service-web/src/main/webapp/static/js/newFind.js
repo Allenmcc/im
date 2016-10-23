@@ -4,6 +4,11 @@
 $(document).ready(function () {
     //setCookie("childOpenid","22",1);
     var log=[];
+    var role=getCookie("role");
+    var labels="";
+    var color=getCookie("bgColor");
+        $("body").css("backgroundColor",color);
+
     var openid=getCookie('openid');
     var childOpenid=getCookie('childOpenid');
     //alert(childOpenid);
@@ -33,10 +38,11 @@ $(document).ready(function () {
                     var log2=log1[i].split('#');
                     log2[0]=log2[0].substring(1,log2[0].length);
                     //alert(log2[0]);
-                    log[i] = {title: "", content: "", time: ""};
+                    log[i] = {title: "", content: "", time: "",label:""};
                     log[i].title = log2[0];
-                    log[i].content = log2[1];
-                    log[i].time = log2[2];
+                    log[i].content = log2[2];
+                    log[i].time = log2[3];
+                    log[i].label=log2[1];
                 }
                 //测试用例
                 //var log_num = 3;
@@ -60,6 +66,7 @@ $(document).ready(function () {
                     var h2 = document.createElement("h2");
                     var p = document.createElement("p");
                     var p2 = document.createElement("p");
+                    var p3 = document.createElement("p");
                     var input_detail = document.createElement("input");
                     var span = document.createElement("span");
                     var input_delete = document.createElement("input");
@@ -77,7 +84,8 @@ $(document).ready(function () {
                     p2.className="xiaoshi";
                     p.innerHTML = log[i].content.substring(0, l);
                     p2.innerHTML = log[i].content;
-
+                    p3.className="logLabel";
+                    p3.innerHTML="标签："+log[i].label;
                     input_detail.className = "cd-read-more";
                     input_detail.value = "查看详情";
                     input_detail.type = "button";
@@ -94,9 +102,10 @@ $(document).ready(function () {
                     input_delete.type = "button";
                     //删除事件
                     input_delete.addEventListener('click', function () {
-                        var title = $(this).prev().prev().prev().prev().prev().html();
+                        var title = $(this).prev().prev().prev().prev().prev().prev().html();
                         var content = $(this).prev().prev().prev().html();
                         var time = $(this).prev().html();
+                        var labels=$(this).prev().prev().prev().prev().prev().html().substring(3);
                         //alert(title);
                         //alert(content);
                         //alert(time);
@@ -109,7 +118,8 @@ $(document).ready(function () {
                                 childOpenId:childOpenid,
                                 title: title,
                                 content: content,
-                                time: time
+                                time: time,
+                                labels:labels
                             },
                             success: function (data) {
                                 window.location.reload();
@@ -118,7 +128,8 @@ $(document).ready(function () {
                         //window.location.reload();//刷新当前页面
                     }, false);
                     div_img.appendChild(img);
-                    div_content.appendChild(h2);
+                    div_content.appendChild(h2)
+                    div_content.appendChild(p3);;
                     div_content.appendChild(p);
                     div_content.appendChild(p2);
                     div_content.appendChild(input_detail);
@@ -134,6 +145,7 @@ $(document).ready(function () {
         $('.submit').click(function(){
             var title=$('#new_title').val();
             var content=$('#new_content').val();
+            labels=labels.substring(0,labels.length-1);
             $.ajax({
                 type: "POST",
                 url: "../starsea/log/addUserLog",
@@ -143,7 +155,8 @@ $(document).ready(function () {
                     childOpenId:childOpenid,
                     title:title,
                     content:content,
-                    time:getNowFormatDate()
+                    time:getNowFormatDate(),
+                    labels:labels
                 },
                 success: function (data) {
                     window.location.reload();//刷新当前页面
@@ -151,10 +164,42 @@ $(document).ready(function () {
             });
         });
 
-
+    $("#addlabel").click(function(){
+        if($(".iLabel").val().length>0) {
+            var bt = document.createElement("button");
+            bt.className = "lb";
+            bt.innerHTML = $(".iLabel").val();
+            labels+=$(".iLabel").val()+"、";
+            $(".labels").append(bt);
+            $(".iLabel").val("");
+        }
+    });
+$(".n_back").click(function(){
+   window.location.href=document.referrer;
+});
+$(".search_b").click(function(){
+    var labels=$(".search").val();
+    if(labels.length==0){
+        $(".cd-timeline-block").css('display','block');
+    }else {
+        $(".cd-timeline-block").css('display','none');
+        labels=labels.split(",");
+        for(var i=0;i<labels.length;i++) {
+            $(".logLabel").each(function () {
+                if($(this).is(":hidden") ) { // 判断是否隐藏
+                    if ($(this).html().indexOf(labels[i]) != -1) {
+                        $(this).parent().parent().css('display', 'block');
+                    }
+                }
+            });
+        }
+        $(".search").val("");
+    }
+});
 
     $('.new').click(function(){
         $('.div_1').css('display','none');
+        $(".div_search").css('display','none');
         $('.div_2').css('display','block');
         $('#new_title').val('');
         $('#new_content').val('记录每天新的发现');
@@ -166,6 +211,7 @@ $(document).ready(function () {
         $('#new_content').css('color','#999');
         $('.div_1').css('display','block');
         $('.div_2').css('display','none');
+        $(".div_search").css('display','block');
     });
 
     function getNowFormatDate() {//获取当前时间,yyyy-MM-dd

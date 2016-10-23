@@ -25,9 +25,6 @@ public class UserEntity {
 
     private String name;
 
-    private int age;
-
-    private String sex;
 
     private String myClass;
 
@@ -35,10 +32,9 @@ public class UserEntity {
 
     private String organization;
 
-    private String evaluationPerson;
 
-    private Date createTime;
-    private String email;
+    private String createTime;
+    private String command;
     private String teacher;
     private String role;
 
@@ -50,84 +46,20 @@ public class UserEntity {
         this.id = id;
     }
 
-    public String getOpenId() {
-        return openId;
+    public String getRole() {
+        return role;
     }
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    public int getAge() {
-        return age;
+    public String getCommand() {
+        return command;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getMyClass() {
-        return myClass;
-    }
-
-    public void setMyClass(String myClass) {
-        this.myClass = myClass;
-    }
-
-    public String getSchool() {
-        return school;
-    }
-
-    public void setSchool(String school) {
-        this.school = school;
-    }
-
-    public String getOrganization() {
-        return organization;
-    }
-
-    public void setOrganization(String organization) {
-        this.organization = organization;
-    }
-
-    public String getEvaluationPerson() {
-        return evaluationPerson;
-    }
-
-    public void setEvaluationPerson(String evaluationPerson) {
-        this.evaluationPerson = evaluationPerson;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCommand(String command) {
+        this.command = command;
     }
 
     public String getTeacher() {
@@ -138,11 +70,51 @@ public class UserEntity {
         this.teacher = teacher;
     }
 
-    public String getRole() {
-        return role;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(String organization) {
+        this.organization = organization;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public String getMyClass() {
+        return myClass;
+    }
+
+    public void setMyClass(String myClass) {
+        this.myClass = myClass;
     }
 }

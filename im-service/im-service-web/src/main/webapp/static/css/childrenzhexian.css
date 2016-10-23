@@ -10,9 +10,9 @@ form,legend,button{
     background: transparent;}
 
 body{width: 100vw; height: 100vh; font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;
-    background:#f05150; font-family:"微软雅黑"; }
+     font-family:"微软雅黑"; }
 
-.whole{width:100vw;height:100vh;position:relative;background:#f05150;}
+.whole{width:100vw;height:100vh;position:relative;}
 
 
 /*遮罩层1:正在获取数据*/
@@ -31,20 +31,22 @@ body{width: 100vw; height: 100vh; font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-ser
 
 
 /*首页时间维度选择*/
-.method{width: 100vw;height: auto;text-align: center;overflow: hidden;margin-bottom: 5vw}
+.method{width: 100vw;height: auto;text-align: center;overflow: hidden;margin-bottom: 1vw}
 .method button{ width:38%; height:12vw;  margin-left: 8vw; float:left; font-size:5vw; text-align:center;
-    line-height:12vw; border-radius:10px; visibility:visible;background:#fcb95a; color:#fff;opacity: 0.5; }
+    line-height:8vw; border-radius:10px; visibility:visible;background:#fcb95a; color:#fff;opacity: 0.5; }
 /*.method button:nth-of-type(1){ opacity: 0.}*/
 /*.method button:nth-of-type(2){ }*/
 
-
+.top{
+    margin-top: 3vw;
+}
 
 
 /*月份维度*/
-.month{z-index:101; width:100%; height:auto; color:#FFFFFF; background:#f05150;}
+.month{z-index:101; width:100%; height:auto; color:#FFFFFF; }
 
 /*一周维度*/
-.week{z-index:101; width:100%; height:auto; color:#FFFFFF; background:#f05150;}
+.week{z-index:101; width:100%; height:auto; color:#FFFFFF;}
 
 
 /*通用内容部分*/
@@ -55,54 +57,9 @@ body{width: 100vw; height: 100vh; font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-ser
 /*五大重点选择按钮*/
 .tail{width: 100vw;height: auto;text-align: center;overflow: hidden;margin-top: 5vw}
 .tail button{ padding:1vw 2vw;margin-left: 3vw; float:left; font-size:4vw; text-align:center;
-      border-radius:10px; visibility:visible; background:#ffc4c4; color:#000; opacity:0.5; }
+      border-radius:10px; visibility:visible; background:#9acfea; color:#000; opacity:0.5; margin-bottom: 2vw;}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#c6{
+    background-color: lightgreen;
+    opacity: 1.0;
+}

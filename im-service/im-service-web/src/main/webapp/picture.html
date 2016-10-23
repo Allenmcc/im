@@ -12,6 +12,7 @@
 <title></title>
 <link href="/static/css/common_fourPoint.css" rel="stylesheet" type="text/css" />
 <script src="static/js/jquery.min.js"></script>
+<script src="static/js/cookie_openid.js"></script>
 <!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
 
 </head>
@@ -19,7 +20,7 @@
 <!--头部信息-->
 <div class="head">
     <div class="t_pic">
-        <img src="/static/image/head.jpg" />
+        <img src="/static/image/teacher.jpg" />
     </div>
     <div class="t_tit">
         <p>学习分析</p>
@@ -33,11 +34,21 @@
 </div>
 <script>
     $(document).ready(function(){
+        var color=getCookie("bgColor");
+
+            $("body").css("backgroundColor",color);
+
+        var role=getCookie("role");
+        if(role=="t"){
+            $(".t_pic img").attr("src","static/image/teacher.jpg");
+        }else{
+            $(".t_pic img").attr("src","static/image/parent.jpg");
+        }
         $('.p1').click(function(){
             window.location.href="zhexiantu.html";
         });
         $('.p2').click(function(){
-            window.location.href="..";
+            window.location.href="zhexiantuDiag.html";
         });
         $('.p3').click(function(){
             window.location.href="common_fourPoint.html";

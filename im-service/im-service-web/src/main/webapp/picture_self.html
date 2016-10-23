@@ -16,11 +16,11 @@
 <!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
 
 </head>
-<body>
+<body class="teacherBackground">
 <!--头部信息-->
 <div class="head">
     <div class="t_pic">
-        <img src="/static/image/head.jpg" />
+        <img src="/static/image/teacher.jpg" />
     </div>
     <div class="t_tit">
         <p>我的</p>
@@ -30,7 +30,7 @@
 <div class="fourPoint div_1">
     <input type="button" class="point p1" value="班级汇总" />
     <input type="button" class="point p2" value="学校汇总" />
-    <input type="button" class="point p3" value="今日发现" />
+    <input type="button" class="point p3" value="我的日志" />
     <input type="button" class="point p6" value="返回" />
 </div>
 <div class="fourPoint div_2" style="display:none">
@@ -40,6 +40,10 @@
 </div>
 <script>
     $(document).ready(function(){
+        var color=getCookie("bgColor");
+
+            $("body").css("backgroundColor",color);
+
         $('.p1').click(function(){
             setCookie("ejia_table","class",1);
             $('.div_1').css('display','none');
@@ -59,7 +63,7 @@
             window.location.href="childrenzhexian.html";
         })
         $('.p5').click(function(){
-            window.location.href="..";
+            window.location.href="childDiaZhexian.html";
         })
         $('.p6').click(function(){
             window.location.href="common_fourPoint.html";

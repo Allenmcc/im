@@ -4,6 +4,7 @@ import com.starsea.im.aggregation.service.UserService;
 import com.starsea.im.aggregation.util.CheckUtil;
 import com.starsea.im.aggregation.util.MessageUtil;
 import com.starsea.im.aggregation.util.ServiceResult;
+import com.starsea.im.biz.entity.TeacherRegisterEntity;
 import com.starsea.im.biz.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,11 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,33 +35,28 @@ public class UserController extends AjaxBase{
         return setResponseData(serviceResult);
     }
 
-    @RequestMapping(value = "/signup",method = RequestMethod.POST)
+    @RequestMapping(value = "/parentSignup",method = RequestMethod.POST)
     @ResponseBody
-    public ServiceResult signUp(HttpServletRequest req,
+    public ServiceResult parentSignup(HttpServletRequest req,
                                 @RequestParam("openId") String openId,
                                 @RequestParam("name") String name,
-                                @RequestParam("age") Integer age,
-                                @RequestParam("sex") String sex,
                                 @RequestParam("myClass") String myClass,
                                 @RequestParam("school") String school,
                                 @RequestParam("organization") String organization,
-                                @RequestParam("evaluationPerson") String evaluationPerson,
-                                @RequestParam("email") String email,
+                                @RequestParam("command") String command,
                                 @RequestParam("teacher") String teacher,
-                                @RequestParam("role") String role
+                                @RequestParam("role") String role,
+                                @RequestParam("createTime") String createTime
                                 ){
         ServiceResult serviceResult = new ServiceResult();
         UserEntity userEntity = new UserEntity();
         userEntity.setOpenId(openId);
         userEntity.setName(name);
-        userEntity.setAge(age);
-        userEntity.setSex(sex);
         userEntity.setMyClass(myClass);
         userEntity.setSchool(school);
         userEntity.setOrganization(organization);
-        userEntity.setEvaluationPerson(evaluationPerson);
-        userEntity.setCreateTime(new Date());
-        userEntity.setEmail(email);
+        userEntity.setCreateTime(createTime);
+        userEntity.setCommand(command);
         userEntity.setTeacher(teacher);
         userEntity.setRole(role);
         serviceResult.setMsg(userService.addUser(userEntity));
@@ -161,5 +153,53 @@ public class UserController extends AjaxBase{
     }
 
 
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
+    @ResponseBody
+    public ServiceResult register(HttpServletRequest req,
+                                @RequestParam("openId") String openId,
+                                @RequestParam("teacherName") String teacherName,
+                                @RequestParam("teacherSchool") String teacherSchool,
+                                @RequestParam("teacherCommand") String teacherCommand,
+                                @RequestParam("createTime") String createTime
+
+    ){
+        ServiceResult serviceResult = new ServiceResult();
+        TeacherRegisterEntity teacherRegisterEntity=new TeacherRegisterEntity();
+        teacherRegisterEntity.setOpenId(openId);
+        teacherRegisterEntity.setTeacherName(teacherName);
+        teacherRegisterEntity.setTeacherSchool(teacherSchool);
+        teacherRegisterEntity.setTeacherCommand(teacherCommand);
+        teacherRegisterEntity.setCreateTime(createTime);
+        serviceResult.setMsg(userService.addRegister(teacherRegisterEntity));
+        serviceResult.setCode(200);
+        return setResponseData(serviceResult);
+    }
+
+    @RequestMapping(value = "/queryTeacherRegister",method = RequestMethod.POST)
+    @ResponseBody
+    public ServiceResult queryTeacherRegister(HttpServletRequest req){
+        ServiceResult serviceResult = new ServiceResult();
+        serviceResult.setMsg(userService.queryTeacherRegister());
+        serviceResult.setCode(200);
+        return setResponseData(serviceResult);
+    }
+    @RequestMapping(value = "/deleteTeacherRegister",method = RequestMethod.POST)
+    @ResponseBody
+    public ServiceResult deleteTeacherRegister(HttpServletRequest req,
+                                               @RequestParam("registerOpenIds[]") String[] registerOpenIds){
+        ServiceResult serviceResult = new ServiceResult();
+        serviceResult.setMsg(userService.deleteTeacherRegister(registerOpenIds));
+        serviceResult.setCode(200);
+        return setResponseData(serviceResult);
+    }
+    @RequestMapping(value = "/passTeacherRegister",method = RequestMethod.POST)
+    @ResponseBody
+    public ServiceResult passTeacherRegister(HttpServletRequest req,
+                                               @RequestParam("yesTeachers[]") String[] yesTeachers){
+        ServiceResult serviceResult = new ServiceResult();
+        serviceResult.setMsg(userService.passTeacherRegister(yesTeachers));
+        serviceResult.setCode(200);
+        return setResponseData(serviceResult);
+    }
 
 }

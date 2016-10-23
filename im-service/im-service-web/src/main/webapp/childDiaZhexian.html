@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="static/js/jquery-1.11.0.min.js"></script>
+    <script src="static/js/highcharts.js"></script>
+    <script src="static/js/highcharts-more.js"></script>
+    <script type="text/javascript" src="static/js/cookie_openid.js"></script>
+    <title></title>
+    <style>
+        button{
+            padding:1vw 2vw;margin-left: 3vw; float:left; font-size:4vw; text-align:center;
+            border-radius:10px; visibility:visible; background:#9acfea; color:#000;margin-bottom: 2vw;
+        }
+        .bu{
+            opacity: 0.5;
+        }
+        .select{
+            opacity: 1;
+        }
+        .button_back{
+            padding:1vw 2vw;margin-left: 3vw; float:left; font-size:4vw; text-align:center;
+            border-radius:10px; visibility:visible; background:lightgreen; color:#000;margin-bottom: 2vw;
+        }
+    </style>
+</head>
+<body>
+<div class="whole">
+    <div id="container" style="min-width:100%;height:130vw;margin-top: 5vw;"></div>
+    <div class="tail">
+        <button class="bu select" id="bt">老师记录</button>
+        <button class="bu" id="bp">家长记录</button>
+        <button class="button_back" id="button_back3">返回</button>
+    </div>
+</div>
+
+
+<!--提示遮罩层1,正在获取数据-->
+<div class="ts_mask">
+    <div class="tishi">
+        <div class="qd"></div>
+    </div>
+</div>
+
+
+</div>
+
+<script>
+    var scoreYs_t=new Array();
+    var scoreYs_p=new Array();
+    var children=new Array();
+    var openid=getCookie("openid");
+    var select=getCookie("ejia_table");
+    var data=[];
+    var title="全班学生学习策略诊断";
+    $('.button_back').click(function(){
+        window.location.href="picture_self.html";
+    });
+
+    if(select=="class"){
+        $.ajax({
+            type: "GET",
+            url: "/starsea/diagnose/queryOneTeacherAllChildren",
+            data: {
+                openId:openid
+            },
+            dataType: "json",
+            async:false,
+            success: function (data) { //成功的处理函数
+                    var content = data['msg']['msg'];
+                    children = content.childrenName;
+                    scoreYs_t = content.scoreYs_t;
+                    scoreYs_p = content.scoreYs_p;
+                    for (var i = 0; i < scoreYs_t.length; i++) {
+                        if (scoreYs_t[i] != "none") {
+                            scoreYs_t[i] = scoreYs_t[i].split(",");
+                            for (var j = 0; j < 4; j++) {
+                                scoreYs_t[i][j] = parseInt(scoreYs_t[i][j]);
+                            }
+                        }
+                        if (scoreYs_p[i] != "none") {
+                            scoreYs_p[i] = scoreYs_p[i].split(",");
+                            for (var j = 0; j < 4; j++) {
+                                scoreYs_p[i][j] = parseInt(scoreYs_p[i][j]);
+                            }
+                        }
+                    }
+            }
+        });
+        for(var i=0;i<children.length;i++){
+            data[i]={name:"", data:"", pointPlacement: 'on'};
+            data[i].name=children[i];
+            data[i].data=(scoreYs_t[i]!="none"?scoreYs_t[i]:[]);
+        }
+        $('#container').highcharts({
+            chart: {
+                margin:10,
+                polar: true,
+                type: 'line'
+            },
+
+            credits: {
+                enabled: false   //右下角不显示LOGO
+            },
+            title: {
+                text: '全班学生学习策略诊断',
+                x: 10
+            },
+            pane: {
+                size: '60%'
+            },
+            xAxis: {
+                categories: ['分心抑制', '要点<br>抓取', '信息加工', '焦虑<br>对应'],
+                tickmarkPlacement: 'on',
+                lineWidth: 0
+            },
+            yAxis: {
+                gridLineInterpolation: 'polygon',
+                lineWidth: 0,
+                min: 0
+            },
+            tooltip: {
+                shared: true,
+                pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+            },
+            legend: {
+                align: 'right',
+                verticalAlign: 'top',
+                y: 180,
+                layout: 'vertical'
+            },
+            series:data
+        });
+    }else if(select=="school"){
+        title="全校学生学习策略诊断";
+        $.ajax({
+            type: "GET",
+            url: "/starsea/diagnose/queryAllChildren",
+            dataType: "json",
+            async:false,
+            success: function (data) { //成功的处理函数
+                var content = data['msg']['msg'];
+                children=content.childrenName;
+                scoreYs_t=content.scoreYs_t;
+                scoreYs_p=content.scoreYs_p;
+                for(var i=0;i<scoreYs_t.length;i++){
+                    if(scoreYs_t[i]!="none"){
+                        scoreYs_t[i]=scoreYs_t[i].split(",");
+                        for(var j=0;j<4;j++){
+                            scoreYs_t[i][j]=parseInt(scoreYs_t[i][j]);
+                        }
+                    }
+                    if(scoreYs_p[i]!="none"){
+                        scoreYs_p[i]=scoreYs_p[i].split(",");
+                        for(var j=0;j<4;j++){
+                            scoreYs_p[i][j]=parseInt(scoreYs_p[i][j]);
+                        }
+                    }
+                }
+            }
+        });
+        for(var i=0;i<children.length;i++){
+            data[i]={name:"", data:"", pointPlacement: 'on'};
+            data[i].name=children[i];
+            data[i].data=(scoreYs_t[i]!="none"?scoreYs_t[i]:[]);
+        }
+        $('#container').highcharts({
+            chart: {
+                margin:10,
+                polar: true,
+                type: 'line'
+            },
+            credits: {
+                enabled: false   //右下角不显示LOGO
+            },
+            title: {
+                text: '全校学生学习策略诊断',
+                x: 10
+            },
+            pane: {
+                size: '60%'
+            },
+            xAxis: {
+                categories: ['分心抑制', '要点<br>抓取', '信息加工', '焦虑<br>对应'],
+                tickmarkPlacement: 'on',
+                lineWidth: 0
+            },
+            yAxis: {
+                gridLineInterpolation: 'polygon',
+                lineWidth: 0,
+                min: 0
+            },
+            tooltip: {
+                shared: true,
+                pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+            },
+            legend: {
+                align: 'right',
+                verticalAlign: 'top',
+                y: 180,
+                layout: 'vertical'
+            },
+            series:data
+        });
+    }
+
+    $("#bt").click(function(){
+       if($(this).attr("class")=="bu"){
+           $("button").removeClass("select");
+           $(this).addClass("select");
+           for(var i=0;i<children.length;i++){
+               data[i]={name:"", data:"", pointPlacement: 'on'};
+               data[i].name=children[i];
+               data[i].data=(scoreYs_t[i]!="none"?scoreYs_t[i]:[]);
+           }
+           $('#container').highcharts({
+               chart: {
+                   margin:10,
+                   polar: true,
+                   type: 'line'
+               },
+               credits: {
+                   enabled: false   //右下角不显示LOGO
+               },
+               title: {
+                   text: title,
+                   x: 10
+               },
+               pane: {
+                   size: '60%'
+               },
+               xAxis: {
+                   categories: ['分心抑制', '要点<br>抓取', '信息加工', '焦虑<br>对应'],
+                   tickmarkPlacement: 'on',
+                   lineWidth: 0
+               },
+               yAxis: {
+                   gridLineInterpolation: 'polygon',
+                   lineWidth: 0,
+                   min: 0
+               },
+               tooltip: {
+                   shared: true,
+                   pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+               },
+               legend: {
+                   align: 'right',
+                   verticalAlign: 'top',
+                   y: 180,
+                   layout: 'vertical'
+               },
+               series:data
+           });
+       }
+    });
+    $("#bp").click(function(){
+        if($(this).attr("class")=="bu"){
+            $("button").removeClass("select");
+            $(this).addClass("select");
+            for(var i=0;i<children.length;i++){
+                data[i]={name:"", data:"", pointPlacement: 'on'};
+                data[i].name=children[i];
+                data[i].data=(scoreYs_p[i]!="none"?scoreYs_p[i]:[]);
+            }
+            $('#container').highcharts({
+                chart: {
+                    margin:10,
+                    polar: true,
+                    type: 'line'
+                },
+                credits: {
+                    enabled: false   //右下角不显示LOGO
+                },
+                title: {
+                    text: title,
+                    x: 10
+                },
+                pane: {
+                    size: '60%'
+                },
+                xAxis: {
+                    categories: ['分心抑制', '要点<br>抓取', '信息加工', '焦虑<br>对应'],
+                    tickmarkPlacement: 'on',
+                    lineWidth: 0
+                },
+                yAxis: {
+                    gridLineInterpolation: 'polygon',
+                    lineWidth: 0,
+                    min: 0
+                },
+                tooltip: {
+                    shared: true,
+                    pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+                },
+                legend: {
+                    align: 'right',
+                    verticalAlign: 'top',
+                    y: 180,
+                    layout: 'vertical'
+                },
+                series:data
+            });
+        }
+    });
+</script>
+</body>
+</html>

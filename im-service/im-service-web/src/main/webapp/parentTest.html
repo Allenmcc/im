@@ -29,30 +29,9 @@
             <p>家长教育效能评估</p>
         </div>
     </div>
+    <div class="q">
 
-
-    <!--首页答题部分-->
-    <div class="div1">
-        <!--选择单选题目-->
-        <div class="t_con">
-            <div class="con_tit">
-                <p id="title_txt" name="1">(1/10)&nbsp;单选题</p>
-                <p id="content_txt"></p>
-            </div>
-            <div class="con_con">
-                <input type="radio" name="q"  id="q1" value="1" /><label class="s1" for="q1"></label><br/>
-                <input type="radio" name="q"  id="q2" value="2"/><label class="s2" for="q2"></label><br/>
-                <input type="radio" name="q"  id="q3" value="3"/><label class="s3" for="q3"></label>
-            </div>
-        </div>
-
-        <!--上提下题按钮-->
-        <div class="t_btn">
-            <button id="botton_pre" type="button">上一题</button>
-            <button id="botton_next" type="button">下一题</button>
-        </div>
     </div>
-
     <!--得分结果-->
     <div class="detail" style="display: none;">
         <p class="p1"><span class="score_label">得分：</span><span class="score"></span></p>
@@ -62,20 +41,20 @@
     </div>
 
 </div>
-<script>
-    //点击下一题没选择时执行的动作
-    $(".qd").click(function(){
-        $(".ts_mask").fadeOut(1000);
-    });
+<!--<script>-->
+    <!--//点击下一题没选择时执行的动作-->
+    <!--$(".qd").click(function(){-->
+        <!--$(".ts_mask").fadeOut(1000);-->
+    <!--});-->
 
-    $(".qd2").click(function(){
-        $(".ts_mask2").fadeOut(1000);
-    });
+    <!--$(".qd2").click(function(){-->
+        <!--$(".ts_mask2").fadeOut(1000);-->
+    <!--});-->
 
-    $(".qd3").click(function(){
-        $(".ts_mask3").fadeOut(1000);
-    });
-</script>
+    <!--$(".qd3").click(function(){-->
+        <!--$(".ts_mask3").fadeOut(1000);-->
+    <!--});-->
+<!--</script>-->
 <script>
     var question=['周日全家都睡到自然醒，好舒适惬意。您还安排了中午与久未谋面的外地同学一起聚餐，餐馆也已经订好了，好期待。但孩子却告诉您，上周您答应陪他/她去博物馆的，显然孩子已经准备齐整了。这时您会怎么做？',
         '晚上回来孩子和您都很开心，一天收获颇丰。但大家一起进晚餐时，您的配偶对于孩子参加的一个兴趣班提出了不同的看法。这时您会怎么做？',
@@ -112,99 +91,282 @@
     var score=0;//用于记录总分
     var now=[''];//用于记录用户答案
     var n=1; //用于记录当前浏览的题
-    $('#content_txt').html(question[0]);
-    $('.s1').html(choose[0][0]);
-    $('.s2').html(choose[0][1]);
-    $('.s3').html(choose[0][2]);
+//    $('#content_txt').html(question[0]);
+//    $('.s1').html(choose[0][0]);
+//    $('.s2').html(choose[0][1]);
+//    $('.s3').html(choose[0][2]);
+//    $(".head").addClass("parentBackground");
+    var color=getCookie("bgColor");
+
+    $(".t_pic img").attr("src","static/image/parent.jpg");
+
+    var div=document.querySelector('.q');
+    for(var i=0;i<question.length;i++) {
+        var div_c = document.createElement('div_c');
+        div_c.className="div_c";
+        var q = document.createElement('p');
+        q.className="question";
+        q.innerHTML=(i+1)+"."+question[i];
+        var div1 = document.createElement('div');
+        div1.className="r_l_1";
+        var div2 = document.createElement('div');
+        div2.className="r_l_2";
+        var div3 = document.createElement('div');
+        div3.className="r_l_3";
+
+        var r1 = document.createElement('input');
+        r1.className="radio_c";
+        r1.type="radio";
+        r1.name="q"+(i+1);
+        r1.value="1";
+        r1.id=(i+1)+"_"+"r1";
+        var r2 = document.createElement('input');
+        r2.className="radio_c";
+        r2.type="radio";
+        r2.name="q"+(i+1);
+        r2.value="2";
+        r2.id=(i+1)+"_"+"r2";
+        var r3 = document.createElement('input');
+        r3.className="radio_c";
+        r3.type="radio";
+        r3.name="q"+(i+1);
+        r3.value="3";
+        r3.id=(i+1)+"_"+"r3";
+
+        var l1 = document.createElement('label');
+        l1.className="label_c";
+        l1.setAttribute("for",(i+1)+"_"+"r1");
+        l1.innerHTML=choose[i][0]+"<br>";
+        var l2 = document.createElement('label');
+        l2.className="label_c";
+        l2.setAttribute("for",(i+1)+"_"+"r2");
+        l2.innerHTML=choose[i][1]+"<br>";
+        var l3 = document.createElement('label');
+        l3.className="label_c";
+        l3.setAttribute("for",(i+1)+"_"+"r3");
+        l3.innerHTML=choose[i][2]+"<br>";
+
+        div_c.appendChild(q);
+        div1.appendChild(r1);
+        div1.appendChild(l1);
+        div2.appendChild(r2);
+        div2.appendChild(l2);
+        div3.appendChild(r3);
+        div3.appendChild(l3);
+        div_c.appendChild(q);
+        div_c.appendChild(div1);
+        div_c.appendChild(div2);
+        div_c.appendChild(div3);
+        div.appendChild(div_c);
+        if(i==question.length-1) {
+            var button = document.createElement('button');
+            button.innerHTML = "提交";
+            button.className="submit";
+            button.addEventListener("click", function () { //设置事件
+                if($("input:checked").size()==question.length) {
+                    for (var i = 0; i < question.length; i++) {
+                        now[n] = $("input[name='q" + (i + 1) + "']:checked").val();
+                        if (now[n] == correct[n]) {
+                            score += 10;
+                        }
+                        n++;
+                    }
+//                    alert(score);
+                    $('.q').css('display', 'none');
+                    $('.head').removeClass("head").addClass("headFinish");
+                    $('.detail').css('display', 'block');
+                    var color=getCookie("bgColor");
+                    $("body").css("backgroundColor",color);
+
+                    if (score >= 0 && score <= 9) {
+                        $(".score").html(score);
+                        $(".comment_detal").html(comment[0]);
+                    } else if (score >= 10 && score <= 19) {
+                        $(".score").html(score);
+                        $(".comment_detal").html(comment[1]);
+                    } else if (score >= 20 && score <= 29) {
+                        $(".score").html(score);
+                        $(".comment_detal").html(comment[2]);
+                    } else if (score >= 30 && score <= 39) {
+                        $(".score").html(score);
+                        $(".comment_detal").html(comment[3]);
+                    } else if (score >= 40 && score <= 49) {
+                        $(".score").html(score);
+                        $(".comment_detal").html(comment[4]);
+                    } else if (score >= 50 && score <= 59) {
+                        $(".score").html(score);
+                        $(".comment_detal").html(comment[5]);
+                    } else if (score >= 60 && score <= 69) {
+                        $(".score").html(score);
+                        $(".comment_detal").html(comment[6]);
+                    } else if (score >= 70 && score <= 79) {
+                        $(".score").html(score);
+                        $(".comment_detal").html(comment[7]);
+                    } else if (score >= 80 && score <= 89) {
+                        $(".score").html(score);
+                        $(".comment_detal").html(comment[8]);
+                    } else if (score >= 90 && score <= 100) {
+                        $(".score").html(score);
+                        $(".comment_detal").html(comment[9]);
+                    }
+                }else{
+                    alert("请选完");
+                }
+            });
+            div.appendChild(button);
+
+            var button2 = document.createElement('button');
+            button2.innerHTML = "返回";
+            button2.className="back1";
+            button2.addEventListener("click", function () { //设置事件
+                window.location.href="positiveTest.html";
+            });
+            div.appendChild(button2);
+        }
+    }
+
+//    $(".q_submit").click(function(){
+//        if($("input:checked").size()==question.length) {
+//            for (var i = 0; i < question.length; i++) {
+//                now[n] = $("input[name='q" + (i + 1) + "']:checked").val();
+//                if (now[n] == correct[n]) {
+//                    score += 10;
+//                }
+//                n++;
+//            }
+//            alert(score);
+//            $('.q').css('display', 'none');
+//            $(".q_submit").css('display', 'none');
+//                $('.detail').css('display', 'block');
+//            if (score >= 0 && score <= 9) {
+//                $(".score").html(score);
+//                $(".comment_detal").html(comment[0]);
+//            } else if (score >= 10 && score <= 19) {
+//                $(".score").html(score);
+//                $(".comment_detal").html(comment[1]);
+//            } else if (score >= 20 && score <= 29) {
+//                $(".score").html(score);
+//                $(".comment_detal").html(comment[2]);
+//            } else if (score >= 30 && score <= 39) {
+//                $(".score").html(score);
+//                $(".comment_detal").html(comment[3]);
+//            } else if (score >= 40 && score <= 49) {
+//                $(".score").html(score);
+//                $(".comment_detal").html(comment[4]);
+//            } else if (score >= 50 && score <= 59) {
+//                $(".score").html(score);
+//                $(".comment_detal").html(comment[5]);
+//            } else if (score >= 60 && score <= 69) {
+//                $(".score").html(score);
+//                $(".comment_detal").html(comment[6]);
+//            } else if (score >= 70 && score <= 79) {
+//                $(".score").html(score);
+//                $(".comment_detal").html(comment[7]);
+//            } else if (score >= 80 && score <= 89) {
+//                $(".score").html(score);
+//                $(".comment_detal").html(comment[8]);
+//            } else if (score >= 90 && score <= 100) {
+//                $(".score").html(score);
+//                $(".comment_detal").html(comment[9]);
+//            }
+//        }else{
+//            alert("请选完");
+//        }
+//    });
 
     //上一题
-    $("#botton_pre").click(function(){
-        if($('#title_txt').attr('name')=='10'){
-            $('#botton_next').html("下一题");
-        }
-        if($('#title_txt').attr('name')!="1"){
-            n-=1;
-            if(now[n]==correct[n]){
-                score-=10;
-            }
-            $('#title_txt').attr('name',n);
-            $('#title_txt').html('('+n+'/10)&nbsp;单选题');
-            $('#content_txt').html(question[n-1]);
-            $('.s1').html(choose[n-1][0]);
-            $('.s2').html(choose[n-1][1]);
-            $('.s3').html(choose[n-1][2]);
-//            $('#q'+now[n]).attr('checked','checked');
-            $('#q'+now[n]).prop('checked',true);
-        }
-    });
+//    $("#botton_pre").click(function(){
+//        if($('#title_txt').attr('name')=='10'){
+//            $('#botton_next').html("下一题");
+//        }
+//        if($('#title_txt').attr('name')!="1"){
+//            n-=1;
+//            if(now[n]==correct[n]){
+//                score-=10;
+//            }
+//            $('#title_txt').attr('name',n);
+//            $('#title_txt').html('('+n+'/10)&nbsp;单选题');
+//            $('#content_txt').html(question[n-1]);
+//            $('.s1').html(choose[n-1][0]);
+//            $('.s2').html(choose[n-1][1]);
+//            $('.s3').html(choose[n-1][2]);
+////            $('#q'+now[n]).attr('checked','checked');
+//            $('#q'+now[n]).prop('checked',true);
+//        }
+//    });
 
     //下一题
-    $("#botton_next").click(function(){
-        if($('input:checked').val()==undefined){
-            alert('请选择一项');
-        }else {
-            if ($('#title_txt').attr('name') == "9") {
-                $(this).html("提交");
-            }
-            if ($('#title_txt').attr('name') != "10") {
-                now[n] = $('input:checked').val();
-                if (now[n] == correct[n]) {
-                    score += 10;
-                }
-                n += 1;
-                $('#title_txt').attr('name', n);
-                $('#title_txt').html('(' + n + '/10)&nbsp;单选题');
-                $('#content_txt').html(question[n - 1]);
-                $('.s1').html(choose[n - 1][0]);
-                $('.s2').html(choose[n - 1][1]);
-                $('.s3').html(choose[n - 1][2]);
-            } else {
-                now[n] = $('input:checked').val();
-                if (now[n] == correct[n]) {
-                    score += 10;
-                }
-//                alert(now);
-//                alert(score);
-                $('.div1').css('display', 'none');
-                $('.detail').css('display', 'block');
-                if(score>=0&&score<=9){
-                    $(".score").html(score);
-                    $(".comment_detal").html(comment[0]);
-                }else if(score>=10&&score<=19){
-                    $(".score").html(score);
-                    $(".comment_detal").html(comment[1]);
-                }else if(score>=20&&score<=29){
-                    $(".score").html(score);
-                    $(".comment_detal").html(comment[2]);
-                }else if(score>=30&&score<=39){
-                    $(".score").html(score);
-                    $(".comment_detal").html(comment[3]);
-                }else if(score>=40&&score<=49){
-                    $(".score").html(score);
-                    $(".comment_detal").html(comment[4]);
-                }else if(score>=50&&score<=59){
-                    $(".score").html(score);
-                    $(".comment_detal").html(comment[5]);
-                }else if(score>=60&&score<=69){
-                    $(".score").html(score);
-                    $(".comment_detal").html(comment[6]);
-                }else if(score>=70&&score<=79){
-                    $(".score").html(score);
-                    $(".comment_detal").html(comment[7]);
-                }else if(score>=80&&score<=89){
-                    $(".score").html(score);
-                    $(".comment_detal").html(comment[8]);
-                }else if(score>=90&&score<=100){
-                    $(".score").html(score);
-                    $(".comment_detal").html(comment[9]);
-                }
-
-            }
-            $('input:checked').removeAttr('checked');
-        }});
+//    $("#botton_next").click(function(){
+//        if($('input:checked').val()==undefined){
+//            alert('请选择一项');
+//        }else {
+//            if ($('#title_txt').attr('name') == "9") {
+//                $(this).html("提交");
+//            }
+//            if ($('#title_txt').attr('name') != "10") {
+//                now[n] = $('input:checked').val();
+//                if (now[n] == correct[n]) {
+//                    score += 10;
+//                }
+//                n += 1;
+//                $('#title_txt').attr('name', n);
+//                $('#title_txt').html('(' + n + '/10)&nbsp;单选题');
+//                $('#content_txt').html(question[n - 1]);
+//                $('.s1').html(choose[n - 1][0]);
+//                $('.s2').html(choose[n - 1][1]);
+//                $('.s3').html(choose[n - 1][2]);
+//            } else {
+//                now[n] = $('input:checked').val();
+//                if (now[n] == correct[n]) {
+//                    score += 10;
+//                }
+////                alert(now);
+////                alert(score);
+//                $('.div1').css('display', 'none');
+//                $('.detail').css('display', 'block');
+//                if(score>=0&&score<=9){
+//                    $(".score").html(score);
+//                    $(".comment_detal").html(comment[0]);
+//                }else if(score>=10&&score<=19){
+//                    $(".score").html(score);
+//                    $(".comment_detal").html(comment[1]);
+//                }else if(score>=20&&score<=29){
+//                    $(".score").html(score);
+//                    $(".comment_detal").html(comment[2]);
+//                }else if(score>=30&&score<=39){
+//                    $(".score").html(score);
+//                    $(".comment_detal").html(comment[3]);
+//                }else if(score>=40&&score<=49){
+//                    $(".score").html(score);
+//                    $(".comment_detal").html(comment[4]);
+//                }else if(score>=50&&score<=59){
+//                    $(".score").html(score);
+//                    $(".comment_detal").html(comment[5]);
+//                }else if(score>=60&&score<=69){
+//                    $(".score").html(score);
+//                    $(".comment_detal").html(comment[6]);
+//                }else if(score>=70&&score<=79){
+//                    $(".score").html(score);
+//                    $(".comment_detal").html(comment[7]);
+//                }else if(score>=80&&score<=89){
+//                    $(".score").html(score);
+//                    $(".comment_detal").html(comment[8]);
+//                }else if(score>=90&&score<=100){
+//                    $(".score").html(score);
+//                    $(".comment_detal").html(comment[9]);
+//                }
+//
+//            }
+//            $('input:checked').removeAttr('checked');
+//        }});
     $('.back').click(function(){
        window.location.href="positiveTest.html";
     });
+    var color=getCookie("bgColor");
+        $(".head").css("backgroundColor",color);
+        $(".submit").css("backgroundColor",color);
+        $(".back1").css("backgroundColor",color);
+
 </script>
 </body>
 </html>

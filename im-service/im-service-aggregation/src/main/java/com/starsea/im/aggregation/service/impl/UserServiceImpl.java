@@ -15,6 +15,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -75,7 +76,13 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public int addUser(UserEntity userEntity){
-        return userDao.addUser(userEntity);
+        String teacerName=userEntity.getTeacher();
+        String command=userEntity.getCommand();
+        TeacherRegisterEntity teacherRegisterEntity=userDao.queryTeacher(teacerName,command);
+        if(teacherRegisterEntity!=null){
+            return userDao.addUser(userEntity);
+        }
+        return -1;
     }
 
     @Override
@@ -87,5 +94,35 @@ public class UserServiceImpl implements UserService{
         List<UserEntity> userEntities=userDao.queryChildrenUsers(name);
         return userEntities;
 //        return Lists.transform(userDao.queryChildrenUsers(), UserTransfor.INSTANCE);
+    }
+
+    @Override
+    public int addRegister(TeacherRegisterEntity teacherRegisterEntity) {
+        return userDao.addRegister(teacherRegisterEntity);
+    }
+
+    @Override
+    public List<TeacherRegisterEntity> queryTeacherRegister() {
+        return userDao.queryTeacherRegister();
+    }
+
+    @Override
+    public int deleteTeacherRegister(String[] registerOpenIds) {
+        return userDao.deleteTeacherRegister(registerOpenIds);
+    }
+
+    @Override
+    public int passTeacherRegister(String[] yesTeachers) {
+        List<TeacherRegisterEntity> teacherRegisterEntities=new ArrayList<TeacherRegisterEntity>();
+        for(int i=0;i<yesTeachers.length;i+=5){
+            TeacherRegisterEntity teacherRegisterEntity=new TeacherRegisterEntity();
+            teacherRegisterEntity.setOpenId(yesTeachers[i]);
+            teacherRegisterEntity.setTeacherName(yesTeachers[i + 1]);
+            teacherRegisterEntity.setTeacherSchool(yesTeachers[i + 2]);
+            teacherRegisterEntity.setTeacherCommand(yesTeachers[i + 3]);
+            teacherRegisterEntity.setCreateTime(yesTeachers[i + 4]);
+            teacherRegisterEntities.add(teacherRegisterEntity);
+        }
+        return userDao.passTeacherRegister(teacherRegisterEntities);
     }
 }

@@ -16,7 +16,7 @@ import java.util.Date;
 @ToString
 public class WatchFormDto {
     private String name;
-    private String evaluationPerson;
+    private String teacher;
     private String evaluationTime;
     private int now_score[];
     private String now_comment[];
@@ -37,12 +37,13 @@ public class WatchFormDto {
         this.evaluationTime = evaluationTime;
     }
 
-    public String getEvaluationPerson() {
-        return evaluationPerson;
+
+    public String getTeacher() {
+        return teacher;
     }
 
-    public void setEvaluationPerson(String evaluationPerson) {
-        this.evaluationPerson = evaluationPerson;
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
     }
 
     public int[] getNow_score() {

@@ -1,0 +1,202 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,form,input,legend,button,textarea{margin:0;padding:0; vertical-align: baseline; background: transparent; border: 0; outline: 0; }
+ul,li{ float:left; font-family:"微软雅黑"; color:#6e5b2e;}
+body,button,input,select,textarea{font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;  font-family:"微软雅黑";}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+address,cite,dfn,em,var{font-style:normal;}
+code,kbd,pre,samp{font-family:courier new,courier,monospace;}
+small{font-size:12px;}ul,ol{list-style:none;}
+a{text-decoration:none;}
+a:hover{text-decoration:none;}
+a:visited{ color:#000;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+legend{color:#000;}fieldset,img{border:0;}
+legend{color:#000;}fieldset,img{border:0;}
+table{border-collapse:collapse;border-spacing:0;}
+input[type="checkbox"]{-webkit-appearance:checkbox !important;}
+/*button,input,select,textarea{font-size:100%; visibility:hidden;  -webkit-appearance:none;}*/
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);	
+}
+body{
+	background-color: whitesmoke;
+}
+
+/*调研内容页面*/
+.head{  height:20vw;
+	position: fixed;
+	width: 100%;margin-bottom: 20vw;
+z-index: 99;
+/*border-bottom: 2px solid white;*/
+	box-shadow: 1px 5px 5px #888888;
+}
+.t_pic{ width:20vw; height:20vw; float:left; border-radius:10px; overflow:hidden;}
+.t_pic img{ width:100%; height:auto;}
+.t_tit{ width:70vw; height:10vw; margin-top:5vw; float:right; border-top:1px solid #fff; font-size:4vw; color:#fff; letter-spacing:0.5vw; overflow:hidden;}
+.t_tit p{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.t_con{ width:100%; height:auto; margin:0 auto; overflow:hidden; background:url(/static/image/con_bg.png) right no-repeat; background-size:50% auto;}
+.con_tit{ width:80%; height:15vw; margin:0 10%; color:#fff; position:relative; margin-left:10vw;}
+.con_tit p:nth-of-type(1){ font-size:6vw; line-height:10vw;}
+.con_tit p:nth-of-type(2){ font-size:4vw; line-height:5vw;}
+.con_con{ width:100%; height:auto; margin:0 auto; float:left; position:relative;}
+.con_con ul{ width:80%; height:auto; margin:6vw 10% 0 10%; overflow:hidden; position:relative;}
+/*.con_con ul li{ width:100%; height:13vw; float:left; top:80vw; position:relative; color:#fff; font-size:5vw; line-height:15vw; z-index:9;}*/
+.con_con ul li{ width:100%; height:13vw; float:left;  position:relative; color:#fff; font-size:5vw; line-height:15vw; z-index:9;}
+.con_con ul li p{ margin-left:9vw;}
+.t_btn{ width:90%; height:12vw; float:left; margin:10vw 5% 10vw 5%;}
+.t_btn button{ width:45%; height:12vw; float:left; font-size:4vw; text-align:center; line-height:12vw; border-radius:10px; visibility:visible;}
+.t_btn button:nth-of-type(1){ background:#fcb95a; color:#FFF;}
+.t_btn button:nth-of-type(2){ background:#ebebeb; color:#000; margin-left:10%;}
+
+/*选择按钮*/
+input[type=text]{-webkit-appearance:none;}
+/**
+ * Checkbox Four
+ */
+.checkboxFour {width: 0px;height: 0px;background-color:#fff;border-radius: 100%;position: relative;top:5px;}
+/**
+ * Create the checkbox button
+ */
+.checkboxFour label {display: block;width: 6vw;height: 6vw; -webkit-transition: all .2s ease;-moz-transition: all .2s ease;-o-transition: all .2s ease;-ms-transition: all .2s ease;transition: all .2s ease;
+cursor: pointer; top:3vw; position: absolute;z-index: 1;background:url(/static/image/wxz.png) no-repeat;background-size:6vw auto;}
+/**
+ * Create the checked state
+ */
+.checkboxFour input[type=checkbox]:checked + label {background:url(/static/image/xz.png) no-repeat;background-size:6vw auto;}
+
+
+/*遮罩层*/
+.ts_mask{ width:100%; height:100%; background:rgba(0,0,0,0.8); position:fixed; z-index:99; top:0vw; display:none;}
+.tishi{ width:70%; height:50vw; background:url(/static/image/mxz_ts.png) center no-repeat; float:left; background-size:100% auto; margin:50vw 15%;}
+.qd{ width:50%; height:10vw; margin:30vw 25% 0 25%;}
+
+/*遮罩层2*/
+.ts_mask2{ width:100%; height:100%; background:rgba(0,0,0,0.8); position:fixed; z-index:99; top:0vw; display:none;}
+.tishi2{ width:70%; height:50vw; background:url(/static/image/mxz_ts2.png) center no-repeat; float:left; background-size:100% auto; margin:50vw 15%;}
+.qd2{ width:50%; height:10vw; margin:30vw 25% 0 25%;}
+
+/*遮罩层3*/
+.ts_mask3{ width:100%; height:100%; background:rgba(0,0,0,0.8); position:fixed; z-index:99; top:0vw; display:none;}
+.tishi3{ width:70%; height:50vw; background:url(/static/image/mxz_ts3.png) center no-repeat; float:left; background-size:100% auto; margin:50vw 15%;}
+.qd3{ width:50%; height:10vw; margin:30vw 25% 0 25%;}
+
+
+.detail{
+	width:80%;
+	margin: 5vw auto;
+}
+.title{
+	text-align:center;
+	color: white;
+	font-size: 130%;
+	font-weight: bold;
+}
+.comment_label,.score_label{
+	color:white;
+	font-size: 110%;
+}
+.p1{
+	margin-top: 5vw;
+}
+.comment_label{
+	margin-top: 2vw;
+}
+.score{
+	color: yellow;
+	font-size: 140%;
+	font-weight: bold;
+}
+.comment_detal{
+	line-height: 8vw;
+	padding: 5vw;
+	color: yellow;
+}
+.parentBackground{
+	/*background-color: #DA70D6;*/
+	background-color: lightskyblue;
+}
+.teacherBackground{
+	background-color: lightgreen;
+}
+.q{
+	position: absolute;
+	top:25vw;
+	background: whitesmoke;
+	margin-left: 3vw;
+}
+.div_c p{
+	font-weight: bold;
+}
+.r_l_1{
+	margin-right: 3vw;
+	background-color: white;
+	border-top: 1px solid darkgray ;
+	border-left: 1px solid darkgray  ;
+	border-right: 1px solid darkgray  ;
+	border-bottom: 1px solid whitesmoke;
+	padding: 2vw;
+	margin-top: 3vw;
+}
+.r_l_2{
+	margin-right: 3vw;
+	background-color: white;
+	border-left: 1px solid darkgray  ;
+	border-right: 1px solid darkgray  ;
+	border-bottom: 1px solid whitesmoke;
+	padding: 2vw;
+}
+.r_l_3{
+	margin-right: 3vw;
+	background-color: white;
+	border-left: 1px solid darkgray  ;
+	border-right: 1px solid darkgray  ;
+	border-bottom: 1px solid whitesmoke;
+	padding: 2vw;
+}
+.r_l_4{
+	margin-right: 3vw;
+	background-color: white;
+	border-left: 1px solid darkgray  ;
+	border-right: 1px solid darkgray  ;
+	border-bottom: 1px solid whitesmoke;
+	padding: 2vw;
+}
+.r_l_5{
+	margin-right: 3vw;
+	background-color: white;
+	border-left: 1px solid darkgray  ;
+	border-right: 1px solid darkgray  ;
+	border-bottom: 1px solid darkgray;
+	padding: 2vw;
+	margin-bottom: 10vw;
+}
+.submit{
+	/*margin-right: 3vw;*/
+	font-weight: bold;
+	/*margin: 0 auto;*/
+	/*width: 90%;*/
+	text-align: center;
+	padding: 3vw;
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+}
+.back{
+	/*margin-right: 3vw;*/
+	margin-left: 4vw;
+	font-weight: bold;
+	/*margin: 0 auto;*/
+	/*width: 90%;*/
+	text-align: center;
+	padding: 3vw;
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+}
+label{
+	margin-left: 2vw;
+}
+.radio_c{
+	color:red;
+	background-color: red;
+}

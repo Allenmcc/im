@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <title></title>
+    <script type="text/javascript" src="static/js/jquery-1.11.0.min.js"></script>
+    <link href="static/css/diagnose_style(old).css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="static/js/cookie_openid.js"></script>
+    <script type="text/javascript" src="static/js/util.js"></script>
+    <script type="text/javascript" src="static/js/diagnose(old).js"></script>
+</head>
+
+<body>
+<div class="whole">
+
+    <!--头部信息-->
+    <div class="head">
+        <div class="t_pic">
+            <img src="static/image/head.jpg" />
+        </div>
+        <div class="t_tit">
+            <p>学习诊断</p>
+        </div>
+    </div>
+
+    <!--选择单选题目-->
+    <div class="t_con">
+        <div class="con_tit">
+            <p id="title_txt">(1/18)&nbsp;单选题</p>
+            <p id="content_txt"></p>
+        </div>
+        <div class="con_con">
+            <input type="radio" name="q"  id="q1" value="1" /><label class="label" for="q1">非常不符合</label><br/>
+            <input type="radio" name="q"  id="q2" value="2"/><label class="label" for="q2">比较不符合</label><br/>
+            <input type="radio" name="q"  id="q3" value="3"/><label class="label" for="q3">中立</label><br/>
+            <input type="radio" name="q"  id="q4" value="4"/><label class="label" for="q4">比较符合</label><br/>
+            <input type="radio" name="q"  id="q5" value="5"/><label class="label" for="q5">非常符合</label>
+        </div>
+    </div>
+    <!--上提下题按钮-->
+    <div class="t_btn">
+        <button id="button_pre" type="button">上一题</button>
+        <button id="button_next" type="button">下一题</button>
+    </div>
+</div>
+<div class="ts_mask">
+    <div class="tishi">
+        <div class="qd"></div>
+    </div>
+</div>
+<div class="ts_mask2">
+    <div class="tishi2">
+        <div class="qd2"></div>
+    </div>
+</div>
+</body>
+</html>

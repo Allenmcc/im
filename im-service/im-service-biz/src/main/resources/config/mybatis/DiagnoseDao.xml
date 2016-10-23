@@ -7,17 +7,16 @@
 <mapper namespace="com.starsea.im.biz.dao.DiagnoseDao">
 
     <insert id="addStudyFormByTeacher" parameterType="StudyForm">
-        INSERT INTO test.studyform_teacher(OpenId,NAME, Age, Sex, Class, School, Organization, EvaluationPerson, EvaluationTime,
+        INSERT INTO test.studyform_teacher(OpenId,ChildOpenId,NAME, Teacher, EvaluationTime,
         Question1, Question2, Question3, Question4, Question5, Question6,
         Question7, Question8, Question9, Question10, Question11, Question12,
-        Question13, Question14, Question15, Question16, Question17, Question18)
-        VALUES (#{openId},#{name}, #{age}, #{sex}, #{banji},
-        #{school}, #{organization}, #{evaluationPerson},
+        Question13, Question14, Question15, Question16, Question17, Question18,ScoreYs,ScoreBz)
+        VALUES (#{openId},#{childOpenId},#{name},  #{teacher},
         #{evaluationTime}, #{Question1}, #{Question2},
         #{Question3}, #{Question4}, #{Question5}, #{Question6},
         #{Question7}, #{Question8}, #{Question9}, #{Question10},
         #{Question11}, #{Question12}, #{Question13}, #{Question14},
-        #{Question15}, #{Question16}, #{Question17}, #{Question18});
+        #{Question15}, #{Question16}, #{Question17}, #{Question18},#{scoreYs},#{scoreBz});
     </insert>
 
     <select id="queryStudyFormByTeacher" resultType="StudyForm">
@@ -29,14 +28,17 @@
     </select>
 
 
-    <select id="queryStudyFormByOpenId" resultType="StudyForm">
-        SELECT * FROM test.studyform_teacher where OpenId = #{openId} order by id desc limit 1
+    <select id="queryStudyFormByOpenId" resultType="StudyForm" parameterType="map">
+        SELECT * FROM test.studyform_teacher where OpenId = #{openId} AND ChildOpenId=#{childOpenId} order by id desc limit 1
     </select>
 
     <select id="queryStudyFormAllOpenId" resultType="int">
         SELECT OpenId FROM test.studyform_teacher
     </select>
 
-
+    <select id="queryStudyForm" resultType="StudyForm">
+        select ID,OpenId,ScoreYs from test.studyform_teacher where ID in (select max(ID) from
+        test.studyform_teacher where ChildOpenId='none' group by OpenId);
+    </select>
 
 </mapper>

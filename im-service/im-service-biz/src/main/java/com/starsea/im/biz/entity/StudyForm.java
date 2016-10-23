@@ -8,12 +8,7 @@ import java.util.Date;
 public class StudyForm {
     private Integer id;
     private String name;
-    private Integer age;
-    private String sex;
-    private String banji;
-    private String school;
-    private String organization;
-    private String evaluationPerson;
+    private String teacher;
     private Date evaluationTime;
     private String openId;
     private Integer Question1;
@@ -34,7 +29,34 @@ public class StudyForm {
     private Integer Question16;
     private Integer Question17;
     private Integer Question18;
+    private String scoreYs;
+    private String scoreBz;
+    private String childOpenId;
 
+
+    public String getChildOpenId() {
+        return childOpenId;
+    }
+
+    public void setChildOpenId(String childOpenId) {
+        this.childOpenId = childOpenId;
+    }
+
+    public String getScoreBz() {
+        return scoreBz;
+    }
+
+    public void setScoreBz(String scoreBz) {
+        this.scoreBz = scoreBz;
+    }
+
+    public String getScoreYs() {
+        return scoreYs;
+    }
+
+    public void setScoreYs(String scoreYs) {
+        this.scoreYs = scoreYs;
+    }
 
     public Integer getId() {
 
@@ -53,52 +75,12 @@ public class StudyForm {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getTeacher() {
+        return teacher;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getBanji() {
-        return banji;
-    }
-
-    public void setBanji(String banji) {
-        this.banji = banji;
-    }
-
-    public String getSchool() {
-        return school;
-    }
-
-    public void setSchool(String school) {
-        this.school = school;
-    }
-
-    public String getOrganization() {
-        return organization;
-    }
-
-    public void setOrganization(String organization) {
-        this.organization = organization;
-    }
-
-    public String getEvaluationPerson() {
-        return evaluationPerson;
-    }
-
-    public void setEvaluationPerson(String evaluationPerson) {
-        this.evaluationPerson = evaluationPerson;
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
     }
 
     public Date getEvaluationTime() {

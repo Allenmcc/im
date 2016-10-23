@@ -459,7 +459,7 @@ public class WatchServiceIml implements com.starsea.im.aggregation.service.impl.
 
     public WatchAllChildren queryAllChildrenByOpenIdWeek() {
         WatchAllChildren watchAll=new WatchAllChildren();
-        List<UserEntity> userEntities=userDao.queryAllChildren();//查询该老师的学生
+        List<UserEntity> userEntities=userDao.queryAllChildren();//查询所有的学生
         List<String> childrenOpenid=new ArrayList<String>();//存储所有学生的家长记录时的openid
         if(userEntities.size()==0){
             Date today = new Date();

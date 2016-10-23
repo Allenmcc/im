@@ -1,7 +1,22 @@
 /**
  * Created by Administrator on 2016/9/4.
  */
+
 $(document).ready(function () {
+    var color=getCookie("bgColor");
+    if(color){
+        $("body").css("backgroundColor",color);
+    }else{
+        $("body").css("backgroundColor","lightgreen");
+    }
+    var role=getCookie("role");
+    if(role=="t"){
+        $(".t_pic img").attr("src","static/image/teacher.jpg");
+    }else{
+        window.location.href="sevenChoosefive.html";
+        $(".t_pic img").attr("src","static/image/parent.jpg");
+    }
+
     function jiaodian(){
         for(var i=0;i<point[n].length;i++){
             var button = document.createElement('button');
@@ -9,7 +24,9 @@ $(document).ready(function () {
             div.appendChild(button);
         }
     }
-
+$(".aback").click(function(){
+   window.location.href=document.referrer;
+});
     var title=['沟通','人际能力','守规矩','人格','学习力','情绪'];
     var point=[['如何引导','任性','不听话'],
         ['环境适应','被认可','不愿意打招呼','生存能力','竞争能力','自我保护力'],
@@ -49,6 +66,7 @@ $(document).ready(function () {
             button.className='labelButton';
             button.addEventListener("click", function(){ //设置事件
                 var num=$(this).attr('name');
+
                 $('.reasonPlay p').html(explain[n][num]);
                 $('.labelButton').css('opacity','0.5');
                 $(this).css('opacity','1');
@@ -76,6 +94,7 @@ $(document).ready(function () {
         $('.label').html('');
         var num=$(this).attr('name');
         n=num-1;
+        $('h2').html(title[n]);
         jiaodian();
         // $('a').removeClass('select');
         // $(this).addClass('select');

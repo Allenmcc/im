@@ -16,21 +16,15 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-   <!-- <link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600&subset=latin,latin-ext' rel='stylesheet'>
--->
+
     <script language="javascript" type="text/javascript" src="/static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="/static/js/move.js"></script>
     <script type="text/javascript" src="static/js/modernizr.min.js"></script>
     <script type='text/javascript' src="static/js/jquery.min.js"></script>
-    <!-- <script type='text/javascript' src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js"></script> -->
     <script type='text/javascript' src="static/js/bootstrap-slider.min.js"></script>
-    <!--<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
-
     <link href="static/css/mrgc_style.css" rel="stylesheet" type="text/css"/>
-    <!--<link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600&subset=latin,latin-ext' rel='stylesheet'>-->
     <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="static/css/default.css">
-    <!-- <link href="http://libs.useso.com/js/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
     <link href="static/css/bootstrap-slider.min.css" rel="stylesheet">
     <script type="text/javascript" src="static/js/cookie_openid.js"></script>
@@ -85,6 +79,8 @@
     <!--首页提交按钮-->
     <div class="tail">
         <button class="button_submit">提交</button>
+        <button class="button_c" style="display: none">更换重点</button>
+        <button class="button_s">返回</button>
     </div>
 
 
@@ -799,6 +795,36 @@
 </div>
 
 <script>
+//setCookie("role","p",1);
+//setCookie("childOpenid","o45t9wZx7eQo5VIB4nTY_76TCW4w",1);
+var color=getCookie("bgColor");
+//if(color){
+    $("body").css("backgroundColor",color);
+    $(".c1").css("backgroundColor",color);
+    $(".c2").css("backgroundColor",color);
+    $(".c3").css("backgroundColor",color);
+    $(".c4").css("backgroundColor",color);
+    $(".c5").css("backgroundColor",color);
+    $(".c6").css("backgroundColor",color);
+    $(".c7").css("backgroundColor",color);
+    $(".custom").css("backgroundColor",color);
+//}else{
+//    $("body").css("backgroundColor","lightgreen");
+//    $(".c1").css("backgroundColor","lightgreen");
+//    $(".c2").css("backgroundColor","lightgreen");
+//    $(".c3").css("backgroundColor","lightgreen");
+//    $(".c4").css("backgroundColor","lightgreen");
+//    $(".c5").css("backgroundColor","lightgreen");
+//    $(".c6").css("backgroundColor","lightgreen");
+//    $(".c7").css("backgroundColor","lightgreen");
+//    $(".custom").css("backgroundColor","lightgreen");
+//}
+    var role=getCookie("role");
+    if(role=="t"){
+        $(".t_pic img").attr("src","static/image/teacher.jpg");
+    }else{
+        $(".t_pic img").attr("src","static/image/parent.jpg");
+    }
     //以下是变量设定
     var one_click = 1;//确保只提交一次
     var qs_id = 1;//记录题号
@@ -814,7 +840,7 @@
 
     var now_score = new Array();//用于记录学生的成绩
     var now_comment = new Array();//用于记录学生特别情况
-    var child={openid:"",name:"",evaluationPerson:"",age:"",sex:"",myClass:"",school:"",organization:"",enerySelect:""};//用于获取历史信息要查询的值  和提交
+    var child={openid:"",name:"",myClass:"",school:"",teacher:"",organization:"",enerySelect:""};//用于获取历史信息要查询的值  和提交
 
 
     var bigtitle;//存放自定义的大标题
@@ -823,6 +849,10 @@
     var commont="";//备注
 
     var play=0;//用于判定 自定义能量圈是否显示  0显示  1不显示
+
+    $(".button_s").click(function(){
+       window.location.href="common_fourPoint.html";
+    });
 
     function getNowFormatDate() {//获取当前时间,yyyy-MM-dd
         var date = new Date();
@@ -854,19 +884,25 @@
                         child.enerySelect=data['msg']['msg']['enerySelect'];
                         bigtitle=data['msg']['msg']['title'];
                         commont=data['msg']['msg']['commont'];
-                        if(data['msg']['msg']['customResult'].length==0){
-                            play=1;
-                        }else{
-                            label=data['msg']['msg']['customResult'].split(',');
-                        }
-                        if(data['msg']['msg']['score']!=null) {
-                            score=data['msg']['msg']['score'].split(',');
-                            for(var i=0;i<score.length;i++){
-                                score[i]=parseInt(score[i]);
+                        if(child.enerySelect.length==5){
+//                            alert("没有自定义，选了5个");
+                            play = 1;
+                        }else {//有自定义的
+                            if (data['msg']['msg']['customResult'].length == 0||data['msg']['msg']['customResult']=='none') {
+                                play = 1;
+//                                alert("自定义无内容匹配");
+                            } else {
+                                label = data['msg']['msg']['customResult'].split(',');
                             }
-                        }else{
-                            score=[5,5,5,5,5,5,5,5];
-                            commont="";
+                            if (data['msg']['msg']['score'] != null) {
+                                score = data['msg']['msg']['score'].split(',');
+                                for (var i = 0; i < score.length; i++) {
+                                    score[i] = parseInt(score[i]);
+                                }
+                            } else {
+                                score = [5, 5, 5, 5, 5, 5, 5, 5];
+                                commont = "";
+                            }
                         }
                     }
                     else{
@@ -894,19 +930,25 @@
                         child.enerySelect=data['msg']['msg']['enerySelect'];
                         bigtitle=data['msg']['msg']['title'];
                         commont=data['msg']['msg']['commont'];
-                        if(data['msg']['msg']['customResult'].length==0){
-                            play=1;
-                        }else{
-                            label=data['msg']['msg']['customResult'].split(',');
-                        }
-                        if(data['msg']['msg']['score']!=null) {
-                            score=data['msg']['msg']['score'].split(',');
-                            for(var i=0;i<score.length;i++){
-                                score[i]=parseInt(score[i]);
+                        if(child.enerySelect.length==5){
+                            alert("没有自定义，选了5个");
+                            play = 1;
+                        }else {//有自定义的
+                            if (data['msg']['msg']['customResult'].length == 0||data['msg']['msg']['customResult']=='none') {
+                                play = 1;
+                                alert("自定义无内容匹配");
+                            } else {
+                                label = data['msg']['msg']['customResult'].split(',');
                             }
-                        }else{
-                            score=[5,5,5,5,5,5,5,5];
-                            commont="";
+                            if (data['msg']['msg']['score'] != null) {
+                                score = data['msg']['msg']['score'].split(',');
+                                for (var i = 0; i < score.length; i++) {
+                                    score[i] = parseInt(score[i]);
+                                }
+                            } else {
+                                score = [5, 5, 5, 5, 5, 5, 5, 5];
+                                commont = "";
+                            }
                         }
                     }else{
                         play=1;
@@ -917,6 +959,14 @@
     }
 
     $(document).ready(function () {
+//        setCookie("openid","o45t9wZx7eQo5VIB4nTY_76TCW4w",30);
+//        setCookie("role","p",10000);
+        if(getCookie("sevenCF")=="A"){
+            $(".button_c").css('display','block');
+        }
+        $(".button_c").click(function(){
+            window.location.href="changePoint.html";
+        });
         //setCookie("openid","o45t9wZx7eQo5VIB4nTY_76TCW4w",20);
         $(".ts_mask").fadeIn(1000);//等待获取上次数据
         $(".qd").click(function () {
@@ -930,6 +980,7 @@
             sevenChosefive_teacher();
         }
 //        alert(child.enerySelect);
+//        alert(child.openid);
         $.ajax({
             type: "GET",
             url: "../starsea/watch/getWatchFormByOpenId",
@@ -986,13 +1037,29 @@
         }
 
         //初始化首页的七个维度
-        if(flag[0]==1){$(".button_c1").css('opacity','1');}
-        if(flag[1]==1){$(".button_c2").css('opacity','1');}
-        if(flag[2]==1){$(".button_c3").css('opacity','1');}
-        if(flag[3]==1){$(".button_c4").css('opacity','1');}
-        if(flag[4]==1){$(".button_c5").css('opacity','1');}
-        if(flag[5]==1){$(".button_c6").css('opacity','1');}
-        if(flag[6]==1){$(".button_c7").css('opacity','1');}
+        if(flag[0]==1){
+            $(".button_c1").css('opacity','1');
+        }else{
+            $(".button_c1").css('display','none');
+        }
+        if(flag[1]==1){$(".button_c2").css('opacity','1');}else{
+            $(".button_c2").css('display','none');
+        }
+        if(flag[2]==1){$(".button_c3").css('opacity','1');}else{
+            $(".button_c3").css('display','none');
+        }
+        if(flag[3]==1){$(".button_c4").css('opacity','1');}else{
+            $(".button_c4").css('display','none');
+        }
+        if(flag[4]==1){$(".button_c5").css('opacity','1');}else{
+            $(".button_c5").css('display','none');
+        }
+        if(flag[5]==1){$(".button_c6").css('opacity','1');}else{
+            $(".button_c6").css('display','none');
+        }
+        if(flag[6]==1){$(".button_c7").css('opacity','1');}else{
+            $(".button_c7").css('display','none');
+        }
 
         //选中维度之后点击查看详细题目
         $(".button_detail").click(function () {
@@ -1304,7 +1371,7 @@
                 data: {
                     openId:child.openid,
                     name: child.name,
-                    evaluationPerson:child.evaluationPerson,
+                    teacher:child.teacher,
                     evaluationTime: getNowFormatDate(),
                     now_score: now_score,
                     now_comment: now_comment

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="static/css/changePoint.css" rel="stylesheet" type="text/css"/>
+    <script language="javascript" type="text/javascript" src="/static/js/jquery-1.11.0.min.js"></script>
+    <script src="static/js/cookie_openid.js"></script>
+    <script src="static/js/util.js"></script>
+    <script src="static/js/changePoint.js"></script>
+</head>
+<body>
+<div class="head">
+    <div class="t_pic">
+        <img src="static/image/parent.jpg"/>
+    </div>
+    <div class="t_tit">
+        <p>更换重点</p>
+    </div>
+</div>
+<div class="chose">
+    <button class="sChose">自主选择</button>
+    <button class="self">自定义</button>
+</div>
+    <div class="div_1" style="display: none">
+        <div class="select">
+            <p>已选择的<br>五大重点</p>
+            <button class="buttonSelect b1" click="1">
+                <img/>
+                <p></p>
+            </button>
+            <button class="buttonSelect b2" click="1">
+                <img/>
+                <p></p>
+            </button><br>
+            <button class="buttonSelect b3" click="1">
+                <img/>
+                <p></p>
+            </button>
+            <button class="buttonSelect b4" click="1">
+                <img/>
+                <p></p>
+            </button><br>
+            <button class="buttonSelect b5" click="1">
+                <img/>
+                <p></p>
+            </button>
+        </div>
+        <div class="noselect">
+            <p>未选择的<br>重点</p>
+            <button class="nobuttonSelect nb1" click="0">
+                <img/>
+                <p></p>
+            </button><br>
+            <button class="nobuttonSelect nb2" click="0">
+                <img/>
+                <p></p>
+            </button>
+        </div>
+        <button class="submit">提交</button>
+        <button class="back" onclick="window.location.href='changePoint.html'">返回</button>
+    </div>
+<div class="div_2" style="display: none">
+    <div class="select_2">
+        <p>请选出一个不需要的重点</p>
+        <button class="buttonSelect_2 b1_2" click="0">
+            <img/>
+            <p></p>
+        </button>
+        <button class="buttonSelect_2 b2_2" click="0">
+            <img/>
+            <p></p>
+        </button>
+        <button class="buttonSelect_2 b3_2" click="0">
+            <img/>
+            <p></p>
+        </button>
+        <button class="buttonSelect_2 b4_2" click="0">
+            <img/>
+            <p></p>
+        </button>
+        <button class="buttonSelect_2 b5_2" click="0">
+            <img/>
+            <p></p>
+        </button>
+    </div>
+    <button class="submit_2">确定</button>
+    <button class="back_2" onclick="window.location.href='changePoint.html'" >返回</button>
+</div>
+</body>
+</html>

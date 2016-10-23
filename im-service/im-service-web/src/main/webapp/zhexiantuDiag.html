@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<script src="static/js/jquery-1.11.0.min.js"></script>
+	<script src="static/js/highcharts.js"></script>
+	<script src="static/js/highcharts-more.js"></script>
+	<script type="text/javascript" src="static/js/cookie_openid.js"></script>
+	<!--<link href="static/css/zhexiantu.css" rel="stylesheet" type="text/css"/>-->
+	<style type="text/css">
+		button{width:50%; height:12vw; float:left; font-size:4vw; text-align:center;
+			line-height:12vw; border-radius:10px; visibility:visible; margin-left: 25%;background:#fcb95a;color: white;padding-bottom: 5vw; }
+		*{margin:0;padding:0;}
+	</style>
+</head>
+
+
+<body>
+
+<div class="whole">
+			<div id="container" style="min-width:70%;height:120vw;margin-top: 5vw;"></div>
+		<div class="tail">
+			<button class="button_back" id="button_back3">返回</button>
+		</div>
+	</div>
+
+
+	<!--提示遮罩层1,正在获取数据-->
+	<div class="ts_mask">
+		<div class="tishi">
+			<div class="qd"></div>
+		</div>
+	</div>
+
+
+</div>
+
+</body>
+</html>
+
+
+<script>
+	$(document).ready(function() {
+		var category = ['分心抑制', '要点抓取', '信息加工', '焦虑对应'];
+		var scoreYs = new Array();
+		var scoreBz = new Array();
+		var openid = getCookie("openid");
+		var childOpenid = getCookie("childOpenid");
+		if (childOpenid == false) {
+			childOpenid = "none";
+		}
+		$.ajax({
+			type: "GET",
+			url: "/starsea/diagnose/getStudyFormByOpenId",
+			data: {
+				openId: openid,
+				childOpenId: childOpenid
+			},
+			dataType: "json",
+			async: false,
+			success: function (data) { //成功的处理函数
+				if (data['msg']['msg']['scoreYs'] != null) {
+					scoreYs = data['msg']['msg']['scoreYs'].split(",");
+					scoreBz = data['msg']['msg']['scoreBz'].split(",");
+					for (var i = 0; i < 4; i++) {
+						scoreYs[i] = parseInt(scoreYs[i]);
+						scoreBz[i] = parseInt(scoreBz[i]);
+					}
+					$(".ts_mask").fadeOut(1000);
+				}
+			}
+		});
+		$('.button_back').click(function () {
+			window.location.href = "picture.html";
+		});
+		var chart = new Highcharts.Chart({
+			chart: {
+				margin:10,
+				renderTo: container,
+				polar: true,
+				type: 'line'
+			},
+			credits: {
+				enabled: false   //右下角不显示LOGO
+			},
+			title: {
+				text: '学习策略诊断',
+				x: 10
+			},
+			pane: {
+				size: '60%'
+			},
+			xAxis: {
+				categories: ['分心抑制', '要点<br>抓取', '信息加工', '焦虑<br>对应'],
+				tickmarkPlacement: 'on',
+				lineWidth: 0
+			},
+			yAxis: {
+				gridLineInterpolation: 'polygon',
+				lineWidth: 0,
+				min: 0
+			},
+			tooltip: {
+				shared: true,
+				pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+			},
+			legend: {
+				align: 'right',
+				verticalAlign: 'top',
+				y: 70,
+				layout: 'vertical'
+			},
+			series: [{
+				name: '原始分',
+				data: [scoreYs[0], scoreYs[1], scoreYs[2], scoreYs[3]],
+				pointPlacement: 'on'
+			}, {
+				name: '标准分',
+				data: [scoreBz[0], scoreBz[1], scoreBz[2], scoreBz[3]],
+				pointPlacement: 'on'
+			}]
+		});
+	});
+
+
+</script>

@@ -13,11 +13,6 @@
 	<script type="text/javascript" src="static/js/cookie_openid.js"></script>
 	<script type="text/javascript" src="static/js/watchFormZhexian.js"></script>
 	<link href="static/css/zhexiantu.css" rel="stylesheet" type="text/css"/>
-	<style type="text/css">
-		body{
-			background-color: #f05150;
-		}
-	</style>
 </head>
 
 
@@ -29,7 +24,7 @@
 	<!--首页头部信息-->
 	<div class="head">
 		<div class="t_pic">
-			<img src="static/image/head.jpg"/>
+			<img src="static/image/teacher.jpg"/>
 		</div>
 		<div class="t_tit">
 			<p>请选择不同时间维度的图表分析</p>
@@ -90,260 +85,273 @@
 <script>
 	var category=['自主力','专注力','意志力','情绪','人际'];//存放用户选中的五大重点
 	//图表的主题
-	Highcharts.theme = {
-		colors: ["#DDDF0D", "#7798BF", "#55BF3B", "#DF5353", "#aaeeee", "#ff0066", "#eeaaee",
-			"#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
-		credits: {
-						enabled: false   //右下角不显示LOGO
-					},
-		chart: {
-			backgroundColor: {
-				linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-				stops: [
-					[0, 'rgb(96, 96, 96)'],
-					[1, 'rgb(16, 16, 16)']
-				]
-			},
-			borderWidth: 0,
-			borderRadius: 0,
-			plotBackgroundColor: null,
-			plotShadow: false,
-			plotBorderWidth: 0
-		},
-		title: {
-			style: {
-				color: '#FFF',
-				font: '4vw Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
-			}
-		},
-		subtitle: {
-			style: {
-				color: '#DDD',
-				font: '1.5vw Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
-			}
-		},
-		xAxis: {
-			gridLineWidth: 0,
-			lineColor: '#999',
-			tickColor: '#999',
-			labels: {
-				style: {
-					color: '#999',
-					fontWeight: 'bold'
-				}
-			},
-			title: {
-				style: {
-					color: '#AAA',
-					font: 'bold 5vw Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
-				}
-			}
-		},
-		yAxis: {
-			alternateGridColor: null,
-			minorTickInterval: null,
-			gridLineColor: 'rgba(255, 255, 255, .1)',
-			minorGridLineColor: 'rgba(255,255,255,0.07)',
-			lineWidth: 0,
-			tickWidth: 0,
-			labels: {
-				style: {
-					color: '#999',
-					fontWeight: 'bold'
-				}
-			},
-			title: {
-				style: {
-					color: '#AAA',
-					font: 'bold 12px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
-				}
-			}
-		},
-		legend: {
-			itemStyle: {
-				color: '#CCC'
-			},
-			itemHoverStyle: {
-				color: '#FFF'
-			},
-			itemHiddenStyle: {
-				color: '#333'
-			}
-		},
-		labels: {
-			style: {
-				color: '#CCC'
-			}
-		},
-		tooltip: {
-			backgroundColor: {
-				linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-				stops: [
-					[0, 'rgba(96, 96, 96, .8)'],
-					[1, 'rgba(16, 16, 16, .8)']
-				]
-			},
-			borderWidth: 0,
-			style: {
-				color: '#FFF'
-			}
-		},
-		plotOptions: {
-			series: {
-				nullColor: '#444444'
-			},
-			line: {
-				dataLabels: {
-					color: '#CCC'
-				},
-				marker: {
-					lineColor: '#333'
-				}
-			},
-			spline: {
-				marker: {
-					lineColor: '#333'
-				}
-			},
-			scatter: {
-				marker: {
-					lineColor: '#333'
-				}
-			},
-			candlestick: {
-				lineColor: 'white'
-			}
-		},
-		toolbar: {
-			itemStyle: {
-				color: '#CCC'
-			}
-		},
-		navigation: {
-			buttonOptions: {
-				symbolStroke: '#DDDDDD',
-				hoverSymbolStroke: '#FFFFFF',
-				theme: {
-					fill: {
-						linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-						stops: [
-							[0.4, '#606060'],
-							[0.6, '#333333']
-						]
-					},
-					stroke: '#000000'
-				}
-			}
-		},
-		// scroll charts
-		rangeSelector: {
-			buttonTheme: {
-				fill: {
-					linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-					stops: [
-						[0.4, '#888'],
-						[0.6, '#555']
-					]
-				},
-				stroke: '#000000',
-				style: {
-					color: '#CCC',
-					fontWeight: 'bold'
-				},
-				states: {
-					hover: {
-						fill: {
-							linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-							stops: [
-								[0.4, '#BBB'],
-								[0.6, '#888']
-							]
-						},
-						stroke: '#000000',
-						style: {
-							color: 'white'
-						}
-					},
-					select: {
-						fill: {
-							linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-							stops: [
-								[0.1, '#000'],
-								[0.3, '#333']
-							]
-						},
-						stroke: '#000000',
-						style: {
-							color: 'yellow'
-						}
-					}
-				}
-			},
-			inputStyle: {
-				backgroundColor: '#333',
-				color: 'silver'
-			},
-			labelStyle: {
-				color: 'silver'
-			}
-		},
-		navigator: {
-			handles: {
-				backgroundColor: '#666',
-				borderColor: '#AAA'
-			},
-			outlineColor: '#CCC',
-			maskFill: 'rgba(16, 16, 16, 0.5)',
-			series: {
-				color: '#7798BF',
-				lineColor: '#A6C7ED'
-			}
-		},
-		scrollbar: {
-			barBackgroundColor: {
-				linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-				stops: [
-					[0.4, '#888'],
-					[0.6, '#555']
-				]
-			},
-			barBorderColor: '#CCC',
-			buttonArrowColor: '#CCC',
-			buttonBackgroundColor: {
-				linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-				stops: [
-					[0.4, '#888'],
-					[0.6, '#555']
-				]
-			},
-			buttonBorderColor: '#CCC',
-			rifleColor: '#FFF',
-			trackBackgroundColor: {
-				linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-				stops: [
-					[0, '#000'],
-					[1, '#333']
-				]
-			},
-			trackBorderColor: '#666'
-		},
-		// special colors for some of the demo examples
-		legendBackgroundColor: 'rgba(48, 48, 48, 0.8)',
-		background2: 'rgb(70, 70, 70)',
-		dataLabelsColor: '#444',
-		textColor: '#E0E0E0',
-		maskColor: 'rgba(255,255,255,0.3)'
-	};
-	// Apply the theme
-	var highchartsOptions = Highcharts.setOptions(Highcharts.theme);
+//	Highcharts.theme = {
+//		colors: ["#DDDF0D", "#7798BF", "#55BF3B", "#DF5353", "#aaeeee", "#ff0066", "#eeaaee",
+//			"#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+//		credits: {
+//						enabled: false   //右下角不显示LOGO
+//					},
+//		chart: {
+//			backgroundColor: {
+//				linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//				stops: [
+//					[0, 'rgb(96, 96, 96)'],
+//					[1, 'rgb(16, 16, 16)']
+//				]
+//			},
+//			borderWidth: 0,
+//			borderRadius: 0,
+//			plotBackgroundColor: null,
+//			plotShadow: false,
+//			plotBorderWidth: 0
+//		},
+//		title: {
+//			style: {
+//				color: '#FFF',
+//				font: '4vw Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+//			}
+//		},
+//		subtitle: {
+//			style: {
+//				color: '#DDD',
+//				font: '1.5vw Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+//			}
+//		},
+//		xAxis: {
+//			gridLineWidth: 0,
+//			lineColor: '#999',
+//			tickColor: '#999',
+//			labels: {
+//				style: {
+//					color: '#999',
+//					fontWeight: 'bold'
+//				}
+//			},
+//			title: {
+//				style: {
+//					color: '#AAA',
+//					font: 'bold 5vw Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+//				}
+//			}
+//		},
+//		yAxis: {
+//			alternateGridColor: null,
+//			minorTickInterval: null,
+//			gridLineColor: 'rgba(255, 255, 255, .1)',
+//			minorGridLineColor: 'rgba(255,255,255,0.07)',
+//			lineWidth: 0,
+//			tickWidth: 0,
+//			labels: {
+//				style: {
+//					color: '#999',
+//					fontWeight: 'bold'
+//				}
+//			},
+//			title: {
+//				style: {
+//					color: '#AAA',
+//					font: 'bold 12px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+//				}
+//			}
+//		},
+//		legend: {
+//			itemStyle: {
+//				color: '#CCC'
+//			},
+//			itemHoverStyle: {
+//				color: '#FFF'
+//			},
+//			itemHiddenStyle: {
+//				color: '#333'
+//			}
+//		},
+//		labels: {
+//			style: {
+//				color: '#CCC'
+//			}
+//		},
+//		tooltip: {
+//			backgroundColor: {
+//				linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//				stops: [
+//					[0, 'rgba(96, 96, 96, .8)'],
+//					[1, 'rgba(16, 16, 16, .8)']
+//				]
+//			},
+//			borderWidth: 0,
+//			style: {
+//				color: '#FFF'
+//			}
+//		},
+//		plotOptions: {
+//			series: {
+//				nullColor: '#444444'
+//			},
+//			line: {
+//				dataLabels: {
+//					color: '#CCC'
+//				},
+//				marker: {
+//					lineColor: '#333'
+//				}
+//			},
+//			spline: {
+//				marker: {
+//					lineColor: '#333'
+//				}
+//			},
+//			scatter: {
+//				marker: {
+//					lineColor: '#333'
+//				}
+//			},
+//			candlestick: {
+//				lineColor: 'white'
+//			}
+//		},
+//		toolbar: {
+//			itemStyle: {
+//				color: '#CCC'
+//			}
+//		},
+//		navigation: {
+//			buttonOptions: {
+//				symbolStroke: '#DDDDDD',
+//				hoverSymbolStroke: '#FFFFFF',
+//				theme: {
+//					fill: {
+//						linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//						stops: [
+//							[0.4, '#606060'],
+//							[0.6, '#333333']
+//						]
+//					},
+//					stroke: '#000000'
+//				}
+//			}
+//		},
+//		// scroll charts
+//		rangeSelector: {
+//			buttonTheme: {
+//				fill: {
+//					linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//					stops: [
+//						[0.4, '#888'],
+//						[0.6, '#555']
+//					]
+//				},
+//				stroke: '#000000',
+//				style: {
+//					color: '#CCC',
+//					fontWeight: 'bold'
+//				},
+//				states: {
+//					hover: {
+//						fill: {
+//							linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//							stops: [
+//								[0.4, '#BBB'],
+//								[0.6, '#888']
+//							]
+//						},
+//						stroke: '#000000',
+//						style: {
+//							color: 'white'
+//						}
+//					},
+//					select: {
+//						fill: {
+//							linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//							stops: [
+//								[0.1, '#000'],
+//								[0.3, '#333']
+//							]
+//						},
+//						stroke: '#000000',
+//						style: {
+//							color: 'yellow'
+//						}
+//					}
+//				}
+//			},
+//			inputStyle: {
+//				backgroundColor: '#333',
+//				color: 'silver'
+//			},
+//			labelStyle: {
+//				color: 'silver'
+//			}
+//		},
+//		navigator: {
+//			handles: {
+//				backgroundColor: '#666',
+//				borderColor: '#AAA'
+//			},
+//			outlineColor: '#CCC',
+//			maskFill: 'rgba(16, 16, 16, 0.5)',
+//			series: {
+//				color: '#7798BF',
+//				lineColor: '#A6C7ED'
+//			}
+//		},
+//		scrollbar: {
+//			barBackgroundColor: {
+//				linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//				stops: [
+//					[0.4, '#888'],
+//					[0.6, '#555']
+//				]
+//			},
+//			barBorderColor: '#CCC',
+//			buttonArrowColor: '#CCC',
+//			buttonBackgroundColor: {
+//				linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//				stops: [
+//					[0.4, '#888'],
+//					[0.6, '#555']
+//				]
+//			},
+//			buttonBorderColor: '#CCC',
+//			rifleColor: '#FFF',
+//			trackBackgroundColor: {
+//				linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//				stops: [
+//					[0, '#000'],
+//					[1, '#333']
+//				]
+//			},
+//			trackBorderColor: '#666'
+//		},
+//		// special colors for some of the demo examples
+//		legendBackgroundColor: 'rgba(48, 48, 48, 0.8)',
+//		background2: 'rgb(70, 70, 70)',
+//		dataLabelsColor: '#444',
+//		textColor: '#E0E0E0',
+//		maskColor: 'rgba(255,255,255,0.3)'
+//	};
+//	// Apply the theme
+//	var highchartsOptions = Highcharts.setOptions(Highcharts.theme);
+	var color=getCookie("bgColor");
+		$("body").css("backgroundColor",color);
 
+	var role=getCookie("role");
+	if(role=="t"){
+		$(".t_pic img").attr("src","static/image/teacher.jpg");
+	}else{
+		$(".t_pic img").attr("src","static/image/parent.jpg");
+	}
 	$(document).ready(function () {
 		$('#back').click(function(){
 			window.location.href="picture.html";
 		});
 		//月份分析
 		$("#button_method2").click(function () {
-				month();
+//			if(role=="t"){
+				$("body").css("backgroundColor","white");
+//			}else{
+//				$("body").removeClass("parentBackground");
+//			}
+			month();
 //				var monthData=new Array();//存放月份分析的数据
 //				for(var i=0;i<10;i++){
 //				monthData[i]=new Array();
@@ -370,7 +378,9 @@
 
 			//月份折线图
 			$('#line2').highcharts({
-				chart: { type: 'line'},
+				chart: { type: 'line'},credits: {
+					enabled: false   //右下角不显示LOGO
+				},
 				title: { text: '一月五大成长重点分析', y:10},
 	//			subtitle: {text: 'Source: Teacher and Parents'},
 				xAxis: {
@@ -420,12 +430,21 @@
 			$(".method").css('display','none');
 		});
 		$("#button_back2").click(function () {
+			var color=getCookie("bgColor");
+
+				$("body").css("backgroundColor",color);
+
 			$(".month").css('display','none');
 			$(".head").css('display','block');
 			$(".method").css('display','block');
 		});
 		//一周分析
 		$("#button_method3").click(function () {
+//			if(role=="t"){
+				$("body").css("backgroundColor","white");
+//			}else{
+//				$("body").css("backgroundColor","white");
+//			}
 			week();
 			for(var i=0;i<7;i++){
 				for(var j=0;j<5;j++){
@@ -433,7 +452,9 @@
 				}
 			}
 			$('#line3').highcharts({
-				chart: { type: 'line'},
+				chart: { type: 'line'},credits: {
+					enabled: false   //右下角不显示LOGO
+				},
 				title: { text: '一周五大成长重点分析', y:10},
 //			subtitle: {text: 'Source: Teacher and Parents'},
 				xAxis: {
@@ -470,6 +491,10 @@
 			$(".method").css('display','none');
 		});
 		$("#button_back3").click(function () {
+			var color=getCookie("bgColor");
+
+				$("body").css("backgroundColor",color);
+
 			$(".week").css('display','none');
 			$(".head").css('display','block');
 			$(".method").css('display','block');

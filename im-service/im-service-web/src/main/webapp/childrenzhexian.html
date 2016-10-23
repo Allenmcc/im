@@ -7,17 +7,11 @@
     <script type="text/javascript" src="static/js/cookie_openid.js"></script>
     <script type="text/javascript" src="static/js/childrenzhexian.js"></script>
     <link href="static/css/childrenzhexian.css" rel="stylesheet" type="text/css"/>
-    <style type="text/css">
-        body{
-            background-color: #f05150;
-        }
-    </style>
 </head>
 
 
 <body>
-<!--<div id="line" style="min-width:100vw;height:60vw;margin-top: 10vw;"></div>-->
-<!--<div id="rabar" style="min-width: 100vw;height: 60vw;margin-top: 10vw"></div>-->
+
 
 <div class="whole">
     <!--首页头部信息-->
@@ -26,41 +20,25 @@
     <!--首页时间维度选择-->
     <div class="method">
         <!--<button id="button_method1">年度分析</button>-->
-        <button id="button_method1" style="opacity: 1" flag="1">一周分析</button>
-        <button id="button_method2" flag="0">一月分析</button>
+        <button id="button_method1" class="top" style="opacity: 1" flag="1">一周分析</button>
+        <button id="button_method2" class="top" flag="0">一月分析</button>
     </div>
 
 
     <!--一周分析-->
     <div class="week">
         <div class="con">
-            <!--<div id="rabar3" style="min-width: 100vw;height: 60vw;margin-top: 5vw;"></div>-->
             <div class="line" id="line1" style="display:block;min-width:100%;height:95vw;margin-top: 5vw;"></div>
-            <!--<div class="line" id="line2" style="min-width:100vw;height:60vw;margin-top: 5vw;"></div>-->
-            <!--<div class="line" id="line3" style="min-width:100vw;height:60vw;margin-top: 5vw;"></div>-->
-            <!--<div class="line" id="line4" style="min-width:100vw;height:60vw;margin-top: 5vw;"></div>-->
-            <!--<div class="line" id="line5" style="min-width:100vw;height:60vw;margin-top: 5vw;"></div>-->
+
         </div>
     </div>
 
-    <!--一月分析-->
-    <!--<div class="month1">-->
-        <!--<div class="con">-->
-            <!--<div class="line" id="line6" style="min-width:100vw;height:60vw;margin-top: 5vw;"></div>-->
-            <!--<div class="line" id="line7" style="min-width:100vw;height:60vw;margin-top: 5vw;"></div>-->
-            <!--<div class="line" id="line8" style="min-width:100vw;height:60vw;margin-top: 5vw;"></div>-->
-            <!--<div class="line" id="line9" style="min-width:100vw;height:60vw;margin-top: 5vw;"></div>-->
-            <!--<div class="line" id="line10" style="min-width:100vw;height:60vw;margin-top: 5vw;"></div>-->
-            <!--&lt;!&ndash;<div id="rabar2" style="min-width: 100vw;height: 60vw;margin-top: 5vw;"></div>&ndash;&gt;-->
-        <!--</div>-->
-    <!--</div>-->
-
     <div class="tail">
-        <button id="c1" style="opacity: 1" class="a">自主力</button>
-        <button id="c2">专注力</button>
-        <button id="c3">意志力</button>
-        <button id="c4">情绪力</button>
-        <button id="c5">人际力</button>
+        <button id="c1" style="opacity: 1" class="a bu">自主力</button>
+        <button id="c2" class="bu">专注力</button>
+        <button id="c3" class="bu">意志力</button>
+        <button id="c4" class="bu">情绪力</button>
+        <button id="c5" class="bu">人际力</button>
         <button id="c6">返回</button>
     </div>
 
@@ -83,250 +61,250 @@
     var data=[];//动态添加折线图数据
     var title="";//折线图标题
     //图表的主题
-    Highcharts.theme = {
-        colors: ["#DDDF0D", "#7798BF", "#55BF3B", "#DF5353", "#aaeeee", "#ff0066", "#eeaaee",
-            "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
-        credits: {
-            enabled: false   //右下角不显示LOGO
-        },
-        chart: {
-            backgroundColor: {
-                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                stops: [
-                    [0, 'rgb(96, 96, 96)'],
-                    [1, 'rgb(16, 16, 16)']
-                ]
-            },
-            borderWidth: 0,
-            borderRadius: 0,
-            plotBackgroundColor: null,
-            plotShadow: false,
-            plotBorderWidth: 0
-        },
-        title: {
-            style: {
-                color: '#FFF',
-                font: '4vw Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
-            }
-        },
-        subtitle: {
-            style: {
-                color: '#DDD',
-                font: '1.5vw Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
-            }
-        },
-        xAxis: {
-            gridLineWidth: 0,
-            lineColor: '#999',
-            tickColor: '#999',
-            labels: {
-                style: {
-                    color: '#999',
-                    fontWeight: 'bold',
-                }
-            },
-            title: {
-                style: {
-                    color: '#AAA',
-                    font: 'bold 5vw Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
-                }
-            }
-        },
-        yAxis: {
-            alternateGridColor: null,
-            minorTickInterval: null,
-            gridLineColor: 'rgba(255, 255, 255, .1)',
-            minorGridLineColor: 'rgba(255,255,255,0.07)',
-            lineWidth: 0,
-            tickWidth: 0,
-            labels: {
-                style: {
-                    color: '#999',
-                    fontWeight: 'bold',
-                }
-            },
-            title: {
-                style: {
-                    color: '#AAA',
-                    font: 'bold 12px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
-                }
-            }
-        },
-        legend: {
-            itemStyle: {
-                color: '#CCC'
-            },
-            itemHoverStyle: {
-                color: '#FFF'
-            },
-            itemHiddenStyle: {
-                color: '#333'
-            }
-        },
-        labels: {
-            style: {
-                color: '#CCC'
-            }
-        },
-        tooltip: {
-            backgroundColor: {
-                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                stops: [
-                    [0, 'rgba(96, 96, 96, .8)'],
-                    [1, 'rgba(16, 16, 16, .8)']
-                ]
-            },
-            borderWidth: 0,
-            style: {
-                color: '#FFF'
-            }
-        },
-        plotOptions: {
-            series: {
-                nullColor: '#444444'
-            },
-            line: {
-                dataLabels: {
-                    color: '#CCC'
-                },
-                marker: {
-                    lineColor: '#333'
-                }
-            },
-            spline: {
-                marker: {
-                    lineColor: '#333'
-                }
-            },
-            scatter: {
-                marker: {
-                    lineColor: '#333'
-                }
-            },
-            candlestick: {
-                lineColor: 'white'
-            }
-        },
-        toolbar: {
-            itemStyle: {
-                color: '#CCC'
-            }
-        },
-        navigation: {
-            buttonOptions: {
-                symbolStroke: '#DDDDDD',
-                hoverSymbolStroke: '#FFFFFF',
-                theme: {
-                    fill: {
-                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                        stops: [
-                            [0.4, '#606060'],
-                            [0.6, '#333333']
-                        ]
-                    },
-                    stroke: '#000000'
-                }
-            }
-        },
-        // scroll charts
-        rangeSelector: {
-            buttonTheme: {
-                fill: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0.4, '#888'],
-                        [0.6, '#555']
-                    ]
-                },
-                stroke: '#000000',
-                style: {
-                    color: '#CCC',
-                    fontWeight: 'bold'
-                },
-                states: {
-                    hover: {
-                        fill: {
-                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                            stops: [
-                                [0.4, '#BBB'],
-                                [0.6, '#888']
-                            ]
-                        },
-                        stroke: '#000000',
-                        style: {
-                            color: 'white'
-                        }
-                    },
-                    select: {
-                        fill: {
-                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                            stops: [
-                                [0.1, '#000'],
-                                [0.3, '#333']
-                            ]
-                        },
-                        stroke: '#000000',
-                        style: {
-                            color: 'yellow'
-                        }
-                    }
-                }
-            },
-            inputStyle: {
-                backgroundColor: '#333',
-                color: 'silver'
-            },
-            labelStyle: {
-                color: 'silver'
-            }
-        },
-        navigator: {
-            handles: {
-                backgroundColor: '#666',
-                borderColor: '#AAA'
-            },
-            outlineColor: '#CCC',
-            maskFill: 'rgba(16, 16, 16, 0.5)',
-            series: {
-                color: '#7798BF',
-                lineColor: '#A6C7ED'
-            }
-        },
-        scrollbar: {
-            barBackgroundColor: {
-                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                stops: [
-                    [0.4, '#888'],
-                    [0.6, '#555']
-                ]
-            },
-            barBorderColor: '#CCC',
-            buttonArrowColor: '#CCC',
-            buttonBackgroundColor: {
-                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                stops: [
-                    [0.4, '#888'],
-                    [0.6, '#555']
-                ]
-            },
-            buttonBorderColor: '#CCC',
-            rifleColor: '#FFF',
-            trackBackgroundColor: {
-                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                stops: [
-                    [0, '#000'],
-                    [1, '#333']
-                ]
-            },
-            trackBorderColor: '#666'
-        },
-        // special colors for some of the demo examples
-        legendBackgroundColor: 'rgba(48, 48, 48, 0.8)',
-        background2: 'rgb(70, 70, 70)',
-        dataLabelsColor: '#444',
-        textColor: '#E0E0E0',
-        maskColor: 'rgba(255,255,255,0.3)'
-    };
+//    Highcharts.theme = {
+//        colors: ["#DDDF0D", "#7798BF", "#55BF3B", "#DF5353", "#aaeeee", "#ff0066", "#eeaaee",
+//            "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+//        credits: {
+//            enabled: false   //右下角不显示LOGO
+//        },
+//        chart: {
+//            backgroundColor: {
+//                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//                stops: [
+//                    [0, 'rgb(96, 96, 96)'],
+//                    [1, 'rgb(16, 16, 16)']
+//                ]
+//            },
+//            borderWidth: 0,
+//            borderRadius: 0,
+//            plotBackgroundColor: null,
+//            plotShadow: false,
+//            plotBorderWidth: 0
+//        },
+//        title: {
+//            style: {
+//                color: '#FFF',
+//                font: '4vw Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+//            }
+//        },
+//        subtitle: {
+//            style: {
+//                color: '#DDD',
+//                font: '1.5vw Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+//            }
+//        },
+//        xAxis: {
+//            gridLineWidth: 0,
+//            lineColor: '#999',
+//            tickColor: '#999',
+//            labels: {
+//                style: {
+//                    color: '#999',
+//                    fontWeight: 'bold',
+//                }
+//            },
+//            title: {
+//                style: {
+//                    color: '#AAA',
+//                    font: 'bold 5vw Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+//                }
+//            }
+//        },
+//        yAxis: {
+//            alternateGridColor: null,
+//            minorTickInterval: null,
+//            gridLineColor: 'rgba(255, 255, 255, .1)',
+//            minorGridLineColor: 'rgba(255,255,255,0.07)',
+//            lineWidth: 0,
+//            tickWidth: 0,
+//            labels: {
+//                style: {
+//                    color: '#999',
+//                    fontWeight: 'bold',
+//                }
+//            },
+//            title: {
+//                style: {
+//                    color: '#AAA',
+//                    font: 'bold 12px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+//                }
+//            }
+//        },
+//        legend: {
+//            itemStyle: {
+//                color: '#CCC'
+//            },
+//            itemHoverStyle: {
+//                color: '#FFF'
+//            },
+//            itemHiddenStyle: {
+//                color: '#333'
+//            }
+//        },
+//        labels: {
+//            style: {
+//                color: '#CCC'
+//            }
+//        },
+//        tooltip: {
+//            backgroundColor: {
+//                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//                stops: [
+//                    [0, 'rgba(96, 96, 96, .8)'],
+//                    [1, 'rgba(16, 16, 16, .8)']
+//                ]
+//            },
+//            borderWidth: 0,
+//            style: {
+//                color: '#FFF'
+//            }
+//        },
+//        plotOptions: {
+//            series: {
+//                nullColor: '#444444'
+//            },
+//            line: {
+//                dataLabels: {
+//                    color: '#CCC'
+//                },
+//                marker: {
+//                    lineColor: '#333'
+//                }
+//            },
+//            spline: {
+//                marker: {
+//                    lineColor: '#333'
+//                }
+//            },
+//            scatter: {
+//                marker: {
+//                    lineColor: '#333'
+//                }
+//            },
+//            candlestick: {
+//                lineColor: 'white'
+//            }
+//        },
+//        toolbar: {
+//            itemStyle: {
+//                color: '#CCC'
+//            }
+//        },
+//        navigation: {
+//            buttonOptions: {
+//                symbolStroke: '#DDDDDD',
+//                hoverSymbolStroke: '#FFFFFF',
+//                theme: {
+//                    fill: {
+//                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//                        stops: [
+//                            [0.4, '#606060'],
+//                            [0.6, '#333333']
+//                        ]
+//                    },
+//                    stroke: '#000000'
+//                }
+//            }
+//        },
+//        // scroll charts
+//        rangeSelector: {
+//            buttonTheme: {
+//                fill: {
+//                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//                    stops: [
+//                        [0.4, '#888'],
+//                        [0.6, '#555']
+//                    ]
+//                },
+//                stroke: '#000000',
+//                style: {
+//                    color: '#CCC',
+//                    fontWeight: 'bold'
+//                },
+//                states: {
+//                    hover: {
+//                        fill: {
+//                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//                            stops: [
+//                                [0.4, '#BBB'],
+//                                [0.6, '#888']
+//                            ]
+//                        },
+//                        stroke: '#000000',
+//                        style: {
+//                            color: 'white'
+//                        }
+//                    },
+//                    select: {
+//                        fill: {
+//                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//                            stops: [
+//                                [0.1, '#000'],
+//                                [0.3, '#333']
+//                            ]
+//                        },
+//                        stroke: '#000000',
+//                        style: {
+//                            color: 'yellow'
+//                        }
+//                    }
+//                }
+//            },
+//            inputStyle: {
+//                backgroundColor: '#333',
+//                color: 'silver'
+//            },
+//            labelStyle: {
+//                color: 'silver'
+//            }
+//        },
+//        navigator: {
+//            handles: {
+//                backgroundColor: '#666',
+//                borderColor: '#AAA'
+//            },
+//            outlineColor: '#CCC',
+//            maskFill: 'rgba(16, 16, 16, 0.5)',
+//            series: {
+//                color: '#7798BF',
+//                lineColor: '#A6C7ED'
+//            }
+//        },
+//        scrollbar: {
+//            barBackgroundColor: {
+//                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//                stops: [
+//                    [0.4, '#888'],
+//                    [0.6, '#555']
+//                ]
+//            },
+//            barBorderColor: '#CCC',
+//            buttonArrowColor: '#CCC',
+//            buttonBackgroundColor: {
+//                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//                stops: [
+//                    [0.4, '#888'],
+//                    [0.6, '#555']
+//                ]
+//            },
+//            buttonBorderColor: '#CCC',
+//            rifleColor: '#FFF',
+//            trackBackgroundColor: {
+//                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//                stops: [
+//                    [0, '#000'],
+//                    [1, '#333']
+//                ]
+//            },
+//            trackBorderColor: '#666'
+//        },
+//        // special colors for some of the demo examples
+//        legendBackgroundColor: 'rgba(48, 48, 48, 0.8)',
+//        background2: 'rgb(70, 70, 70)',
+//        dataLabelsColor: '#444',
+//        textColor: '#E0E0E0',
+//        maskColor: 'rgba(255,255,255,0.3)'
+//    };
     // Apply the theme
     var highchartsOptions = Highcharts.setOptions(Highcharts.theme);
 
@@ -356,6 +334,9 @@
         }
         $('#line1').highcharts({
             chart: {type: 'line'},
+            credits: {
+            enabled: false   //右下角不显示LOGO
+        },
             title: {text: title, y: 10},
 //			subtitle: {text: 'Source: Teacher and Parents'},
             xAxis: {
@@ -398,9 +379,9 @@
         });
 
         $('.tail button').click(function(){
-            $('button').removeClass("a");
+            $('.bu').removeClass("a");
             $(this).addClass("a");
-            $('.tail button').css('opacity', '0.5');
+            $('.bu').css('opacity', '0.5');
             $(this).css('opacity', '1');
 
             display();
@@ -785,6 +766,9 @@
         }
         $('#line1').highcharts({
             chart: {type: 'line'},
+            credits: {
+                enabled: false   //右下角不显示LOGO
+            },
             title: {text: title, y: 10},
             xAxis: {
                 categories: dateTu

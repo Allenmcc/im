@@ -33,14 +33,14 @@ public class WatchController extends AjaxBase {
     public ServiceResult addWatch(HttpServletRequest req,
                                   @RequestParam(value = "openId") String openId,
                                   @RequestParam(value = "name") String name,
-                                  @RequestParam(value = "evaluationPerson") String evaluationPerson,
+                                  @RequestParam(value = "teacher") String teacher,
                                   @RequestParam(value = "evaluationTime") String evaluationTime,
                                   @RequestParam(value = "now_score[]") int[] now_score,
                                   @RequestParam(value = "now_comment[]") String[] now_comment
     ) throws ParseException {
         ServiceResult serviceResult = new ServiceResult();
         serviceResult.setCode(200);
-        WatchForm watchForm = Transformer.enrichWatchForm(name, evaluationPerson, evaluationTime,openId, now_score, now_comment);
+        WatchForm watchForm = Transformer.enrichWatchForm(name, teacher, evaluationTime,openId, now_score, now_comment);
         serviceResult.setMsg(watchService.addWatchForm(watchForm));
         return setResponseData(serviceResult);
     }

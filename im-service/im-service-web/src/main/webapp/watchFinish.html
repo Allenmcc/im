@@ -12,6 +12,7 @@
 <meta name="format-detection" content="email=no"/>
 <title></title>
 <link href="/static/css/finish_style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript"src="static/js/cookie_openid.js"></script>
 </head>
 
 <body>
@@ -38,6 +39,7 @@
             </div>
             <div class="botton_t">
             	<input type="button" id="btn_a" value="分享" />
+                <input type="button" id="btn_b" value="完成" />
             </div>
         </div>
     </div>
@@ -50,6 +52,21 @@
 <script language="javascript" type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
 <script>
 $(document).ready(function() {
+    var color=getCookie("bgColor");
+//    if(color){
+        $("body").css("backgroundColor",color);
+//    }else{
+//        $("body").css("backgroundColor","lightgreen");
+//    }
+    var role=getCookie("role");
+    if(role=="t"){
+        $(".t_pic img").attr("src","static/image/teacher.jpg");
+    }else{
+        $(".t_pic img").attr("src","static/image/parent.jpg");
+    }
+    $("#btn_b").click(function(){
+        window.location.href="common_fourPoint.html";
+    });
     $("#btn_a").click(function(){
 		$(".ts_mask").fadeIn(1500);
 //        window.location.href = '../zhexiantu.html';

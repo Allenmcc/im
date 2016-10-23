@@ -1,0 +1,80 @@
+.head{  height:20vw;
+    position: fixed;
+    width: 100%;margin-bottom: 20vw;
+    z-index: 99;
+    /*border-bottom: 2px solid white;*/
+    box-shadow: 1px 5px 5px #888888;
+    top:0;
+    left: 0;
+}
+.t_pic{ width:20vw; height:20vw; float:left; border-radius:10px; overflow:hidden;}
+.t_pic img{ width:100%; height:auto;}
+.t_tit{ width:70vw; height:10vw; margin-top:5vw; float:right; border-top:1px solid #fff; font-size:4vw; color:#fff; letter-spacing:0.5vw; overflow:hidden;}
+.t_tit p{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.parentBackground{
+    /*background-color: #DA70D6;*/
+    background-color: lightskyblue;
+}
+.teacherBackground{
+    background-color: lightgreen;
+}
+.q{
+    position: absolute;
+    top:25vw;
+    margin-left: 3vw;
+    margin-right: 5vw;
+}
+.t1{
+    font-weight: bold;
+}
+.t2{
+    font-size: smaller;
+    color: blue;
+}
+.t3{
+    color: red;
+    font-weight: bold;
+}
+.t4{
+    font-size: smaller;
+    color: red;
+    font-weight: bold;
+}
+.resultComment{
+    font-size: smaller;
+    color: blue;
+}
+.t5{
+    color: blue;
+    font-size: smaller;
+}
+.rScore,.childrenNumber,.range{
+    font-size: larger;
+    color: red;
+}
+body{
+    background-color: whitesmoke;
+}
+td,th{border:solid darkgray; border-width:0px 1px 1px 0px;
+    padding:3vw;}
+table{border:solid darkgray; border-width:1px 0px 0px 1px;}
+.th1{
+    background-color: #d9e5ed;
+}
+.th2,.th4{
+    background-color: white;
+}
+.th3,.th5{
+    background-color: #eff6fb;
+}
+.finish,.back{
+    margin-left: 4vw;
+    font-weight: bold;
+    /*margin: 0 auto;*/
+    /*width: 90%;*/
+    text-align: center;
+    padding: 3vw;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+}

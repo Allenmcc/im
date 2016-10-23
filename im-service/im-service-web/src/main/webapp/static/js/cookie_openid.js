@@ -30,16 +30,18 @@ function setCookie(name,val,time){//time 以 天 为单位
 //判断用户有没有openid和数据库中有没有记录
 function judgeCookie(child) {
     //家长版 要获得openid   老师版 要获得 孩子的信息childOpenid
+    //alert(getCookie("openid"));
     var flag = getCookie("role");//flag标志角色  p家长 t老师
     var cookie_id;
     if(flag=='p') {
         cookie_id = getCookie("openid");
+        //alert(cookie_id);
     }else if(flag=='t'){
         cookie_id=getCookie("childOpenid");
+        //alert(cookie_id);
         $(".button_submit").css('display','none');
         $(".button_addcom").css('display','none');
     }
-
     //alert(cookie_id);
     //if (!cookie_id) {  //没有cookie，第一次访问，跳转值注册页面
     //    //这个URL 是向open.weixin.qq.com发送授权请求，映射到后端的接口，获得openid，并设置到cookie中，响应
@@ -62,12 +64,10 @@ function judgeCookie(child) {
                 //    window.location.href = '../../userMessage.html';
                 //} else {//有记录的话  传回孩子姓名，父母姓名，opednid等信息供 获取历史信息（通过openid查询） 提交（孩子姓名，父母姓名） 进行后面的操作
                     child.name= data['msg']['msg']['name'];
-                    child.evaluationPerson=data['msg']['msg']['evaluationPerson'];
-                    child.age=data['msg']['msg']['age'];
-                    child.sex=data['msg']['msg']['sex'];
                     child.school=data['msg']['msg']['school'];
                     child.myClass=data['msg']['msg']['myClass'];
                     child.organization=data['msg']['msg']['organization'];
+                    child.teacher=data['msg']['msg']['teacher'];
                 }
             //}
         });

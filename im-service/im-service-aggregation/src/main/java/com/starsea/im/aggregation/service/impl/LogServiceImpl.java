@@ -43,6 +43,7 @@ public class LogServiceImpl implements LogService {
     }
 
     public int deleteUserLog(LogDto logDto) {
+        //先查找该记录的 所有日志、 字符串匹配 删除 匹配项
         Map<String,String> params=new HashMap<String,String>();
         params.put("openId",logDto.getOpenId());
         params.put("childOpenId",logDto.getChildOpenId());

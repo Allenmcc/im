@@ -53,19 +53,18 @@
     <!--首页头部信息-->
     <div class="head">
         <div class="t_pic">
-            <img src="static/image/head.jpg"/>
+            <img src="static/image/parent.jpg"/>
         </div>
         <div class="t_tit">
-            <p>请选择方法以确定五大重点</p>
+            <p>五大重点选择</p>
         </div>
     </div>
 
     <!--首页方法选择-->
     <div class="method">
-        <button id="button_method1">A.后台分析得出五大重点</button>
-        <button id="button_method2">B.直接选择五大重点</button>
+        <button id="button_method1">A.智能分析</button>
+        <button id="button_method2">B.自主选择</button>
     </div>
-
 
     <!--提示遮罩层,正在提交数据-->
     <div class="ts_mask2">
@@ -83,7 +82,7 @@
                     <h2>原因:</h2>
                 </div>
             </div>
-            <div class="reason_tail">
+            <div class="reason_tail"><div id="test_div"><p class="text"></p></div>
                 <button class="back_reason" id="back_reason1">返回</button>
             </div>
 
@@ -96,7 +95,7 @@
                     <h2>原因:</h2>
                 </div>
             </div>
-            <div class="reason_tail">
+            <div class="reason_tail"><p class="text"></p>
                 <button class="back_reason" id="back_reason2">返回</button>
             </div>
         </div>
@@ -108,7 +107,7 @@
                     <h2>原因:</h2>
                 </div>
             </div>
-            <div class="reason_tail">
+            <div class="reason_tail"><p class="text"></p>
                 <button class="back_reason" id="back_reason3">返回</button>
             </div>
 
@@ -121,7 +120,7 @@
                    <h2>原因:</h2>
                 </div>
             </div>
-            <div class="reason_tail">
+            <div class="reason_tail"><p class="text"></p>
                 <button class="back_reason" id="back_reason4">返回</button>
             </div>
 
@@ -134,7 +133,7 @@
                     <h2>原因:</h2>
                 </div>
             </div>
-            <div class="reason_tail">
+            <div class="reason_tail"><p class="text"></p>
                 <button class="back_reason" id="back_reason5">返回</button>
             </div>
 
@@ -148,13 +147,13 @@
 
             <div class="method_head">
                 <img src="static/image/category1.jpg"/>
-                <p>方法A:请选择一下任意标签</p>
+                <p>方法A:请选择以下任意标签</p>
             </div>
 
 
             <div class="method1_con">
-                <div id="point1">
-                    <h1>1.沟通</h1>
+                <div id="point1" style="display:none;">
+                    <h1>沟通</h1>
                     <div class="focus" id="focus1">
                         <h2>关注焦点:</h2>
                     </div>
@@ -162,7 +161,7 @@
                 </div>
 
                 <div id="point2">
-                    <h1>2.人际能力</h1>
+                    <h1>人际能力</h1>
                     <div class="focus" id="focus2">
                         <h2>关注焦点:</h2>
                     </div>
@@ -170,7 +169,7 @@
                 </div>
 
                 <div id="point3">
-                    <h1>3.人格</h1>
+                    <h1>人格</h1>
                     <div class="focus" id="focus3">
                         <h2>关注焦点</h2>
                     </div>
@@ -178,7 +177,7 @@
                 </div>
 
                 <div id="point4">
-                    <h1>4.学习力</h1>
+                    <h1>学习力</h1>
                     <div class="focus" id="focus4">
                         <h2>关注焦点</h2>
                     </div>
@@ -186,7 +185,7 @@
                 </div>
 
                 <div id="point5">
-                    <h1>5.情绪</h1>
+                    <h1>情绪</h1>
                     <div class="focus" id="focus5">
                         <h2>关注焦点</h2>
                     </div>
@@ -194,11 +193,11 @@
                 </div>
 
                 <div class="page">
-                    <a href="#point1" id="page1">[1]</a>
-                    <a href="#point2" id="page2">[2]</a>
-                    <a href="#point3" id="page3">[3]</a>
-                    <a href="#point4" id="page4">[4]</a>
-                    <a href="#point5" id="page5">[5]</a>
+                    <a href="#point1" id="page1" style="display: none">沟通</a>
+                    <a href="#point2" id="page2" style="display: none">人际能力</a>
+                    <a href="#point3" id="page3" style="display: none">人格</a>
+                    <a href="#point4" id="page4" style="display: none">学习力</a>
+                    <a href="#point5" id="page5" style="display: none">情绪</a>
                 </div>
             </div>
 
@@ -218,7 +217,7 @@
 
             <div class="method_head">
                 <img src="static/image/category1.jpg"/>
-                <p>方法B:请选择4个维度</p>
+                <p>方法B:请选择5个重点</p>
             </div>
 
             <div class="method2_con">
@@ -255,11 +254,51 @@
 
 
 </div>
+<div class="Aselect" style="display: none">
+    <div class="head">
+        <div class="t_pic">
+            <img src="static/image/parent.jpg"/>
+        </div>
+        <div class="t_tit">
+            <p>智能分析</p>
+        </div>
+    </div>
+    <p>请选择以下任意个类别：</p>
+    <button class="modules" value="1"><div class="b1"> <p class="s1">沟<br>通</p></div><div class="b2"><p class="s2">关注焦点：<br>如何引导、任性、不听话</p></div></button>
+    <button class="modules" value="2"><div class="b1"><p class="s1">人<br>际<br>能<br>力</p></div><div class="b2"><p class="s2">关注焦点：<br>环境适应、被认可、<br>不愿意打招呼、生存能力、<br>竞争能力、自我保护力、<br>不能守规矩</p></div></button>
+    <button class="modules" value="3"><div class="b1"><p class="s1">人<br>格</p></div><div class="b2"><p class="s2">关注焦点：<br>孤僻、自闭、忧郁、<br>敏感、安全感、自觉性、<br>小气、自尊心、责任心、<br>同情心、忌妒、粘人、<br>自卑、虚荣心、自私、<br>胆小、脾气大</p></div></button>
+    <button class="modules" value="4"><div class="b1"><p class="s1">学<br>习<br>力</p></div><div class="b2"><p class="s2">关注焦点：<br>学得浅、兴趣或没动力、<br>激励或压力、不去补习班、<br>拖沓</p></div></button>
+    <button class="modules" value="5"><div class="b1"><p class="s1">情<br>绪</p></div><div class="b2"><p class="s2">关注焦点：<br>易被消极情绪控制</p></div></button>
+    <br><button class="modules Asubmit">确定</button>
+    <button class="modules Aback" >返回</button>
+</div>
 </body>
 </html>
 
 
 <script>
+//    var role=getCookie("role");
+//    if(role=="t"){
+//        $(".t_pic img").attr("src","static/image/teacher.jpg");
+//        $("body").addClass("teacherBackground");
+//        $(".method1").addClass("teacherBackground");
+//        $(".method2").addClass("teacherBackground");
+//        $(".reason1_mask").addClass("teacherBackground");
+//        $(".reason2_mask").addClass("teacherBackground");
+//        $(".reason3_mask").addClass("teacherBackground");
+//        $(".reason4_mask").addClass("teacherBackground");
+//        $(".reason5_mask").addClass("teacherBackground");
+//    }else{
+//        $(".t_pic img").attr("src","static/image/parent.jpg");
+//        $("body").addClass("parentBackground");
+//        $(".method1").addClass("parentBackground");
+//        $(".method2").addClass("parentBackground");
+//        $(".reason1_mask").addClass("parentBackground");
+//        $(".reason2_mask").addClass("parentBackground");
+//        $(".reason3_mask").addClass("parentBackground");
+//        $(".reason4_mask").addClass("parentBackground");
+//        $(".reason5_mask").addClass("parentBackground");
+//    }
     //定义全局变量
     //方法A的变量
     //方法A存放成长重点的焦点
@@ -270,10 +309,15 @@
     var category5_focus=['易被消极情绪控制'];
     //方法A存放成长重点的原因
     var category1_reason=['不自信','不被尊重','不能倾听','话语理解','情绪调控（害怕、恐惧）','被忽视','遇到困境','没有支持'];
-    var category2_reason=['不自信','自尊心','沟通方式','自我中心','互动体验','感同身受','情绪调控','利他','关注与支持','守规矩','尊重','适宜','共识','执行','调整'];
+    var category2_reason=['不自信','自尊心','沟通方式','自我中心','互动体验','感同身受','情绪调控','利他','关注与支持','尊重','适宜','共识','执行','调整'];
     var category3_reason=['自尊','责任','独立性','自我意识','勇气','韧性','安全感','爱'];
     var category4_reason=['学习策略','学习探索动力','学习认知','专注力','意志力','速度慢','做不来','求关注','不喜欢这门课','身体不舒服'];
     var category5_reason=['消极情绪','情绪表达方式','理解','沟通','发现','改进'];
+    var explain=[['1、 觉得自己说的，他人都不会听，没有用<br/>2、 担心自己说不好，他人会嘲笑、会瞧不起<br/>3、 遇到沟通问题，找不到相应的方法去改善','1、 自己说的话，没有被倾听<br/>2、 自己的感受，没有被接纳<br/>3、 自己的观点，总是得不到实现','1、 只关注到自己的想法和感受<br/>2、 听到相关内容后，仍然会主动忽视对方交流的内容、情绪，直接用自己的想法和感受替代<br/>3、 听了，以后没有反馈','1、 对重点信息的理解<br/>2、 只关注自己的情绪，不能理解话语<br/>3、 孩子听不懂的话','1、 情绪能量大，易受情绪控制<br/>2、 应对情绪的方式，特别是消极情绪，没有合宜的方式<br/>3、 因情绪没有及时调整，引发不良行为<br/>4、 因情绪没有调整，而觉得情感受伤<br/>5、 对沟通，有害怕的情绪','1、 感觉到沟通过程中自己被忽视<br/>2、 需要更多的关注而沟通','1、 遇到困境，主动应对挑战，但困境有难度，需要支持<br/>2、 不愿意独立应对困境，逃避应对，需要替代自己责任的支持','1、 遇到成长关键过程、关键事件，需要支持'],
+        ['1、 觉得自己没有被别人欣赏、需要的地方<br/>2、 关注外部评价，而忽视了关注自己内心的愉悦和成长<br/>3、 想和他人沟通，但没有合适的方法<br/>4、 曾经在人际相处过程中有不好的体验、受到伤害','1、 与他人交往，总是希望能够胜过别人<br/>2、 不能承受他人的批评，经常因自尊心太重，而伤害到与他人的交往<br/>3、 在与他人的交往过程，往往以自己为中心，出了交往问题，第一时间总是找他人的原因','1、 经常有不合宜的沟通语言与行为<br/>2、 不能意识到自己的沟通方式，是不合宜的<br/>3、 没有意识调整自己的沟通方式<br/>4、 没有方法调整自己的沟通方式','1、 与他人交往，总是希望能够胜过别人<br/>2、 不能承受他人的批评，经常因自尊心太重，而伤害到与他人的交往<br/>3、 在与他人的交往过程，往往以自己为中心，出了交往问题，第一时间总是找他人的原因','1、 没有积极的人际互动，觉得紧张、无聊、害怕<br/>2、 不能主动创设积极的人际互动3、 没有能力接纳和喜欢积极的人际互动','1、 不能感受到人际交往中他人的情绪、情感<br/>2、 不能对感受到的人际交往中他人的情绪、情感有积极的互动反馈','1、 不能感受到人际交往中他人的情绪、情感<br/>2、 不能对感受到的人际交往中他人的情绪、情感有积极的互动反馈','1、 不能主动发现他人的需求<br/>2、 不能主动思考如何支持他人','1、 人际交往的目标，是寻求关注<br/>2、 人际交往的目标，是寻求支持<br/>3、 不能识别他人的关注与支持也是有限的<br/>4、 不能用积极的、合宜的反馈回应他人的关注与支持','1、 自己不能被团体尊重<br/>2、 自尊心太强，不容许妥协','1、 规则太复杂，太严格，不适宜孩子','1、 规则的制定，孩子没有形成认同','1、 执行有遇到难题时，没有机会商议再调整<br/>2、 执行效果的追踪没有及时跟进','1、 执行出现不适宜时，没有得到及时沟通与梳理<br/>2、 调整的方案，需要得到孩子的认可'],
+        ['1、 超自尊，对自己的得失特别敏感<br/>2、 自尊的来源，过多依赖于外部评价','1、 缺乏拥有对自己负责的意识<br/>2、 能够主动担负起自己的学习任务，并对学习任务负责<br/>3、 能够对自己的行为负责','1、 自己能够独立完成自己能够担负起的事情：生活、学业、相关任务<br/>2、 能够学会独处<br/>3、 行为处事，拥有自己独立的思考与判断','1、 能够主动地去察觉自己的情绪、情感、成长<br/>2、 能够理解自己，意识到自己在人际交往中的自己，懂得自己与他人相处的边界<br/>3、 能够清晰地认识自己，懂得探索追求卓越的自己','1、 面对困境时，拥有超越困境、突破难关的勇气<br/>2、 理解自己有时是会没有勇气的，知道勇气可以通过自己行动努力、通过他人的支持来获得<br/>3、 珍惜勇气，能够理性地把勇气使用在面对困境、挑战时的情境里','1、 面对挫折与困境，不害怕，勇于面对<br/>2、 学会在面对挫折与困境时，会经历反复，但始终能够坚持目标<br/>3、 能够及时修复与调整受挫，积极地重新出发','1、 拥有安全感，心境平稳<br/>2、 能够与自己、与他人和谐相处<br/>3、 对未来充满希望','1、 爱与珍惜自己<br/>2、 爱与珍惜他人<br/>3、 愿意分享爱'],
+        ['1、缺乏学习学习探索动力<br/>2、缺乏学习计划能力<br/>3、缺乏学习反思<br/>4、不能主动筛选与管理学习资源<br/>5、对学习改进没有意识、方法和行动','','1、缺乏对重点信息抓取能力<br/>2、缺乏对重点信息理解<br/>3、缺乏知识归纳能力<br/>4、缺乏知识演绎能力<br/>5、缺乏知识推理能力<br/>6、缺乏知识联想能力7、缺乏知识创造','1、专注内容较狭窄，或者非学业<br/>2、学习过程缺乏沉浸，不能心无旁骛地学习<br/>3、抗干扰能力较弱，易分心：打岔、小动作、话多、关注他人等<br/>4、学习专注持续时间不能满足学习任务的需求，低于正常年龄孩子水平','1、行为坚持性较差<br/>2、问题解决能力较弱<br/>3、目标意识时常中断<br/>4、耐挫性较弱<br/>5、对自己需要完成任务的信心、信念以及过程的愉悦较弱，自我效能感较弱','1、 写字追求完美，反复擦，做得慢<br/>2、 写字写得慢，手部精细动作灵敏度较低<br/>3、 作业多，超出一般学生水平','1、 对具体功课知识点不能掌握<br/>2、 不能掌握恰当的、适应的学习方法<br/>3、 课前预期、课后复习经常不做或者做不到位','1、 希望通过拖沓引起老师、父母、照料者关注和支持<br/>2、 不希望自己变得独立<br/>3、 与同伴相处不能融洽','1、我不喜欢上这门课的老师，他、她太凶了，对我不友好<br/>2、我觉得这门课程太难了，学习起来没有好方法，特别吃力',''],
+        ['1、 学习时，时常感到不喜欢，厌恶、烦躁，想逃避<br/>2、 情绪能量大，易受情绪控制','1、 应对情绪的方式，特别是消极情绪，没有合宜的方式<br/>2、 因情绪没有及时调整，引发不良行为<br/>3、 因情绪没有调整，而觉得情感受伤','1、 情绪不被理解<br/>2、 不能理解别人的情绪','1、 针对情绪的原因，没有办法沟通','1、 不能发现情绪背后的原因','1、 不能发现改进情绪背后原因的方法<br/>2、 不能调整消极情绪，没有相应的方法<br/>3、 不能对情绪调整新方式落实执行']];
 
     //答题结果比对，  每选一个标签 判断在不在某个能量圈内，在的话该能量圈分数加1 跟有道上的不完全一样
     var eneryArea_1=['D6','D7'];
@@ -294,10 +338,35 @@
     var clicksum=0;//控制七个维度只能选择4个
     var save2_click=0, save1_click=0;//控制方法A和B的提交次数
     var result="";//方法B的选择结果
-
+    var aModules=[0,0,0,0,0];//存储方法A选的标签的模块  1表示选了
 
 
     $(document).ready(function () {
+        if (document.referrer.substring(document.referrer.length - 14) == 'keyPoints.html'){
+            $(".whole").css('display','none');
+            $('.Aselect').css('display','block');
+        }
+        var color=getCookie("bgColor");
+            $("body").css("backgroundColor",color);
+        $(".method").css("backgroundColor",color);
+        $(".method1").css("backgroundColor",color);
+        $(".method2").css("backgroundColor",color);
+        $(".method3").css("backgroundColor",color);
+        $(".method4").css("backgroundColor",color);
+        $(".method5").css("backgroundColor",color);
+        $(".reason1_mask").css("backgroundColor",color);
+        $(".reason2_mask").css("backgroundColor",color);
+        $(".reason3_mask").css("backgroundColor",color);
+        $(".reason4_mask").css("backgroundColor",color);
+        $(".reason5_mask").css("backgroundColor",color);
+
+        $(".Aback").click(function(){
+            if(document.referrer.substring(document.referrer.length - 14) == 'keyPoints.html'){
+                window.location.href="positiveTest.html";
+            }else{
+                window.location.href="sevenChoosefive.html";
+            }
+        });
         //从数组中动态导入标签
         function addlabel () {
             //第一个成长重点
@@ -353,7 +422,7 @@
                     }
                 }
             }
-            for(var i=0;i<4;i++){
+            for(var i=0;i<5;i++){
                 result+=array[i][0];
             }
             return result;
@@ -388,6 +457,21 @@
                 if (isinArray(name,eneryArea_6)) {eneryArea[5][1] += 1;}
                 if (isinArray(name,eneryArea_7)) {eneryArea[6][1] += 1;}
                 $(this).attr('click','1');
+                if($(this).attr('name').charAt(0)=="A") {
+//                    alert($(this).attr('name'));
+//                    alert($(this).attr('name').substring(1));
+//                    alert(parseInt($(this).attr('name').sub(1))-4);
+//                    alert(explain[0][1]);
+                    $('.text').html(explain[0][parseInt($(this).attr('name').substring(1))-4]);
+                }else if($(this).attr('name').charAt(0)=="B") {
+                    $('.text').html(explain[1][parseInt($(this).attr('name').substring(1))-8]);
+                }else if($(this).attr('name').charAt(0)=="C") {
+                    $('.text').html(explain[2][parseInt($(this).attr('name').substring(1))-18]);
+                }else if($(this).attr('name').charAt(0)=="D") {
+                    $('.text').html(explain[3][parseInt($(this).attr('name').substring(1))-6]);
+                }else if($(this).attr('name').charAt(0)=="E") {
+                    $('.text').html(explain[4][parseInt($(this).attr('name').substring(1))-2]);
+                }
             }else{
                 $(this).removeClass('click');
                 if (isinArray(name,eneryArea_1)) {eneryArea[0][1] -= 1;}
@@ -446,17 +530,50 @@
 
 
         //原因层返回按钮
-        $("#back_reason1").click(function () {$(".reason1_mask").fadeOut();});
-        $("#back_reason2").click(function () {$(".reason2_mask").fadeOut();});
-        $("#back_reason3").click(function () {$(".reason3_mask").fadeOut();});
-        $("#back_reason4").click(function () {$(".reason4_mask").fadeOut();});
-        $("#back_reason5").click(function () {$(".reason5_mask").fadeOut();});
+        $("#back_reason1").click(function () {$('.text').html('');$(".reason1_mask").fadeOut();});
+        $("#back_reason2").click(function () {$('.text').html('');$(".reason2_mask").fadeOut();});
+        $("#back_reason3").click(function () {$('.text').html('');$(".reason3_mask").fadeOut();});
+        $("#back_reason4").click(function () {$('.text').html('');$(".reason4_mask").fadeOut();});
+        $("#back_reason5").click(function () {$('.text').html('');$(".reason5_mask").fadeOut();});
+
+        //选择方法A的标签的模块
+        $('.modules').click(function(){
+            if($(this).attr('class')=='modules modelSelect'){
+                aModules[parseInt($(this).val())-1]=0;
+                $(this).removeClass('modelSelect');
+            }else{
+                $(this).addClass('modelSelect');
+                aModules[parseInt($(this).val())-1]=1;
+            }
+        });
 
         //选择方法A
         $("#button_method1").click(function () {
+//            $(".method1_mask").fadeIn();
+//            var page=1;
+//            $("#page1").css('color','#000');
+                $(".whole").css('display','none');
+            $('.Aselect').css('display','block');
+        });
+        $('.Asubmit').click(function(){
+            $(".whole").css('display','block');
+            $('.Aselect').css('display','none');
             $(".method1_mask").fadeIn();
-            var page=1;
-            $("#page1").css('color','#000');
+            var first;
+            var f=0;
+            for(var i=0;i<5;i++){
+                if(aModules[i]==1){
+                    $('#page'+(i+1)).css('display','inline');
+                    if(f==0){
+                        first=i+1;
+                        f=1;
+                    }
+                }
+            }
+            $("#point"+first).css('display','block');
+//            var page=1;
+            $("#page"+first).css('color','#000');
+
         });
 
         //选择第一页
@@ -533,22 +650,25 @@
 
         //方法A的返回按钮
         $("#button_back1").click(function () {
-            for(var i =0;i<7;i++){
-                eneryArea[i][1]=0;
-            }
-            $(".click").attr('click','0');
-            $(".click").removeClass("click");
-            $(".method1_mask").fadeOut();
-            $("#point1").css('display','block');
-            $("#point2").css('display','none');
-            $("#point3").css('display','none');
-            $("#point4").css('display','none');
-            $("#point5").css('display','none');
-            $("#page1").css('color','#000');
-            $("#page2").css('color','#fff');
-            $("#page3").css('color','#fff');
-            $("#page4").css('color','#fff');
-            $("#page5").css('color','#fff');
+            $('.Aselect').css('display','block');
+            $(".whole").css('display','none');
+//            window.location.href="sevenChoosefive.html";
+//            for(var i =0;i<7;i++){
+//                eneryArea[i][1]=0;
+//            }
+//            $(".click").attr('click','0');
+//            $(".click").removeClass("click");
+//            $(".method1_mask").fadeOut();
+//            $("#point1").css('display','block');
+//            $("#point2").css('display','none');
+//            $("#point3").css('display','none');
+//            $("#point4").css('display','none');
+//            $("#point5").css('display','none');
+//            $("#page1").css('color','#000');
+//            $("#page2").css('color','#fff');
+//            $("#page3").css('color','#fff');
+//            $("#page4").css('color','#fff');
+//            $("#page5").css('color','#fff');
         });
         //方法A的确认按钮
         $("#button_save1").click(function () {
@@ -556,12 +676,43 @@
 //                    "\n能量圈4："+eneryArea[3][1]+"\n能量圈5："+eneryArea[4][1]+"\n能量圈6："+eneryArea[5][1]+"\n能量圈7："+eneryArea[6][1];
 //            alert(a);
             if(save1_click==0){
+                save1_click=1;
                 $(".ts_mask2").fadeIn(1000);//提示正在提交数据
                 //eneryArea进行排序 获得分数最高的前5个
                 var result=sort(eneryArea);
+//                alert(result);
+                $.ajax({
+                    url: '../starsea/userenery/addUserEnery',
+                    data: {
+                        openId:getCookie("openid"),
+                        enerySelect:result,
+                        evaluationTime: getNowFormatDate(),
+                        title:"none",
+                        customResult:"none"
+                    },
+                    type: 'post',
+                    cache: false,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        if (data.code == 200) {
+                            $(".ts_mask2").fadeOut(1000);
+                            //alert("success");
+                            setCookie('enery',result,30);
+                                setCookie('sevenCF',"A",30);
+                            setCookie('label_ejia','select',30);
+                            window.location.href = 'watchForm.html';
+                        }
+                    },
+                    error: function () {
+                        alert("服务器处理异常");
+                        $(".ts_mask2").fadeOut(1000);
+                    }
+                });
 
-                setCookie('enerySelect',result,0.1);
-                window.location.href = 'custom.html';
+
+//                setCookie('enerySelect',result,0.1);
+//                window.location.href = 'custom.html';
 
 //                alert(result);
 //                var openid=getCookie("openid");
@@ -604,7 +755,7 @@
 
         //7个维度选择5个
         $(".button_c1").click(function () {
-                if(flag1==0 && 4>clicksum){
+                if(flag1==0 && 5>clicksum){
                     flag1 = 1; clicksum++;console.log(clicksum,flag1);
                     $(".button_c1").css('opacity', '1');
                     $(this).attr('click','1');
@@ -616,7 +767,7 @@
                 }
             });
         $(".button_c2").click(function () {
-                if(flag2==0 && 4>clicksum){
+                if(flag2==0 && 5>clicksum){
                     flag2 = 1; clicksum++;console.log(clicksum,flag2);
                     $(".button_c2").css('opacity', '1');
                     $(this).attr('click','1');
@@ -628,7 +779,7 @@
                 }
             });
         $(".button_c3").click(function () {
-                if(flag3==0 && 4>clicksum){
+                if(flag3==0 && 5>clicksum){
                     flag3 = 1; clicksum++;console.log(clicksum,flag3);
                     $(".button_c3").css('opacity', '1');
                     $(this).attr('click','1');
@@ -639,7 +790,7 @@
                 }
             });
         $(".button_c4").click(function () {
-                if(flag4==0 && 4>clicksum){
+                if(flag4==0 && 5>clicksum){
                     flag4 = 1; clicksum++;console.log(clicksum,flag4);
                     $(".button_c4").css('opacity', '1');
                     $(this).attr('click','1');
@@ -651,7 +802,7 @@
                 }
             });
         $(".button_c5").click(function () {
-                if(flag5==0 && 4>clicksum){
+                if(flag5==0 && 5>clicksum){
                     flag5 = 1; clicksum++;console.log(clicksum,flag5);
                     $(".button_c5").css('opacity', '1');
                     $(this).attr('click','1');
@@ -663,7 +814,7 @@
                 }
             });
         $(".button_c6").click(function () {
-                if(flag6==0 && 4>clicksum){
+                if(flag6==0 && 5>clicksum){
                     flag6 = 1; clicksum++;console.log(clicksum,flag6);
                     $(".button_c6").css('opacity', '1');
                     $(this).attr('click','1');
@@ -675,7 +826,7 @@
                 }
             });
         $(".button_c7").click(function () {
-                if(flag7==0 && 4>clicksum){
+                if(flag7==0 && 5>clicksum){
                     flag7 = 1; clicksum++;console.log(clicksum,flag7);
                     $(".button_c7").css('opacity', '1');
                     $(this).attr('click','1');
@@ -717,8 +868,8 @@
             $(".button_b[click='1']").each(function(){
                 num++;
             });
-            if(num!=4){
-                alert("请选择4个");
+            if(num!=5){
+                alert("请选择5个");
             }else {
                 if (save2_click == 0) {//确保只提交一次
                     save2_click++;
@@ -726,41 +877,36 @@
                     $(".button_b[click='1']").each(function () {
                         result += $(this).attr('val');
                     });
+//                    setCookie('sevenCF',"B",30);
+//                    setCookie('enerySelect',result,0.1);
+                    $.ajax({
+                        url: '../starsea/userenery/addUserEnery',
+                        data: {
+                            openId:getCookie("openid"),
+                            enerySelect:result,
+                            evaluationTime: getNowFormatDate(),
+                            title:"none",
+                            customResult:"none"
+                        },
+                        type: 'post',
+                        cache: false,
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+                            if (data.code == 200) {
+                                $(".ts_mask2").fadeOut(1000);
+                                //alert("success");
+                                setCookie('sevenCF',"B",30);
+                                setCookie('label_ejia','select',30);
+                                window.location.href = 'watchForm.html';
+                            }
+                        },
+                        error: function () {
+                            alert("服务器处理异常");
+                            $(".ts_mask2").fadeOut(1000);
+                        }
+                    });
 
-                    setCookie('enerySelect',result,0.1);
-                    window.location.href = 'custom.html';
-
-//                    var openid=getCookie("openid");
-////                    alert(result);
-//                    //调用ajax传数据给后台
-//                    $.ajax({
-//                        url: '../starsea/userenery/addUserEnery',
-//                        data: {
-//                            openId:openid,
-//                            enerySelect:result,
-//                            evaluationTime: getNowFormatDate()
-//                        },
-//                        type: 'post',
-//                        cache: false,
-//                        dataType: 'json',
-//                        success: function (data) {
-//                            console.log(data);
-//                            if (data.code == 200) {
-//                                $(".ts_mask2").fadeOut(1000);
-//                                //alert("success");
-////                                setCookie('label_ejia','select',30);
-//                                setCookie('enerySelect',result,0.1);
-//                                window.location.href = 'custom.html';
-//                            }
-//                            else {
-//                                alert("查询失败: " + data.msg);
-//                            }
-//                        },
-//                        error: function () {
-//                            alert("服务器处理异常");
-//                            $(".ts_mask2").fadeOut(1000);
-//                        }
-//                    });
                 }
             }
         });

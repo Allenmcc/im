@@ -1,0 +1,53 @@
+input{
+    width: 70%;
+    height:15vw;
+    display: block;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    font-size: medium;
+    padding:2vw ;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin: 3vw auto;
+}
+.col{
+    opacity: 0.3;
+}
+.select{
+    opacity: 1;
+}
+.lightgreen{
+    background-color: lightgreen;
+}
+.lightblue{
+    background-color: lightblue;
+}
+.lightpink{
+    background-color: lightpink;
+}
+.lightcoral{
+    background-color: lightcoral;
+}
+.lightgrey{
+    background-color: lightgrey;
+}
+.ensure,.back{
+    background-color: black;
+}
+p{
+    font-weight: bold;
+    position: absolute;
+    top:-7%;
+    left: 25%;
+}
+.color{
+    border: 2px solid gray;
+}
+/*input{*/
+    /*color: white;*/
+    /*font-weight: bold;*/
+    /*height:10vw;*/
+/*}*/

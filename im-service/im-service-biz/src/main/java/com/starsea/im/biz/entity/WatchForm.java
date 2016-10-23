@@ -8,7 +8,7 @@ import java.util.Date;
 public class WatchForm {
     private Integer id;
     private String name;
-    private String evaluationPerson;
+    private String teacher;
     private Date evaluationTime;
     private String OpenId;
     private Integer Question1;
@@ -89,12 +89,12 @@ public class WatchForm {
         this.name = name;
     }
 
-    public String getEvaluationPerson() {
-        return evaluationPerson;
+    public String getTeacher() {
+        return teacher;
     }
 
-    public void setEvaluationPerson(String evaluationPerson) {
-        this.evaluationPerson = evaluationPerson;
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
     }
 
     public Date getEvaluationTime() {

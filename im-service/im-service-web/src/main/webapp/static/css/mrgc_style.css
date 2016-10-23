@@ -10,9 +10,9 @@ form,legend,button{
     background: transparent;}
 
 body{width: 100vw; height: 100vh; font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;
-    background:#f05150; font-family:"微软雅黑"; }
+     font-family:"微软雅黑"; }
 
-.whole{width:100vw;height:100vh;position:relative;background:#f05150;}
+.whole{width:100vw;height:100vh;position:relative;}
 
 /*首页头部信息*/
 .head{width:95vw; height:34vw; margin-left:5vw;}
@@ -27,7 +27,7 @@ body{width: 100vw; height: 100vh; font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-ser
 /*首页七个维度*/
 .category{width: 100vw;height: auto;text-align: center;overflow: hidden;margin-top: 10vw;margin-bottom: 10vw}
 .category img{ width: 17vw; height: auto; margin:0 2.5vw 0vw 2.5vw; border-radius:10px;}
-.category button{ display: inline-block; text-align: center; background: #f05150; font-size: 4vw;
+.category button{ display: inline-block; text-align: center;  font-size: 4vw;
     line-height: 5vw; color: #fff; margin-bottom: 5vw;opacity: 0.5; }
 .category img{ width: 17vw; height: auto; margin:0 2.5vw 0vw 2.5vw; border-radius:10px; }
 
@@ -36,7 +36,7 @@ body{width: 100vw; height: 100vh; font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-ser
 
 /*首页提交按钮*/
 .tail{width:90%; height:20vw; float:left; margin-left:5%;}
-.button_submit{width:50%; height:12vw; margin-top: 4vw; margin-left: 25%; float:left; font-size:5vw;
+.button_submit,.button_s,.button_c{width:50%; height:12vw; margin-top: 4vw; margin-left: 25%; float:left; font-size:5vw;
     text-align:center; line-height:12vw; border-radius:10px; visibility:visible; background:#fcb95a; color:#FFF;}
 
 
@@ -58,35 +58,35 @@ body{width: 100vw; height: 100vh; font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-ser
 
 /*维度层1,情绪*/
 .c1_mask{width:100%; height:100%; position:fixed; top:0vw;display:none;}
-.c1{z-index:101; width:100%; height:100%; color:#FFFFFF; background:#f05150;}
+.c1{z-index:101; width:100%; height:100%; color:#FFFFFF;font-weight: bold}
 
 /*维度层2,人际*/
 .c2_mask{width:100%; height:100%; position:fixed; top:0vw;display:none;}
-.c2{z-index:101; width:100%; height:100%; color:#FFFFFF; background:#f05150;}
+.c2{z-index:101; width:100%; height:100%; color:#FFFFFF;font-weight: bold}
 
 /*维度层3,自主*/
 .c3_mask{width:100%; height:100%; position:fixed; top:0vw;display:none;}
-.c3{z-index:101; width:100%; height:100%; color:#FFFFFF; background:#f05150;}
+.c3{z-index:101; width:100%; height:100%; color:#FFFFFF;font-weight: bold }
 
 /*维度层4,专注*/
 .c4_mask{width:100%; height:100%; position:fixed; top:0vw;display:none;}
-.c4{z-index:101; width:100%; height:100%; color:#FFFFFF; background:#f05150;}
+.c4{z-index:101; width:100%; height:100%; color:#FFFFFF;font-weight: bold }
 
 /*维度层5,意志*/
 .c5_mask{width:100%; height:100%; position:fixed; top:0vw;display:none;}
-.c5{z-index:101; width:100%; height:100%; color:#FFFFFF; background:#f05150;}
+.c5{z-index:101; width:100%; height:100%; color:#FFFFFF;font-weight: bold}
 
 /*维度层6,认知*/
 .c6_mask{width:100%; height:100%; position:fixed; top:0vw;display:none;}
-.c6{z-index:101; width:100%; height:100%; color:#FFFFFF; background:#f05150;}
+.c6{z-index:101; width:100%; height:100%; color:#FFFFFF;font-weight: bold}
 
 /*维度层7,策略*/
 .c7_mask{width:100%; height:100%; position:fixed; top:0vw;display:none;}
-.c7{z-index:101; width:100%; height:100%; color:#FFFFFF; background:#f05150;}
+.c7{z-index:101; width:100%; height:100%; color:#FFFFFF; font-weight: bold}
 
 /*维度层,自定义*/
 .custom_mask{width:100%; height:100%; position:fixed; top:0vw;display:none;}
-.custom{z-index:101; width:100%; height:100%; color:#FFFFFF; background:#f05150;}
+.custom{z-index:101; width:100%; height:100%; color:#FFFFFF; font-weight: bold }
 
 
 
@@ -121,7 +121,7 @@ body{width: 100vw; height: 100vh; font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-ser
 
 /*维度通用层尾部*/
 .c_tail{width:90%; height:20vw; float:left; margin-left:5%;}
-.c_tail button{width:45%; height:12vw; margin-top:4vw; float:left; font-size:4vw; text-align:center;
+.c_tail button{width:45%; height:12vw; margin-top: 2vw; float:left; font-size:4vw; text-align:center;
     line-height:12vw; border-radius:10px; visibility:visible; }
 .c_tail button:nth-of-type(1){ background:#fcb95a; color:#FFF;}
 .c_tail button:nth-of-type(2){ background:#ebebeb; color:#000;  margin-left:10%;}
@@ -130,7 +130,7 @@ body{width: 100vw; height: 100vh; font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-ser
 
 /*添加备注层*/
 .com_mask{width:100%; height:100%; position:fixed; top:0vw;display:none;}
-.com{z-index:101; width:100%; height:100%; color:#FFFFFF; background:#f05150;}
+.com{z-index:101; width:100%; height:100%; color:#FFFFFF;background-color: #DA70D6}
 .com_head{width:100%; height:40vw;}
 .com_head p{width:90%; padding-top: 20vw; margin-left:10%; height:18vw; font-size:8vw; line-height:20vw; color:#fff;}
 
@@ -142,213 +142,9 @@ body{width: 100vw; height: 100vh; font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-ser
 .com_tail button{width:50%; height:12vw; margin-top: 4vw; margin-left: 25%; float:left; font-size:5vw;
     text-align:center; line-height:12vw; border-radius:10px; visibility:visible; background:#fcb95a; color:#FFF;}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*答题页面*/
-/*.t_con{ */
-    /*width:100vw; */
-    /*height:auto; */
-    /*margin:0 auto; */
-    /*overflow:hidden; */
-    /*background:url(/static/image/con_bg.png) right no-repeat; */
-    /*background-size:50% auto;}*/
-/*.con_tit p:nth-of-type(1){ */
-    /*margin-left:10vw; */
-    /*font-size:6vw; */
-    /*line-height:10vw; */
-    /*color:#fff;}*/
-/*.con_tit p:nth-of-type(2){ */
-    /*margin-left:10vw; */
-    /*font-size:4vw; */
-    /*line-height:5vw; */
-    /*color:#fff;}*/
-/*.con_con{ */
-    /*width:100%; */
-    /*height:auto; */
-    /*margin:0 auto; */
-    /*float:left; */
-    /*position:relative;}*/
-/*.con_con ul{ */
-    /*width:80%; */
-    /*height:auto; */
-    /*margin:6vw 10% 0 10%; */
-    /*overflow:hidden; */
-    /*position:relative;}*/
-
-/*上下题按钮*/
-/*.t_btn{ width:90%; height:32vw; float:left; margin-left:5%;}*/
-/*.t_btn button{ */
-    /*width:45%; */
-    /*height:12vw; */
-    /*margin-top: 10vw;*/
-    /*float:left; */
-    /*font-size:4vw; */
-    /*text-align:center; */
-    /*line-height:12vw; */
-    /*border-radius:10px; */
-    /*visibility:visible;}*/
-/*.t_btn button:nth-of-type(1){*/
-    /*background:#fcb95a;*/
-    /*color:#FFF;}*/
-/*.t_btn button:nth-of-type(2){*/
-    /*background:#ebebeb;*/
-    /*color:#000;*/
-    /*margin-left:10%;}*/
-
-/*SELECT W/DOWN-ARROW*/
-/*select#selectPointOfInterest {*/
-    /*width: 30vw;*/
-    /*height: 10vw;*/
-    /*line-height: 10vw;*/
-    /*padding-right: 20pt;*/
-    /*text-indent: 4pt;*/
-    /*text-align: left;*/
-    /*vertical-align: middle;*/
-    /*box-shadow: inset 0 0 3px #606060;*/
-    /*border: 1px solid #acacac;*/
-    /*-moz-border-radius: 6px;*/
-    /*-webkit-border-radius: 6px;*/
-    /*border-radius: 6px;*/
-    /*-webkit-appearance: none;*/
-    /*-moz-appearance: none;*/
-    /*appearance: none;*/
-    /*font-family: Arial, Calibri, Tahoma, Verdana;*/
-    /*font-size: 4vw;*/
-    /*font-weight: 500;*/
-    /*color: #0F0F0F;*/
-    /*cursor: pointer;*/
-    /*outline: none;*/
-/*}*/
-/*select#selectPointOfInterest option {*/
-    /*padding: 4px 10px 4px 10px;*/
-    /*font-size: 11pt;*/
-    /*font-weight: normal;*/
-/*}*/
-/*select#selectPointOfInterest option[selected] {*/
-    /*font-weight: bold*/
-/*}*/
-/*select#selectPointOfInterest option:nth-child(even) {*/
-    /*background-color: #f5f5f5;*/
-/*}*/
-/*select#selectPointOfInterest:hover {*/
-    /*font-weight: 700;*/
-/*}*/
-/*select#selectPointOfInterest:focus {*/
-    /*box-shadow: inset 0 0 5px #000099;*/
-    /*font-weight: 600;*/
-/*}*/
-/*!*LABEL FOR SELECT*!*/
-/*label#lblSelect {*/
-    /*position: relative;*/
-    /*display: inline-block;*/
-    /*height: 10vw;*/
-/*}*/
-/*!*DOWNWARD ARROW (25bc)*!*/
-/*label#lblSelect::after {*/
-    /*content: "\25bc";*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*right: 0;*/
-    /*bottom: 0;*/
-    /*width: 8vw;*/
-    /*line-height: 10vw;*/
-    /*vertical-align: middle;*/
-    /*text-align: center;*/
-    /*background: #CC0000;*/
-    /*color: #fefefe;*/
-    /*-moz-border-radius: 0 6px 6px 0;*/
-    /*-webkit-border-radius: 0 6px 6px 0;*/
-    /*border-radius: 0 6px 6px 0;*/
-    /*pointer-events: none;*/
-/*}*/
-
-
-
-/*遮罩层3:是否继续答题*/
-/*.ts_mask3{ */
-    /*width:100%; */
-    /*height:100%; */
-    /*background:rgba(0,0,0,0.8); */
-    /*position:fixed; */
-    /*z-index:99; */
-    /*top:0vw; */
-    /*display:none;}*/
-/*.tishi3{ */
-    /*width:70%; */
-    /*height:50vw; */
-    /*text-align: center;*/
-    /*position: relative;*/
-    /*background:url(/static/image/mxz_ts3.png) center no-repeat; */
-    /*float:left; */
-    /*background-size:100% auto; */
-    /*margin:50vw 15%;}*/
-/*.tishi3 button{*/
-    /*width:20vw;*/
-    /*height:10vw;*/
-    /*font-size:8vw;*/
-    /*text-align:center;*/
-    /*line-height:8vw;*/
-    /*background: #f05150;*/
-    /*color: #fff;*/
-    /*margin-top: 30vw;*/
-    /*margin-bottom: 3vw;*/
-    /*border-radius:10px;*/
-    /*visibility:visible;*/
-/*}*/
-
-
-/*遮罩层4:获取数据后,弹出类别选择框*/
-/*.ts_mask4{*/
-    /*width:100%;*/
-    /*height:100%;*/
-    /*background:rgba(255,255,255,0.8);*/
-    /*position:fixed;*/
-    /*z-index:99;*/
-    /*top:0vw;*/
-    /*display:none;}*/
-/*.tishi4{*/
-    /*width:70vw;*/
-    /*height:70vw;*/
-    /*!*text-align: center;*!*/
-    /*position: relative;*/
-    /*!*background:url(/static/image/mxz_ts4.png) center no-repeat;*!*/
-    /*background: rgba(255,255,255,0.8);*/
-    /*!*float:left;*!*/
-    /*background-size:100% auto;*/
-    /*border-radius:20px;*/
-    /*margin:50vw 15vw;}*/
-/*.tishi4 button{*/
-    /*width: 20vw;*/
-    /*height: 20vw;*/
-    /*display: inline-block;*/
-    /*text-indent: center;*/
-    /*!*background: #fff;*!*/
-    /*background: rgba(255,255,255,0);*/
-    /*position: absolute;*/
-    /*font-size: 3vw;*/
-    /*color: #000;  }*/
-/*.tishi4 img{*/
-    /*width: 15vw;*/
-    /*height: auto;*/
-    /*margin:0vw 2.5vw 0vw 2.5vw;*/
-    /*border-radius:10px}*/
-/*.tishi4 button:nth-of-type(1){top: 10vw; left: 10vw;}*/
-/*.tishi4 button:nth-of-type(2){top: 10vw; right: 10vw;}*/
-/*.tishi4 button:nth-of-type(3){bottom: 10vw; left: 10vw;}*/
-/*.tishi4 button:nth-of-type(4){bottom: 10vw; right: 10vw;}*/
-
+.parentBackground{
+    background-color:lightskyblue;
+}
+.teacherBackground{
+    background-color: lightgreen;
+}

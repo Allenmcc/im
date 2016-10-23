@@ -53,10 +53,14 @@
 
     <!--首页内容-->
     <div class="content">
+        <p class="yindao"><span>引导：</span>如果当前生成的五大重点中，没有包含用户想要的内容，则用户可以进行自定义设定，
+            添加自己需要的标签（填好一个后请点击‘添加’按钮），并为这些标签取一个题目，系统会根据填写的
+            标题和标签进行智能匹配，如果匹配数据成功并且不在之前已选好的五大重点中，则生成自定义内
+            容，反之，如果没有匹配到数据或者数据已在已选的五大重点中，则视为自定义失败，成长追踪仍显示之前的五大重点</p><br>
         <div class="inputlabel">
-            <p>请输入自定义能量圈的大标题</p>
+            <p>请输入自定义能量圈的标题</p>
             <input type="text" id="bigtitle" />
-            <p>请输入小标题(最多七个)</p>
+            <p>请输入标签(最多七个)</p>
             <input type="text" id="smalltitle"/>
             <button id="addlabel">添加</button>
         </div>
@@ -86,20 +90,26 @@
 
 
 <script>
+    var color=getCookie("bgColor");
+
+        $("body").css("backgroundColor",color);
+
+
     //定义全局变量
     var bigtitle;//存放自定义大标题
     var label=new Array();//存放用户自定义的小标题  大标题在第一个位置
     var customResult=[];//自定义最终结果
-    var selectResult=getCookie('enerySelect');//7选4的结果
+//    var selectResult=getCookie('enerySelect');//7选4的结果
+    var selectResult=getCookie('custom');//获得删去一个的 剩下的4个
     var flag=0;//用于标志 自定义能量圈不显示时，是因为没有匹配到 还是因为匹配到了 但是在已经在那4个里面包含了
 //    setCookie("role","p",1);
-    var f=getCookie('role');
-    var openid;
-    if(f=='p'){
-        openid=getCookie('openid');
-    }else if(f=='t'){
-        openid=getCookie('childOpenid');
-    }
+//    var f=getCookie('role');
+    var openid=getCookie("openid");
+//    if(f=='p'){
+//        openid=getCookie('openid');
+//    }else if(f=='t'){
+//        openid=getCookie('childOpenid');
+//    }
     var custom_f=0;//用来标志  要不要进行小标题的匹配
 //    var custom=[];//存储所有小标题
 //    var customScore=[];//用于存储 小标题 的得分
@@ -326,7 +336,13 @@
                 result+=customResult[i]+',';
             }
             result=result.substring(0,result.length-1);
-//            alert(openid);
+            if(result.length==0||result==null){
+                result="none";
+                bigtitle="none";
+                selectResult=getCookie("enery");
+                alert("未能生成自定义标签，可能输入内容超出范围或者以包括在现有标签中");
+            }
+//            alert(selectResult);
             $.ajax({
                 url: '../starsea/userenery/addUserEnery',
                 data: {
@@ -344,7 +360,8 @@
                     if (data.code == 200) {
                         $(".ts_mask2").fadeOut(1000);
                         //alert("success");
-                        setCookie('label_ejia','select',30);
+                        setCookie('sevenCF', "B", 30);
+                        setCookie('label_ejia', 'select', 30);
                         window.location.href = 'watchForm.html';
                     }
                 },

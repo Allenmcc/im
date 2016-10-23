@@ -30,18 +30,13 @@ public class Transformer {
     }
 
 
-    public static StudyForm enrichStudyForm(String name,int age, String sex, String myClass, String school, String organization, String evaluationPerson, String evaluationTime, String openId, int[] hc) throws ParseException {
+    public static StudyForm enrichStudyForm(String name, String teacher, String evaluationTime, String openId, int[] hc,String childOpenId) throws ParseException {
 
         StudyForm studyForm = new StudyForm();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = sdf.parse(evaluationTime);
         studyForm.setName(name);
-        studyForm.setAge(age);
-        studyForm.setSex(sex);
-        studyForm.setBanji(myClass);
-        studyForm.setSchool(school);
-        studyForm.setOrganization(organization);
-        studyForm.setEvaluationPerson(evaluationPerson);
+        studyForm.setTeacher(teacher);
         studyForm.setEvaluationTime(date);
         studyForm.setOpenId(openId);
         studyForm.setQuestion1(hc[0]);
@@ -62,6 +57,7 @@ public class Transformer {
         studyForm.setQuestion16(hc[15]);
         studyForm.setQuestion17(hc[16]);
         studyForm.setQuestion18(hc[17]);
+        studyForm.setChildOpenId(childOpenId);
         return studyForm;
 
     }
@@ -104,13 +100,13 @@ public class Transformer {
 
     }
 
-    public static WatchForm enrichWatchForm(String name, String evaluationPerson, String evaluationTime,String openId, int[] now_score,String[] now_comment) throws ParseException {
+    public static WatchForm enrichWatchForm(String name, String teacher, String evaluationTime,String openId, int[] now_score,String[] now_comment) throws ParseException {
 
         WatchForm watchForm = new WatchForm();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = sdf.parse(evaluationTime);
         watchForm.setName(name);
-        watchForm.setEvaluationPerson(evaluationPerson);
+        watchForm.setTeacher(teacher);
         watchForm.setEvaluationTime(date);
         watchForm.setOpenId(openId);
         watchForm.setQuestion1(now_score[0]);
@@ -179,13 +175,11 @@ public class Transformer {
         int total = 0;
         StudyFormDto studyFormDto = new StudyFormDto();
         studyFormDto.setName(studyForm.getName());
-        studyFormDto.setAge(studyForm.getAge());
-        studyFormDto.setSex(studyForm.getSex());
-        studyFormDto.setBanji(studyForm.getBanji());
-        studyFormDto.setSchool(studyForm.getSchool());
-        studyFormDto.setOrganization(studyForm.getOrganization());
+        studyFormDto.setTeacher(studyForm.getTeacher());
         studyFormDto.setEvaluationTime(timeStampToDate(String.valueOf(studyForm.getEvaluationTime().getTime()), null));
-
+        studyFormDto.setScoreYs(studyForm.getScoreYs());
+        studyFormDto.setScoreBz(studyForm.getScoreBz());
+        studyFormDto.setChildOpenId(studyForm.getChildOpenId());
         now_score[0] = studyForm.getQuestion1();
         now_score[1] = studyForm.getQuestion2();
         now_score[2] = studyForm.getQuestion3();
@@ -219,7 +213,7 @@ public class Transformer {
         String[] now_comment = new String[7];
         WatchFormDto watchFormDto = new WatchFormDto();
         watchFormDto.setName(watchForm.getName());
-        watchFormDto.setEvaluationPerson(watchForm.getEvaluationPerson());
+        watchFormDto.setTeacher(watchForm.getTeacher());
         watchFormDto.setEvaluationTime(timeStampToDate(String.valueOf(watchForm.getEvaluationTime().getTime()), null));
         now_score[0]= watchForm.getQuestion1();
         now_score[1]= watchForm.getQuestion2();
@@ -476,7 +470,7 @@ public class Transformer {
         LogEntity logEntity=new LogEntity();
         logEntity.setOpenId(logDto.getOpenId());
         logEntity.setChildOpenId(logDto.getChildOpenId());
-        String log="{"+logDto.getTitle()+"#"+logDto.getContent()+"#"+logDto.getTime()+"}";
+        String log="{"+logDto.getTitle()+"#"+logDto.getLabels()+"#"+logDto.getContent()+"#"+logDto.getTime()+"}";
         logEntity.setLog(log);
         return logEntity;
     }
