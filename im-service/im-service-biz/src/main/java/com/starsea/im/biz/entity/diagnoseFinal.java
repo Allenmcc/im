@@ -3,7 +3,7 @@ package com.starsea.im.biz.entity;
 /**
  * Created by Administrator on 2016/9/30.
  */
-public class DiagnoseFinal {
+public class DiagnoseFinal{
     private int[] scoreYs=new int[4];
     private int[] scoreBz=new int[4];
     private int range;
