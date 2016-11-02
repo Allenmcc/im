@@ -52,7 +52,7 @@
       return accessToken;
     }
     public int createMenu() throws IOException {
-      String user_define_menu = "{\"button\":[{\"type\":\"view\",\"name\":\"A：E+精选\",\"url\":\"http://www.baidu.com\"}, {\"type\":\"view\",\"name\":\"B：E+精服\",\"url\":\"http://www.baidu.com\"},{\"name\":\"C：MY.E+\",\"sub_button\":[ {\"type\":\"view\",\"name\":\"我的E课\",\"url\":\"http://www.soso.com/\"}, {\"type\":\"view\",\"name\":\"我的E数据\",\"url\":\"http://www.elastictime.cn/common_fourPoint.html\"}, {\"type\":\"view\",\"name\":\"我的E咨询\",\"url\":\"http://www.elastictime.cn/report.html\"}}]}";
+      String user_define_menu = "{\"button\":[{\"type\":\"view\",\"name\":\"A：e+精选\",\"url\":\"http://www.baidu.com\"}, {\"type\":\"view\",\"name\":\"B：e+精服\",\"url\":\"http://www.baidu.com\"},{\"name\":\"C：MY.e+\",\"sub_button\":[ {\"type\":\"view\",\"name\":\"我的E课\",\"url\":\"http://www.soso.com/\"}, {\"type\":\"view\",\"name\":\"我的E数据\",\"url\":\"http://www.elastictime.cn/common_fourPoint.html\"}, {\"type\":\"view\",\"name\":\"我的E咨询\",\"url\":\"http://www.elastictime.cn/report.html\"}}]}";
       String access_token= getAccess_token();
 
       String action = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token="+access_token;

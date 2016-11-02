@@ -82,14 +82,14 @@ public class MessageUtil {
         NewsMessage newsMessage = new NewsMessage();
 
         News news = new News();
-        news.setTitle("Introduction of E+");
-        news.setDescription("Welcome to E+ !");
+        news.setTitle("Introduction of e+");
+        news.setDescription("Welcome to e+ !");
         news.setPicUrl("http://ejia.ngrok.cc/static/image/e+logo.jpg");
         news.setUrl("ejia.ngrok.cc");
 
         News news1 = new News();
-        news1.setTitle("Advantage of E+");
-        news1.setDescription("E+ is remarkable ! You'll be surprised !");
+        news1.setTitle("Advantage of e+");
+        news1.setDescription("e+ is remarkable ! You'll be surprised !");
         news1.setPicUrl("http://ejia.ngrok.cc/static/image/e+logo2.jpg");
         news1.setUrl("ejia.ngrok.cc");
 
@@ -127,7 +127,7 @@ public class MessageUtil {
         StringBuffer sb = new StringBuffer();
         sb.append("Thank you for your attention.Please follow the menu prompts:\n\n");
         sb.append("1.Introduction\n");
-        sb.append("2.Introduction of E+\n");
+        sb.append("2.Introduction of e+\n");
         sb.append("3.Reply ? recall the menu");
 
         return sb.toString();
@@ -147,7 +147,7 @@ public class MessageUtil {
      */
     public static String secondMenu(){
         StringBuffer sb = new StringBuffer();
-        sb.append("Introduction of E+ ! Thank you for your attention !\n");
+        sb.append("Introduction of e+ ! Thank you for your attention !\n");
 
         return sb.toString();
     }

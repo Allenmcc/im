@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.starsea.im.biz.dao.e.JingXuanDao">
+    <select id="getRowCount" resultType="int">
+        select count(*) from ${tableName}
+    </select>
+
+    <select id="selectByParams" resultType="com.starsea.im.biz.entity.e.MessageList" parameterType="map">
+        select * from ${tableName}
+        ORDER BY findTime DESC
+        limit ${offset},${size}
+    </select>
+</mapper>

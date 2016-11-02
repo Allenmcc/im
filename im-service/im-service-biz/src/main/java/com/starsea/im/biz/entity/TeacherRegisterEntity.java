@@ -1,9 +1,7 @@
 package com.starsea.im.biz.entity;
 
-import java.util.Date;
-
 /**
- * Created by Administrator on 2016/10/18.
+ * Created by Administrator on 2016/10/23.
  */
 public class TeacherRegisterEntity {
     private int id;

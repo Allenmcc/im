@@ -380,7 +380,7 @@
       })
       // `H`: hour
       .replace(/H+/g, function (token) { return _fixWidth(hours, token.length); })
-      // `E`: day
+      // `e`: day
       .replace(/E+/g, function (token) { return DAYS[_this.getDay()].substring(0, token.length); })
       // `Z`: timezone abbreviation
       .replace(/Z+/gi, function () { return tzInfo.tzAbbr; });
